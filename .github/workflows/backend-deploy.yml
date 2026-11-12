@@ -60,15 +60,19 @@ jobs:
           chmod 600 ~/.ssh/nest_roam_deploy
           ssh-keyscan -p "${{ secrets.CPANEL_PORT }}" "${{ secrets.CPANEL_HOST }}" >> ~/.ssh/known_hosts
 
+      
       - name: Upload backend files
         run: |
-          rsync -az \
+          tar \
             --exclude='.env' \
             --exclude='node_modules' \
             --exclude='tests' \
-            -e "ssh -i ~/.ssh/nest_roam_deploy -p ${{ secrets.CPANEL_PORT }}" \
-            server/ \
-            ${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }}:/home/${{ secrets.CPANEL_USER }}/api.nestroamholidays.com/
+            -czf - -C server . | \
+          ssh -i ~/.ssh/nest_roam_deploy \
+            -p "${{ secrets.CPANEL_PORT }}" \
+            "${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }}" \
+            'tar -xzf - -C /home/nestroamholidays/api.nestroamholidays.com'
+
 
       - name: Install production dependencies and restart
         run: |
