@@ -14,8 +14,8 @@ Route,
 Compass,
 } from "lucide-react";
 
-import manaliinner from "../../assets/manaliinner.jpg";
-import TravelEnquiry from "../TravelEnquiry";
+import manaliinner from "../../../assets/manaliinner.jpg";
+import TravelEnquiry from "../../TravelEnquiry";
 
 const itinerary = [
   {

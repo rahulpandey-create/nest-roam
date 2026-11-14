@@ -20,7 +20,7 @@ const packages = [
     badge: "Most Popular",
     nights: "5 Nights | 6 Days",
     price: "16,999",
-    link: "/TourPackages/ManaliPackage",
+    link: "/TourPackagesPage/ManaliPackage",
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ const packages = [
     badge: "",
     nights: "3 Nights | 4 Days",
     price: "12,999",
-    link: "/TourPackages/ShimlaPackage",
+    link: "/TourPackagesPage/ShimlaPackage",
   },
   {
     id: 3,
@@ -38,7 +38,7 @@ const packages = [
     badge: "Adventure Trip",
     nights: "7 Nights | 8 Days",
     price: "16,999",
-    link: "/TourPackages/SpitiPackage",
+    link: "/TourPackagesPage/SpitiPackage",
   },
   {
     id: 4,
@@ -47,12 +47,12 @@ const packages = [
     badge: "Trending",
     nights: "3 Nights | 4 Days",
     price: "9,999",
-    link: "/TourPackages/KasolPackage",
+    link: "/TourPackagesPage/KasolPackage",
   },
 ];
 
 
-const TourPackages = () => {
+const TourPackagesection = () => {
 
     const [swiperInstance, setSwiperInstance] = useState(null);
     const [activeDot, setActiveDot] = useState(0);
@@ -119,7 +119,7 @@ const TourPackages = () => {
                         </p>
 
                         <Link
-                            to="/TourPackages"
+                            to="/TourPackagesPage"
                             className="inline-flex items-center gap-3 mt-6 text-[16px] font-semibold text-[#1d2d50] group"
                         >
                             Explore More
@@ -297,4 +297,4 @@ const TourPackages = () => {
     );
 };
 
-export default TourPackages;
+export default TourPackagesection;

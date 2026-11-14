@@ -15,8 +15,8 @@ import {
   Compass,
 } from "lucide-react";
 
-import shimlap from "../../assets/shimlainner.jpg";
-import TravelEnquiry from "../TravelEnquiry";
+import shimlap from "../../../assets/shimlainner.jpg";
+import TravelEnquiry from "../../TravelEnquiry";
 
 const itinerary = [
   {

@@ -12,7 +12,7 @@ import Footer from './screens/Inc/Footer';
 import Banner from './screens/Banner';
 import FindPlace from './screens/FindPlace';
 import TrendingDestinations from './screens/TrendingDestinations';
-import TourPackages from './screens/TourPackages';
+import TourPackagesection from './screens/TourPackagesection';
 import AdventureExperiences from './screens/AdventureExperiences';
 import WhyChooseUs from './screens/WhyChooseUs';
 import TravelEnquiry from './screens/TravelEnquiry';
@@ -22,11 +22,13 @@ import Manali from './screens/TrendingDestinations/Manali';
 import Shimla from './screens/TrendingDestinations/Shimla';
 import Kasol from './screens/TrendingDestinations/Kasol';
 import Spiti from './screens/TrendingDestinations/Spiti';
-import SpitiPackage from './screens/TourPackages/SpitiPackage';
-import ShimlaPackage from './screens/TourPackages/ShimlaPackage';
-import ManaliPackage from './screens/TourPackages/ManaliPackage';
-import KasolPackage from './screens/TourPackages/KasolPackage';
+import SpitiPackage from './screens/TourPackagesPage/Packages/SpitiPackage';
+import ShimlaPackage from './screens/TourPackagesPage/Packages/ShimlaPackage';
+import ManaliPackage from './screens/TourPackagesPage/Packages/ManaliPackage';
+import KasolPackage from './screens/TourPackagesPage/Packages/KasolPackage';
 import ScrollToTop from './screens/ScrollToTop';
+import TourPackages from './screens/TourPackagesPage';
+import Contact from './screens/contact';
 
 function Home() {
   return (
@@ -34,7 +36,7 @@ function Home() {
       <Banner/>
       <FindPlace/>
       <TrendingDestinations/>
-      <TourPackages/>
+      <TourPackagesection/>
       <AdventureExperiences/>
       <WhyChooseUs/>
       <TravelEnquiry/>
@@ -81,10 +83,12 @@ useEffect(() => {
         <Route path="/destinations/kasol" element={<Kasol />} />
         <Route path="/destinations/spiti" element={<Spiti />} />
 
-        <Route path="/TourPackages/SpitiPackage" element={<SpitiPackage />} />
-        <Route path="/TourPackages/ShimlaPackage" element={<ShimlaPackage />} />
-        <Route path="/TourPackages/ManaliPackage" element={<ManaliPackage />} />
-        <Route path="/TourPackages/KasolPackage" element={<KasolPackage />} />
+<Route path="/TourPackagesPage/SpitiPackage" element={<SpitiPackage />} />
+<Route path="/TourPackagesPage/ShimlaPackage" element={<ShimlaPackage />} />
+<Route path="/TourPackagesPage/ManaliPackage" element={<ManaliPackage />} />
+<Route path="/TourPackagesPage/KasolPackage" element={<KasolPackage />} />
+<Route path="/TourPackagesPage" element={<TourPackages />} />
+<Route path="/Contact" element={<Contact />} />
       </Routes>
 
       <Footer />

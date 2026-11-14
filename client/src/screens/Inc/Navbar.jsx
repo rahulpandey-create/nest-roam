@@ -194,7 +194,7 @@ const Navbar = () => {
                 {/* Tour Package */}
                 <li className="w-full md:w-auto">
                   <Link
-                    to="#tour-package"
+                    to="/TourPackagesPage"
                     onClick={closeMenu}
                     className="text-[#1A2A4C] sm:text-white block py-3 md:py-2 hover:text-[#e0ff98] duration-200"
                   >
@@ -227,7 +227,7 @@ const Navbar = () => {
                 {/* Contact Us */}
                 <li className="w-full md:w-auto">
                   <Link
-                    to="#contact"
+                    to="/Contact"
                     onClick={closeMenu}
                     className="text-[#1A2A4C] sm:text-white block py-3 md:py-2 hover:text-[#e0ff98] duration-200"
                   >

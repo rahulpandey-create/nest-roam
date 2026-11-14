@@ -11,7 +11,7 @@ const Footer = () => {
   const quickLinks = [
     { label: "Home", to: "/" },
     { label: "Destinations", to: "/destinations" },
-    { label: "Tour Packages", to: "/packages" },
+    { label: "Tour Packages", to: "/TourPackagesPage" },
     { label: "Adventures", to: "/adventures" },
     { label: "About Us", to: "/about" },
     { label: "Contact", to: "/contact" },
