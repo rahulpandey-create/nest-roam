@@ -63,7 +63,7 @@ const Navbar = () => {
               <button
                 type="button"
                 onClick={() => setIsBookingOpen(true)}
-                className="bg-[#1A2A4C] text-white py-3 pl-8 pr-7 rounded-[100px] flex items-center gap-3 cursor-pointer"
+                className="bg-[#1a2a4c59] text-white py-3 pl-8 pr-7 rounded-[100px] flex items-center gap-3 cursor-pointer border border-white hover:bg-[#8DB828] hover:text-[#fff] transition-all duration-300 hover:border-[#8DB828]"
               >
                 Book Now
                 <img src={arrowright} alt="" />
