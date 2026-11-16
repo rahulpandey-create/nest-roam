@@ -102,14 +102,8 @@ const TourPackagesPage = () => {
                         </p>
 
                         <div className="flex justify-center mt-7">
-                            <button
-                                type="button"
-                                onClick={scrollToPackages}
-                                className="bg-white text-[#1d2d50] px-7 py-3 rounded-full font-semibold hover:bg-[#a8db69] transition duration-300 flex items-center gap-2"
-                            >
-                                Explore Packages
-                                <ArrowRight size={18} />
-                            </button>
+                           <button type="button" onClick={scrollToPackages}> <a class="btn-font group inline-flex min-w-[15rem] items-center justify-between gap-6 rounded-full bg-white px-8 py-4 text-lg font-normal text-neutral-900 transition hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" data-discover="true">Explore Packages<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="h-6 w-6 text-lime-600 transition-transform group-hover:translate-x-1"><path d="M4 12h16M14 6l6 6-6 6"></path></svg></a></button>
+                            
                         </div>
 
                     </div>

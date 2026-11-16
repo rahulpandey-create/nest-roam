@@ -29,6 +29,7 @@ import KasolPackage from './screens/TourPackagesPage/Packages/KasolPackage';
 import ScrollToTop from './screens/ScrollToTop';
 import TourPackages from './screens/TourPackagesPage';
 import Contact from './screens/contact';
+import AdventurePage from './screens/AdventurePage';
 
 function Home() {
   return (
@@ -89,6 +90,8 @@ useEffect(() => {
 <Route path="/TourPackagesPage/KasolPackage" element={<KasolPackage />} />
 <Route path="/TourPackagesPage" element={<TourPackages />} />
 <Route path="/Contact" element={<Contact />} />
+<Route path="/AdventurePage" element={<AdventurePage />} />
+
       </Routes>
 
       <Footer />
