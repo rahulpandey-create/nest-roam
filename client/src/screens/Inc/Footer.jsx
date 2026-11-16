@@ -34,9 +34,9 @@ const Footer = () => {
   ];
 
   // CONTACT DETAILS - Change phone and email here
-  const phone = "+919988775566";
-  const displayPhone = "+91 - 9988775566";
-  const email = "info@nestroamholidays.com";
+  const phone = "+919671773155";
+  const displayPhone = "+91 - 9671773155";
+  const email = "NestRoamHolidays@gmail.com";
 
   return (
     <footer className="relative overflow-hidden bg-[#121f3b] text-white">
@@ -137,7 +137,9 @@ const Footer = () => {
               </a>
 
               <a
-                href={`mailto:${email}`}
+                href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}&su=${encodeURIComponent("Travel Enquiry")}&body=${encodeURIComponent("Hello,\n\nI would like to enquire about your travel services.\n\n")}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-3 text-[16px] text-white/85 transition hover:text-[#8fc31f] break-all"
               >
                 <MailIcon />
@@ -186,7 +188,7 @@ const Footer = () => {
         <div className="fontgoogle flex flex-col justify-between gap-5 border-t border-white/40 py-8 text-[16px] text-white/95 md:flex-row md:items-center md:text-[18px]">
 
           <p>
-            © 2026 NESTROAM, Powered by React JS
+            © 2026 NESTROAM HOLIDAYS. All Rights Reserved.
           </p>
 
 

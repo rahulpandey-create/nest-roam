@@ -71,7 +71,7 @@ useEffect(() => {
 
 
   return (
-    <Router>
+    <><Router>
 
       <ScrollToTop />
 
@@ -98,8 +98,10 @@ useEffect(() => {
           <Route path="kasol" element={<KasolPackage />} />
         </Route>
 
-        <Route path="/AdventurePage" element={<AdventurePage />} />
-        <Route path="/About" element={<About />} />
+        <Route path="/AdventurePage" caseSensitive element={<AdventurePage />} />
+        <Route path="/adventure" caseSensitive element={<AdventurePage />} />
+        <Route path="/adventures" caseSensitive element={<Navigate to="/adventure" replace />} />
+        <Route path="/about" caseSensitive element={<About />} />
         <Route path="/contact" caseSensitive element={<Contact />} />
         <Route path="/Contact" caseSensitive element={<Navigate to="/contact" replace />} />
 
@@ -110,14 +112,11 @@ useEffect(() => {
           <Route path="ShimlaPackage" element={<Navigate to="/tour-packages/shimla" replace />} />
           <Route path="SpitiPackage" element={<Navigate to="/tour-packages/spiti" replace />} />
           <Route path="KasolPackage" element={<Navigate to="/tour-packages/kasol" replace />} />
-          
         </Route>
       </Routes>
-
       <Footer />
-
     </Router>
-  );
+  </>);
 }
 
 export default App;

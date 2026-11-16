@@ -213,7 +213,7 @@ const Navbar = () => {
                 {/* Adventures */}
                 <li className="w-full md:w-auto">
                   <Link
-                    to="/AdventurePage"
+                    to="/adventures"
                     onClick={closeMenu}
                     className="text-[#1A2A4C] sm:text-white block py-3 md:py-2 hover:text-[#e0ff98] duration-200"
                   >
@@ -246,13 +246,14 @@ const Navbar = () => {
                 {/* WhatsApp */}
                 <li className="relative mt-3 md:mt-0">
                   <a
-                    href="https://wa.me/919988775566"
+                    href="https://wa.me/919671773155"
                     target="_blank"
+                    message="Hello, I would like to inquire about your travel packages."
                     rel="noopener noreferrer"
                     className="bg-white px-6 py-3 rounded-[100px] flex items-center gap-3 text-[#1A2A4C] whitespace-nowrap w-90 md:w-auto"
                   >
                     <img src={whatsapp} alt="WhatsApp" />
-                    +91-9988775566
+                    +91-9671773155
                   </a>
 
                   <div className="relative">

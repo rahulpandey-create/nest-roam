@@ -128,13 +128,30 @@ const About = () => {
                                        </p>
                
                                        <div className="flex justify-center mt-7">
-                                         <button> <a
-                    href="#our-story"
+                                         <button
+                    type="button"
+                    onClick={() =>
+                      document.getElementById("our-story")?.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                      })
+                    }
                     className="btn-font group inline-flex min-w-[15rem] items-center justify-between gap-6 rounded-full bg-white px-8 py-4 text-lg font-normal text-neutral-900 transition hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
                     Explore Adventures
-                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="h-6 w-6 text-lime-600 transition-transform group-hover:translate-x-1"><path d="M4 12h16M14 6l6 6-6 6"></path></svg>
-                  </a></button>
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                      className="h-6 w-6 text-lime-600 transition-transform group-hover:translate-x-1"
+                    >
+                      <path d="M4 12h16M14 6l6 6-6 6" />
+                    </svg>
+                  </button>
                                        </div>
                
                                    </div>

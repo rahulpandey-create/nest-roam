@@ -44,9 +44,6 @@ textarea {
 }
 button.btn-font {
     font-family: "Google Sans", sans-serif;
-    background: rgb(100 100 100 / 0%);
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(10px);
 }
 /* header */
 
