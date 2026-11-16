@@ -72,7 +72,7 @@ const ExperienceIcon = ({ type }) => {
 
 const AdventureExperiences = () => {
   return (
-    <section className="w-full bg-white py-6 md:py-6 px-4 md:px-6 object-cover bg-no-repeat" style={{
+    <section id="adventures" className="w-full bg-white py-6 md:py-6 px-4 md:px-6 object-cover bg-no-repeat scroll-mt-24" style={{
               backgroundImage: `url(${adventurebg})`,
             }}>
       <div className="max-w-[1280px] mx-auto p-4">

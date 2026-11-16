@@ -49,7 +49,7 @@ const features = [
 
 const WhyChooseUs = () => {
     return (
-        <section className="w-full px-3 md:px-5">
+        <section id="about" className="w-full px-3 md:px-5 scroll-mt-24">
             <div className="relative overflow-hidden bg-[#F6F7F8] rounded-[30px] md:rounded-[40px] pt-9 pb-15 ">
 
                 {/* Decorative Background */}

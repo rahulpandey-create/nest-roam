@@ -176,6 +176,15 @@ const Navbar = () => {
                       }`}
                   >
                     <ul className="bg-white rounded-xl shadow-xl p-3 space-y-1">
+                      <li>
+                        <Link
+                          to="/destinations"
+                          onClick={closeMenu}
+                          className="bg-gray-100 block px-4 py-3 rounded-lg text-[#1A2A4C] hover:bg-[#8DB828] hover:text-white transition-all duration-300"
+                        >
+                          All Destinations
+                        </Link>
+                      </li>
                       {destinations.map((destination) => (
                         <li key={destination.name}>
                           <Link
@@ -194,7 +203,7 @@ const Navbar = () => {
                 {/* Tour Package */}
                 <li className="w-full md:w-auto">
                   <Link
-                    to="/TourPackagesPage"
+                    to="/tour-packages"
                     onClick={closeMenu}
                     className="text-[#1A2A4C] sm:text-white block py-3 md:py-2 hover:text-[#e0ff98] duration-200"
                   >
@@ -205,7 +214,7 @@ const Navbar = () => {
                 {/* Adventures */}
                 <li className="w-full md:w-auto">
                   <Link
-                    to="#adventures"
+                    to="/adventures"
                     onClick={closeMenu}
                     className="text-[#1A2A4C] sm:text-white block py-3 md:py-2 hover:text-[#e0ff98] duration-200"
                   >
@@ -216,7 +225,7 @@ const Navbar = () => {
                 {/* About Us */}
                 <li className="w-full md:w-auto">
                   <Link
-                    to="#about"
+                    to="/about"
                     onClick={closeMenu}
                     className="text-[#1A2A4C] sm:text-white block py-3 md:py-2 hover:text-[#e0ff98] duration-200"
                   >
@@ -227,7 +236,7 @@ const Navbar = () => {
                 {/* Contact Us */}
                 <li className="w-full md:w-auto">
                   <Link
-                    to="/Contact"
+                    to="/contact"
                     onClick={closeMenu}
                     className="text-[#1A2A4C] sm:text-white block py-3 md:py-2 hover:text-[#e0ff98] duration-200"
                   >

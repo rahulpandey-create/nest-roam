@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import SectionScrollButton from "../components/SectionScrollButton";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 
@@ -185,8 +185,8 @@ export default function Shimla() {
 
                         <div className="flex flex-wrap gap-4 mt-9">
 
-                            <Link
-                                to="#attractions"
+                            <SectionScrollButton
+                                targetId="attractions"
                                 className="btn-font group inline-flex min-w-[15rem] items-center justify-between gap-6 rounded-full bg-white px-8 py-3 text-lg font-normal text-neutral-900 transition hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                             >
                                 Explore Destination
@@ -203,14 +203,14 @@ export default function Shimla() {
                                 >
                                     <path d="M4 12h16M14 6l6 6-6 6" />
                                 </svg>
-                            </Link>
+                            </SectionScrollButton>
 
-                            <Link
-                                to="#contact"
+                            <SectionScrollButton
+                                targetId="contact"
                                 className="backdrop-blur-md border border-white/70 text-white px-8 py-4 rounded-full hover:bg-white hover:text-[#172b3a] transition duration-300"
                             >
                                 Plan Your Trip
-                            </Link>
+                            </SectionScrollButton>
 
                         </div>
 
@@ -270,8 +270,8 @@ export default function Shimla() {
                             in Shimla brings something special.
                         </p>
 
-                        <Link
-                            to="#attractions"
+                        <SectionScrollButton
+                            targetId="attractions"
                             className="inline-flex items-center gap-3 mt-6 text-[16px] md:text-[16px] font-semibold text-[#1d2d50] group"
                         >
                             Discover Shimla
@@ -292,7 +292,7 @@ export default function Shimla() {
                                 <path d="M7 17 17 7" />
                             </svg>
 
-                        </Link>
+                        </SectionScrollButton>
 
                     </div>
 
@@ -382,7 +382,7 @@ export default function Shimla() {
             </section>
 
             {/* ATTRACTIONS */}
-            <section id="attractions" className="py-20 md:py-28 px-5 md:px-10">
+            <section id="attractions" className="scroll-mt-24 py-20 md:py-28 px-5 md:px-10">
 
                 <div className="max-w-[1280px] mx-auto">
 
@@ -788,7 +788,7 @@ export default function Shimla() {
             </section>
 
             {/* CTA */}
-            <section id="contact" className="">
+            <section id="contact" className="scroll-mt-24">
                 <TravelEnquiry />
             </section>
 

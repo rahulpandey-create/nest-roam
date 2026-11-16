@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import "./App.css";
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
 import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
@@ -12,7 +12,7 @@ import Footer from './screens/Inc/Footer';
 import Banner from './screens/Banner';
 import FindPlace from './screens/FindPlace';
 import TrendingDestinations from './screens/TrendingDestinations';
-import TourPackagesection from './screens/TourPackagesection';
+import TourPackagesSection from './screens/TourPackagesSection';
 import AdventureExperiences from './screens/AdventureExperiences';
 import WhyChooseUs from './screens/WhyChooseUs';
 import TravelEnquiry from './screens/TravelEnquiry';
@@ -22,13 +22,13 @@ import Manali from './screens/TrendingDestinations/Manali';
 import Shimla from './screens/TrendingDestinations/Shimla';
 import Kasol from './screens/TrendingDestinations/Kasol';
 import Spiti from './screens/TrendingDestinations/Spiti';
-import SpitiPackage from './screens/TourPackagesPage/Packages/SpitiPackage';
-import ShimlaPackage from './screens/TourPackagesPage/Packages/ShimlaPackage';
-import ManaliPackage from './screens/TourPackagesPage/Packages/ManaliPackage';
-import KasolPackage from './screens/TourPackagesPage/Packages/KasolPackage';
+import SpitiPackage from './screens/TourPackages/Packages/SpitiPackage';
+import ShimlaPackage from './screens/TourPackages/Packages/ShimlaPackage';
+import ManaliPackage from './screens/TourPackages/Packages/ManaliPackage';
+import KasolPackage from './screens/TourPackages/Packages/KasolPackage';
 import ScrollToTop from './screens/ScrollToTop';
-import TourPackages from './screens/TourPackagesPage';
-import Contact from './screens/contact';
+import TourPackages from './screens/TourPackages';
+import Contact from './screens/Contact/index.jsx';
 
 function Home() {
   return (
@@ -36,7 +36,7 @@ function Home() {
       <Banner/>
       <FindPlace/>
       <TrendingDestinations/>
-      <TourPackagesection/>
+      <TourPackagesSection/>
       <AdventureExperiences/>
       <WhyChooseUs/>
       <TravelEnquiry/>
@@ -56,7 +56,6 @@ useEffect(() => {
     lerp: 0.08,
     smoothWheel: true,
     wheelMultiplier: 1,
-    anchors: true,
   });
 
   window.lenis = lenis;
@@ -78,17 +77,38 @@ useEffect(() => {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/destinations/manali" element={<Manali />} />
-        <Route path="/destinations/shimla" element={<Shimla />} />
-        <Route path="/destinations/kasol" element={<Kasol />} />
-        <Route path="/destinations/spiti" element={<Spiti />} />
 
-<Route path="/TourPackagesPage/SpitiPackage" element={<SpitiPackage />} />
-<Route path="/TourPackagesPage/ShimlaPackage" element={<ShimlaPackage />} />
-<Route path="/TourPackagesPage/ManaliPackage" element={<ManaliPackage />} />
-<Route path="/TourPackagesPage/KasolPackage" element={<KasolPackage />} />
-<Route path="/TourPackagesPage" element={<TourPackages />} />
-<Route path="/Contact" element={<Contact />} />
+        {/* Destination pages: /destinations/:destinationSlug */}
+        <Route path="destinations">
+          <Route index element={<TrendingDestinations />} />
+          <Route path="manali" element={<Manali />} />
+          <Route path="shimla" element={<Shimla />} />
+          <Route path="kasol" element={<Kasol />} />
+          <Route path="spiti" element={<Spiti />} />
+        </Route>
+
+        {/* Tour packages: /tour-packages/:packageSlug */}
+        <Route path="tour-packages">
+          <Route index element={<TourPackages />} />
+          <Route path="manali" element={<ManaliPackage />} />
+          <Route path="shimla" element={<ShimlaPackage />} />
+          <Route path="spiti" element={<SpitiPackage />} />
+          <Route path="kasol" element={<KasolPackage />} />
+        </Route>
+
+        <Route path="adventures" element={<AdventureExperiences />} />
+        <Route path="about" element={<WhyChooseUs />} />
+        <Route path="contact" caseSensitive element={<Contact />} />
+        <Route path="Contact" caseSensitive element={<Navigate to="/contact" replace />} />
+
+        {/* Legacy package URLs redirect to the canonical lowercase routes. */}
+        <Route path="TourPackagesPage">
+          <Route index element={<Navigate to="/tour-packages" replace />} />
+          <Route path="ManaliPackage" element={<Navigate to="/tour-packages/manali" replace />} />
+          <Route path="ShimlaPackage" element={<Navigate to="/tour-packages/shimla" replace />} />
+          <Route path="SpitiPackage" element={<Navigate to="/tour-packages/spiti" replace />} />
+          <Route path="KasolPackage" element={<Navigate to="/tour-packages/kasol" replace />} />
+        </Route>
       </Routes>
 
       <Footer />
@@ -98,4 +118,3 @@ useEffect(() => {
 }
 
 export default App;
-

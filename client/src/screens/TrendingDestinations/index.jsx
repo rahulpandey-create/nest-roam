@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 
 import manaliImg from "../../assets/manalis.png";
@@ -36,8 +36,10 @@ const destinations = [
 ];
 
 const TrendingDestinations = () => {
+  const { pathname } = useLocation();
+
   return (
-    <section className="w-full bg-white py-12 md:py-20 lg:py-12">
+    <section id="destinations" className="w-full bg-white py-12 md:py-20 lg:py-12 scroll-mt-24">
 
       <div className="max-w-[1280px] mx-auto px-4 md:px-4 xl:px-4">
 
@@ -64,13 +66,14 @@ const TrendingDestinations = () => {
       Discover Himachal’s stunning destinations, peaceful valleys, and unforgettable mountain experiences.
     </p>
 
-    <Link
-      to="/destinations"
-      className="inline-flex items-center gap-3 mt-6 text-[16px] md:text-[16px] font-semibold text-[#1d2d50] group"
-    >
-      Explore More
+    {pathname !== "/destinations" && (
+      <Link
+        to="/destinations"
+        className="inline-flex items-center gap-3 mt-6 text-[16px] md:text-[16px] font-semibold text-[#1d2d50] group"
+      >
+        Explore More
 
-      <svg
+        <svg
         xmlns="http://www.w3.org/2000/svg"
         width="25"
         height="25"
@@ -84,8 +87,9 @@ const TrendingDestinations = () => {
       >
         <path d="M7 7h10v10" />
         <path d="M7 17 17 7" />
-      </svg>
-    </Link>
+        </svg>
+      </Link>
+    )}
   </div>
 
 </div>

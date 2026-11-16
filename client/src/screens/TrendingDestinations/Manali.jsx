@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import SectionScrollButton from "../components/SectionScrollButton";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -168,15 +168,15 @@ export default function Manali() {
                         </p>
 
                         <div className="flex flex-wrap gap-4 mt-9">
-                            <Link to="#attractions" class="btn-font group inline-flex min-w-[15rem] items-center justify-between gap-6 rounded-full bg-white px-8 py-3 text-lg font-normal text-neutral-900 transition hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Explore Destination<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="h-6 w-6 text-lime-600 transition-transform group-hover:translate-x-1"><path d="M4 12h16M14 6l6 6-6 6"></path></svg></Link>
+                            <SectionScrollButton targetId="attractions" className="btn-font group inline-flex min-w-[15rem] items-center justify-between gap-6 rounded-full bg-white px-8 py-3 text-lg font-normal text-neutral-900 transition hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Explore Destination<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="h-6 w-6 text-lime-600 transition-transform group-hover:translate-x-1"><path d="M4 12h16M14 6l6 6-6 6"></path></svg></SectionScrollButton>
 
 
-                            <Link
-                                to="#contact"
+                            <SectionScrollButton
+                                targetId="contact"
                                 className="backdrop-blur-md border border-white/70 text-white px-8 py-4 rounded-full hover:bg-white hover:text-[#172b3a] transition duration-300"
                             >
                                 Plan Your Trip
-                            </Link>
+                            </SectionScrollButton>
                         </div>
 
                         <div className="flex flex-wrap gap-3 md:gap-8 mt-8 md:mt-14 pt-7 border-t border-white/25 text-white">
@@ -225,7 +225,7 @@ export default function Manali() {
                         </p>
 
 
-                        <Link to="#attractions" class="inline-flex items-center gap-3 mt-6 text-[16px] md:text-[16px] font-semibold text-[#1d2d50] group">Discover Manali<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="text-[#8fc31f] transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></Link>
+                        <SectionScrollButton targetId="attractions" className="inline-flex items-center gap-3 mt-6 text-[16px] md:text-[16px] font-semibold text-[#1d2d50] group">Discover Manali<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="text-[#8fc31f] transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></SectionScrollButton>
                     </div>
 
                     <div className="relative">
@@ -279,7 +279,7 @@ export default function Manali() {
             </section>
 
             {/* ATTRACTIONS */}
-            <section id="attractions" className="py-20 md:py-28 px-5 md:px-10">
+            <section id="attractions" className="scroll-mt-24 py-20 md:py-28 px-5 md:px-10">
                 <div className="max-w-[1280px] mx-auto">
 
                     
@@ -548,7 +548,7 @@ export default function Manali() {
             </section>
 
             {/* CTA */}
-            <section id="contact" className="">
+            <section id="contact" className="scroll-mt-24">
                 <TravelEnquiry/>
             </section>
 

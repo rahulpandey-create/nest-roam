@@ -187,7 +187,7 @@ export default function Banner() {
             {/* Buttons */}
             <div className="mt-5 md:mt-10 flex flex-wrap items-center gap-4">
               <Link
-                to="#packages"
+                to="/tour-packages"
                 className="btn-font group inline-flex min-w-[15rem] items-center justify-between gap-6 rounded-full bg-white px-8 py-4 text-lg font-normal text-neutral-900 transition hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 Explore Packages

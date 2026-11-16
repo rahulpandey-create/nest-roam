@@ -7,17 +7,16 @@ import FloatingContact from "../FloatingContact";
 
 const Footer = () => {
 
-  // QUICK LINKS - Change the "to" path according to your pages
+  // All internal links resolve to implemented application routes.
   const quickLinks = [
     { label: "Home", to: "/" },
     { label: "Destinations", to: "/destinations" },
-    { label: "Tour Packages", to: "/TourPackagesPage" },
+    { label: "Tour Packages", to: "/tour-packages" },
     { label: "Adventures", to: "/adventures" },
     { label: "About Us", to: "/about" },
     { label: "Contact", to: "/contact" },
   ];
 
-  // ADVENTURE ACTIVITIES - Set a separate link for each activity
   const activities = [
     { label: "Trekking", to: "/adventures" },
     { label: "River Rafting", to: "/adventures" },
@@ -156,17 +155,23 @@ const Footer = () => {
 
               <div className="flex items-center gap-5 text-[#8fc31f]">
 
-                {socialLinks.map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.href || undefined}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={social.label}
-                    className="transition hover:-translate-y-1"
-                  >
-                    {social.icon}
-                  </a>
+                {socialLinks.map((social) => (
+                  social.href ? (
+                    <a
+                      key={social.label}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.label}
+                      className="transition hover:-translate-y-1"
+                    >
+                      {social.icon}
+                    </a>
+                  ) : (
+                    <span key={social.label} aria-label={social.label}>
+                      {social.icon}
+                    </span>
+                  )
                 ))}
 
               </div>
@@ -184,25 +189,7 @@ const Footer = () => {
             © 2026 NESTROAM, Powered by React JS
           </p>
 
-          <div className="flex flex-wrap gap-x-2 gap-y-2">
 
-            <Link to="/terms-and-conditions" className="hover:text-[#8fc31f]">
-              Terms & Condition
-            </Link>
-
-            <span>|</span>
-
-            <Link to="/cancellation-policy" className="hover:text-[#8fc31f]">
-              Cancellation Policy
-            </Link>
-
-            <span>|</span>
-
-            <Link to="/privacy-policy" className="hover:text-[#8fc31f]">
-              Privacy Policy
-            </Link>
-
-          </div>
 
         </div>
 

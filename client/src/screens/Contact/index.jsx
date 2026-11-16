@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 
 import TravelEnquiry from "../TravelEnquiry";
+import SectionScrollButton from "../components/SectionScrollButton";
 
 const Contact = () => {
   const features = [
@@ -90,18 +91,18 @@ const Contact = () => {
           </p>
 
           <div className="flex justify-center mt-8">
-            <a
-              href="#travel-enquiry"
+            <SectionScrollButton
+              targetId="travel-enquiry"
               className="bg-white text-[#1d2d50] px-8 py-3.5 rounded-full font-semibold hover:bg-[#a8db69] transition duration-300 flex items-center gap-2"
             >
               Contact Us <ArrowRight size={18} />
-            </a>
+            </SectionScrollButton>
           </div>
 
         </div>
       </section>
 {/* Enquiry Form */}
-      <section id="travel-enquiry" className="scroll-mt-20">
+      <section id="travel-enquiry" className="scroll-mt-24">
         <TravelEnquiry />
       </section>
 
@@ -160,12 +161,12 @@ const Contact = () => {
 
            
 
-            <a
-              href="#travel-enquiry"
+            <SectionScrollButton
+              targetId="travel-enquiry"
               className="inline-flex items-center gap-2 mt-7 text-[#1d2d50] font-bold hover:text-[#719d18] transition"
             >
               Start Your Journey <ArrowRight size={18} />
-            </a>
+            </SectionScrollButton>
           </div>
 
           <div className="relative">
