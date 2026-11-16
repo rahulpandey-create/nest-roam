@@ -59,12 +59,14 @@ const TravelEnquiryForm = ({
   onSubmit,
   buttonText = "Send Enquiry",
   className = "",
+  isSubmitting = false,
+  status = { type: "", message: "" },
 }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (onSubmit) {
+    if (!isSubmitting && onSubmit) {
       onSubmit(e);
     }
   };
@@ -89,6 +91,9 @@ const TravelEnquiryForm = ({
             name="fullName"
             placeholder="Full Name*"
             required
+            minLength={2}
+            maxLength={100}
+            disabled={isSubmitting}
             className={inputStyle}
           />
         </div>
@@ -100,6 +105,8 @@ const TravelEnquiryForm = ({
             type="email"
             name="email"
             placeholder="Email"
+            maxLength={254}
+            disabled={isSubmitting}
             className={inputStyle}
           />
         </div>
@@ -112,6 +119,8 @@ const TravelEnquiryForm = ({
             name="phone"
             placeholder="Phone*"
             required
+            maxLength={30}
+            disabled={isSubmitting}
             className={inputStyle}
           />
         </div>
@@ -124,6 +133,7 @@ const TravelEnquiryForm = ({
             name="destination"
             defaultValue=""
             required
+            disabled={isSubmitting}
             className={`${inputStyle} cursor-pointer text-[#808080]`}
           >
             <option value="" disabled>
@@ -133,8 +143,6 @@ const TravelEnquiryForm = ({
             <option value="Shimla">Shimla</option>
             <option value="Kasol">Kasol</option>
             <option value="Spiti">Spiti Valley</option>
-            {/* <option value="Dharamshala">Dharamshala</option>
-            <option value="Other">Other</option> */}
           </select>
         </div>
 
@@ -145,6 +153,8 @@ const TravelEnquiryForm = ({
             type="date"
             name="travelDate"
             required
+            min={new Date().toISOString().split("T")[0]}
+            disabled={isSubmitting}
             className={`${inputStyle} text-[#808080]`}
           />
         </div>
@@ -157,6 +167,7 @@ const TravelEnquiryForm = ({
             name="travellers"
             defaultValue=""
             required
+            disabled={isSubmitting}
             className={`${inputStyle} cursor-pointer text-[#808080]`}
           >
             <option value="" disabled>
@@ -177,34 +188,53 @@ const TravelEnquiryForm = ({
         <textarea
           name="message"
           rows="3"
+          maxLength={15000}
           placeholder="Tell us about your plan, budget or any specific requirement..."
+          disabled={isSubmitting}
           className="w-full resize-none bg-[#f5f5f5] rounded-[18px] px-5 py-4 text-[15px] md:text-[16px] text-[#333] placeholder:text-[#888] outline-none focus:ring-1 focus:ring-[#8fc31f] transition-all"
         />
       </div>
 
+      {/* Submission Status */}
+      {status.message && (
+        <p
+          role={status.type === "error" ? "alert" : "status"}
+          className={`mt-5 text-sm font-medium ${
+            status.type === "success"
+              ? "text-green-700"
+              : "text-red-600"
+          }`}
+        >
+          {status.message}
+        </p>
+      )}
+
       {/* Submit Button */}
       <button
         type="submit"
-        className=" cursor-pointer submitted mt-7 inline-flex items-center gap-3 bg-[#1d2d50] text-white text-[17px] font-semibold px-9 py-4 rounded-full transition-all duration-300 hover:bg-[#8fc31f] hover:text-[#1d2d50]"
+        disabled={isSubmitting}
+        className="cursor-pointer submitted mt-7 inline-flex items-center gap-3 bg-[#1d2d50] text-white text-[17px] font-semibold px-9 py-4 rounded-full transition-all duration-300 hover:bg-[#8fc31f] hover:text-[#1d2d50] disabled:opacity-60 disabled:cursor-not-allowed"
       >
-        {buttonText}
+        {isSubmitting ? "Submitting..." : buttonText}
 
-        <span className="text-[22px] leading-none">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="25"
-            height="25"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M7 7h10v10" />
-            <path d="M7 17 17 7" />
-          </svg>
-        </span>
+        {!isSubmitting && (
+          <span className="text-[22px] leading-none">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="25"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M7 7h10v10" />
+              <path d="M7 17 17 7" />
+            </svg>
+          </span>
+        )}
       </button>
 
     </form>
