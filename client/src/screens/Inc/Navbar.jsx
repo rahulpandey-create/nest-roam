@@ -213,7 +213,7 @@ const Navbar = () => {
                 {/* Adventures */}
                 <li className="w-full md:w-auto">
                   <Link
-                    to="/adventures"
+                    to="/AdventurePage"
                     onClick={closeMenu}
                     className="text-[#1A2A4C] sm:text-white block py-3 md:py-2 hover:text-[#e0ff98] duration-200"
                   >

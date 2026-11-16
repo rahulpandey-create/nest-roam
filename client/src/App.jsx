@@ -29,6 +29,8 @@ import KasolPackage from './screens/TourPackages/Packages/KasolPackage';
 import ScrollToTop from './screens/ScrollToTop';
 import TourPackages from './screens/TourPackages';
 import Contact from './screens/Contact/index.jsx';
+import AdventurePage from './screens/AdventurePage';
+import About from './screens/About';
 
 function Home() {
   return (
@@ -96,10 +98,10 @@ useEffect(() => {
           <Route path="kasol" element={<KasolPackage />} />
         </Route>
 
-        <Route path="adventures" element={<AdventureExperiences />} />
-        <Route path="about" element={<WhyChooseUs />} />
-        <Route path="contact" caseSensitive element={<Contact />} />
-        <Route path="Contact" caseSensitive element={<Navigate to="/contact" replace />} />
+        <Route path="/AdventurePage" element={<AdventurePage />} />
+        <Route path="/About" element={<About />} />
+        <Route path="/contact" caseSensitive element={<Contact />} />
+        <Route path="/Contact" caseSensitive element={<Navigate to="/contact" replace />} />
 
         {/* Legacy package URLs redirect to the canonical lowercase routes. */}
         <Route path="TourPackagesPage">
@@ -108,6 +110,7 @@ useEffect(() => {
           <Route path="ShimlaPackage" element={<Navigate to="/tour-packages/shimla" replace />} />
           <Route path="SpitiPackage" element={<Navigate to="/tour-packages/spiti" replace />} />
           <Route path="KasolPackage" element={<Navigate to="/tour-packages/kasol" replace />} />
+          
         </Route>
       </Routes>
 

@@ -589,3 +589,8 @@ h4 {
 section#adventure-activities svg {
     margin-top: 0;
 }
+.about-nest {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+}
