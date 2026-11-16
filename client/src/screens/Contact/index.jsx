@@ -14,6 +14,7 @@ import {
 
 import TravelEnquiry from "../TravelEnquiry";
 import SectionScrollButton from "../components/SectionScrollButton";
+import manali from "../../assets/manalip.png";
 
 const Contact = () => {
   const features = [
