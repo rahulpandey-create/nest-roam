@@ -1,4 +1,4 @@
-// Server entry point
+
 require("dotenv").config();
 
 const express = require("express");
@@ -10,7 +10,10 @@ const errorHandler = require("./middleware/errorHandler");
 
 const app = express();
 
-const allowedOrigins = [process.env.FRONTEND_URL].filter(Boolean);
+const allowedOrigins = [
+  "https://nestroamholidays.com",
+  "https://www.nestroamholidays.com",
+];
 
 app.use(helmet());
 
@@ -21,8 +24,11 @@ app.use(
         return callback(null, true);
       }
 
+      console.error("Blocked CORS origin:", origin);
       return callback(new Error("Not allowed by CORS"));
     },
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
@@ -43,7 +49,7 @@ const PORT = process.env.PORT || 5000;
 
 if (require.main === module) {
   app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Server running on port ${PORT}`);
   });
 }
 
