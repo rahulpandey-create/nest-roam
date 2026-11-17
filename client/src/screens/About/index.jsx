@@ -157,7 +157,7 @@ const About = () => {
                                    </div>
                                </section>
 
-      
+
 
       {/* ================= ABOUT INTRODUCTION ================= */}
 
@@ -195,14 +195,14 @@ const About = () => {
             <span className="inline-flex bg-[#8fc31f] text-[#1d2d50] text-sm font-semibold px-7 py-2.5 rounded-full mb-5">
               About Nestroam
             </span>
-<h2 class="text-[36px] sm:text-[36px] md:text-[36px] font-bold leading-tight text-[#1d2d50] mb-3">We Make Every Journey Worth Remembering</h2>
+            <h2 class="text-[36px] sm:text-[36px] md:text-[36px] font-bold leading-tight text-[#1d2d50] mb-3">We Make Every Journey Worth Remembering</h2>
             <p class="text-[16px] leading-[1.55] text-[#414141] max-w-[600px] mb-3">Nestroam Holidays is a travel company built around the idea
               that travelling should be more than just visiting places.
               It should be about experiences, connections and memories
               that last a lifetime.</p>
-            
 
-          
+
+
 
             <div className="space-y-4 mb-8 about-nest">
 
@@ -295,15 +295,10 @@ const About = () => {
             <span className="inline-flex bg-[#8fc31f] text-[#1d2d50] text-sm font-semibold px-7 py-2.5 rounded-full mb-5">
               Why Choose Us
             </span>
+            <h2 class="text-[36px] sm:text-[36px] md:text-[36px] font-bold leading-tight text-[#1d2d50] mb-3">Your Journey, Our Commitment</h2>
+            <p class="text-[16px] leading-[1.55] text-[#414141] max-w-[600px] m-auto mb-3">We want to make every part of your travel experience
+              convenient, <br />enjoyable and memorable.</p>
 
-            <h2 className="fontsylegilda text-[32px] md:text-[44px] text-[#1d2d50] leading-tight mb-4">
-              Your Journey, Our Commitment
-            </h2>
-
-            <p className="text-[#666] text-[15px] md:text-[16px] leading-relaxed">
-              We want to make every part of your travel experience
-              convenient, enjoyable and memorable.
-            </p>
 
           </div>
 
@@ -319,11 +314,11 @@ const About = () => {
                   {item.icon}
                 </div>
 
-                <h3 className="text-[#1d2d50] text-[19px] font-semibold mb-3">
+                <h3 className="text-[#1d2d50] text-[19px] font-semibold mb-3" style={{ fontSize: '20px', fontWeight: 600 }}>
                   {item.title}
                 </h3>
 
-                <p className="text-[#777] text-sm leading-7">
+                <p className="text-[#777] text-sm leading-6">
                   {item.description}
                 </p>
 
@@ -346,16 +341,12 @@ const About = () => {
             <span className="inline-flex bg-[#8fc31f] text-[#1d2d50] text-sm font-semibold px-7 py-2.5 rounded-full mb-5">
               What We Believe
             </span>
-
-            <h2 className="fontsylegilda text-[32px] md:text-[44px] text-[#1d2d50] leading-tight mb-5">
-              The Values Behind Every Journey
-            </h2>
-
-            <p className="text-[#666] text-[15px] md:text-[16px] leading-[1.8]">
-              Great travel experiences begin with understanding what
+            <h2 class="text-[36px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50] mb-3">The Values Behind <br />Every Journey</h2>
+            <p class="text-[16px] md:text-[16px] leading-[1.55] text-[#414141] font-normal">Great travel experiences begin with understanding what
               travellers truly want. Our values guide the way we plan,
-              communicate and create journeys.
-            </p>
+              communicate and create journeys.</p>
+
+
 
           </div>
 
@@ -364,15 +355,15 @@ const About = () => {
             {values.map((item, index) => (
               <div
                 key={index}
-                className="flex gap-5 items-start p-6 rounded-2xl bg-[#f7f8f5] hover:bg-[#eff6e3] transition duration-300"
+                className="flex gap-5 items-start p-6 rounded-2xl bg-[#F6F7F8] hover:bg-[#fcfcfc] transition duration-300"
               >
 
-                <div className="w-14 h-14 shrink-0 rounded-xl bg-white flex items-center justify-center text-[#719d18]">
+                <div className="w-14 h-14 shrink-0 rounded-xl bg-white flex items-center justify-center text-[#1d2d50]">
                   {item.icon}
                 </div>
 
                 <div>
-                  <h3 className="text-[#1d2d50] font-semibold text-[19px] mb-2">
+                  <h3 className="text-[#1d2d50] font-semibold text-[19px] mb-2" style={{ fontSize: '20px', fontWeight: 600 }}>
                     {item.title}
                   </h3>
 
@@ -391,7 +382,7 @@ const About = () => {
 
       {/* ================= HOW WE WORK ================= */}
 
-      <section className="bg-[#f7f8f5] py-16 md:py-24 px-5 md:px-10">
+      <section className="bg-[#F6F7F8] py-16 md:py-24 px-5 md:px-10 rounded-[40px] m-5">
 
         <div className="max-w-[1200px] mx-auto">
 
@@ -400,10 +391,8 @@ const About = () => {
             <span className="inline-flex bg-[#8fc31f] text-[#1d2d50] text-sm font-semibold px-7 py-2.5 rounded-full mb-5">
               Your Travel Journey
             </span>
+            <h2 class="text-[36px] sm:text-[36px] md:text-[36px] font-bold leading-tight text-[#1d2d50] mb-3">From Dreaming To Exploring</h2>
 
-            <h2 className="fontsylegilda text-[32px] md:text-[44px] text-[#1d2d50] leading-tight">
-              From Dreaming To Exploring
-            </h2>
 
           </div>
 
@@ -419,7 +408,7 @@ const About = () => {
                   {step.number}
                 </span>
 
-                <h3 className="text-[#1d2d50] text-[22px] font-semibold mt-3 mb-3">
+                <h3 className="text-[#1d2d50] text-[22px] font-semibold mt-3 mb-3" style={{ fontSize: '20px', fontWeight: 600 }}>
                   {step.title}
                 </h3>
 
@@ -450,15 +439,8 @@ const About = () => {
           <div className="absolute inset-0 bg-[#101d32]/80" />
 
           <div className="relative z-10 text-center max-w-[750px] px-5 py-14">
-
-            <span className="text-[#a8db69] text-sm font-semibold uppercase tracking-widest">
-              Your Next Adventure Starts Here
-            </span>
-
-            <h2 className="fontsylegilda text-white text-[32px] md:text-[48px] leading-tight mt-4">
-              Let's Create Your Next Travel Story
-            </h2>
-
+            <span class="inline-flex bg-[#8fc31f] text-[#1d2d50] text-sm font-semibold px-7 py-2.5 rounded-full mb-5">Your Next Adventure Starts Here</span>
+            <h2 class="text-[36px] sm:text-[36px] md:text-[36px] font-bold leading-tight text-[#ffffff] mb-2">Let's Create Your Next Travel Story</h2>
             <p className="text-white/80 text-[15px] md:text-[16px] leading-relaxed mt-5">
               Tell us where you want to go. We'll help you plan a journey
               filled with beautiful places and unforgettable experiences.
@@ -467,7 +449,7 @@ const About = () => {
             <div className="flex justify-center mt-8">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 bg-[#8fc31f] text-[#1d2d50] px-8 py-3.5 rounded-full font-semibold hover:bg-white transition duration-300"
+                className="inline-flex items-center gap-2 bg-[#ffffff] text-[#1d2d50] px-8 py-3.5 rounded-full font-semibold hover:bg-white transition duration-300"
               >
                 Plan Your Trip
                 <ArrowRight size={18} />
