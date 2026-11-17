@@ -7,9 +7,9 @@ import {
     ArrowUpRight,
 } from "lucide-react";
 
-import manalip from "../../assets/manalip.png";
-import shimlap from "../../assets/shimlap.png";
-import spitip from "../../assets/spitip.png";
+import manalip from "../../assets/manalip.webp";
+import shimlap from "../../assets/shimlap.webp";
+import spitip from "../../assets/spitip.webp";
 
 const packages = [
     {

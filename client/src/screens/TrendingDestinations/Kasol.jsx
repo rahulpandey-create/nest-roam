@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import Breadcrumbs from "../../seo/Breadcrumbs";
 import SectionScrollButton from "../components/SectionScrollButton";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
@@ -7,7 +9,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import kasolinner from '../../assets/kasolinner.jpg';
+import kasolinner from '../../assets/kasolinner.webp';
 import mountain from '../../assets/mountain.svg';
 import train from '../../assets/train.svg';
 import nature from '../../assets/nature.svg';
@@ -21,7 +23,7 @@ const attractions = [
         category: "Village & Nature",
         distance: "2 km from Kasol",
         image:
-            "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=900&q=85",
+            "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=82",
         description:
             "Walk through peaceful mountain trails, traditional wooden houses and beautiful riverside surroundings.",
     },
@@ -30,7 +32,7 @@ const attractions = [
         category: "Spiritual & Heritage",
         distance: "4 km from Kasol",
         image:
-            "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=900&q=85",
+            "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=900&q=82",
         description:
             "Visit the famous pilgrimage destination known for its natural hot springs and peaceful spiritual atmosphere.",
     },
@@ -39,7 +41,7 @@ const attractions = [
         category: "Mountain Escape",
         distance: "21 km from Kasol",
         image:
-            "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900&q=85",
+            "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=82",
         description:
             "Discover breathtaking Himalayan views, charming mountain cafes and the peaceful beauty of a traditional village.",
     },
@@ -48,7 +50,7 @@ const attractions = [
         category: "Riverside Experience",
         distance: "Near Kasol",
         image:
-            "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=900&q=85",
+            "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=82",
         description:
             "Relax beside the beautiful Parvati River and enjoy the soothing sounds of flowing water and mountain scenery.",
     },
@@ -57,7 +59,7 @@ const attractions = [
         category: "Trekking & Adventure",
         distance: "Approx. 22 km trek from Barshaini",
         image:
-            "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=900&q=85",
+            "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=82",
         description:
             "Experience an unforgettable Himalayan trek through dense forests, waterfalls and breathtaking mountain landscapes.",
     },
@@ -66,7 +68,7 @@ const attractions = [
         category: "Culture & Heritage",
         distance: "Approx. 21 km from Kasol",
         image:
-            "https://images.unsplash.com/photo-1511497584788-876760111969?w=900&q=85",
+            "https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=900&q=82",
         description:
             "Explore the remote Himalayan village known for its distinctive traditions, architecture and mountain surroundings.",
     },
@@ -164,13 +166,7 @@ export default function Kasol() {
 
                     <div className="max-w-[750px]">
 
-                        <div className="flex items-center gap-2 text-white/80 text-sm mb-2">
-                            <span>Home</span>
-                            <span>/</span>
-                            <span>Destinations</span>
-                            <span>/</span>
-                            <span className="text-white">Kasol</span>
-                        </div>
+                        <Breadcrumbs pagePath="/destinations/kasol" className="mb-2" />
 
                         <h1 className="fontsylegilda text-white leading-12.5 sm:leading-normal">
                             Discover
@@ -270,6 +266,10 @@ export default function Kasol() {
                             in Kasol brings a new experience.
                         </p>
 
+                        <p className="mt-5 text-sm text-[#414141]">
+                            Looking for trip details? <Link to="/tour-packages/kasol" className="font-semibold text-[#1d2d50] underline underline-offset-4">Explore the Kasol tour package information</Link>.
+                        </p>
+
                         <SectionScrollButton
                             targetId="attractions"
                             className="inline-flex items-center gap-3 mt-6 text-[16px] md:text-[16px] font-semibold text-[#1d2d50] group"
@@ -299,7 +299,7 @@ export default function Kasol() {
                     <div className="relative">
 
                         <img
-                            src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1000&q=85"
+                            src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=82"
                             alt="Beautiful Parvati Valley landscape"
                             className="w-full h-[450px] object-cover rounded-[28px]"
                         />
@@ -667,7 +667,7 @@ export default function Kasol() {
                     </div>
 
                     <img
-                        src="https://images.unsplash.com/photo-1511497584788-876760111969?w=1000&q=85"
+                        src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1000&q=82"
                         alt="Kasol forest and mountain scenery"
                         className="w-full h-[480px] object-cover rounded-[28px]"
                     />
@@ -716,7 +716,7 @@ export default function Kasol() {
                             >
 
                                 <img
-                                    src={`https://images.unsplash.com/${photo}?w=1000&q=85`}
+                                    src={`https://images.unsplash.com/${photo}?auto=format&fit=crop&w=1000&q=82`}
                                     alt={`Kasol travel gallery ${index + 1}`}
                                     className="w-full h-full object-cover hover:scale-110 transition duration-700"
                                 />

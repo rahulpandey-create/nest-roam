@@ -14,7 +14,7 @@ import {
 
 import TravelEnquiry from "../TravelEnquiry";
 import SectionScrollButton from "../components/SectionScrollButton";
-import manali from "../../assets/manalip.png";
+import manali from "../../assets/manalip.webp";
 
 const Contact = () => {
   const features = [
@@ -69,8 +69,10 @@ const Contact = () => {
       <section className="relative min-h-[400px] md:min-h-[550px] flex items-center justify-center overflow-hidden mt-[-150px]">
 
         <img
-          src="/src/assets/manalip.png"
+          src={manali}
           alt="Beautiful Himalayan mountains"
+          fetchPriority="high"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover"
         />
 
@@ -174,8 +176,10 @@ const Contact = () => {
 
           <div className="relative">
             <img
-              src="/src/assets/manalip.png"
+              src={manali}
               alt="Mountain travel experience"
+              loading="lazy"
+              decoding="async"
               className="w-full h-[300px] md:h-[420px] object-cover rounded-[25px]"
             />
 

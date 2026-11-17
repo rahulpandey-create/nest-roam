@@ -1,11 +1,11 @@
 
 import React from "react";
 
-import trekking from "../../assets/trekking.png";
-import rafting from "../../assets/rafting.png";
-import paragliding from "../../assets/paragliding.png";
-import camping from "../../assets/camping.png";
-import snowactivities from "../../assets/snowactivities.png";
+import trekking from "../../assets/trekking.webp";
+import rafting from "../../assets/rafting.webp";
+import paragliding from "../../assets/paragliding.webp";
+import camping from "../../assets/camping.webp";
+import snowactivities from "../../assets/snowactivities.webp";
 
 // Custom SVG Icons
 import trekkingIcon from "../../assets/trekking.svg";
@@ -13,7 +13,7 @@ import raftingIcon from "../../assets/rafting.svg";
 import paraglidingIcon from "../../assets/paragliding.svg";
 import campingIcon from "../../assets/camping.svg";
 import snowIcon from "../../assets/snowactivity.svg";
-import adventurebg from "../../assets/adventurebg.png";
+import adventurebg from "../../assets/adventurebg.webp";
 
 
 const experiences = [

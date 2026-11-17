@@ -31,6 +31,7 @@ import TourPackages from './screens/TourPackages';
 import Contact from './screens/Contact/index.jsx';
 import AdventurePage from './screens/AdventurePage';
 import About from './screens/About';
+import SEO from './seo/SEO';
 
 function Home() {
   return (
@@ -49,7 +50,7 @@ function Home() {
 }
 
 
-function App() {
+export function AppContent() {
 
 useEffect(() => {
 
@@ -71,8 +72,8 @@ useEffect(() => {
 
 
   return (
-    <><Router>
-
+    <>
+      <SEO />
       <ScrollToTop />
 
       <Navbar />
@@ -82,7 +83,7 @@ useEffect(() => {
 
         {/* Destination pages: /destinations/:destinationSlug */}
         <Route path="destinations">
-          <Route index element={<TrendingDestinations />} />
+          <Route index element={<TrendingDestinations asPage />} />
           <Route path="manali" element={<Manali />} />
           <Route path="shimla" element={<Shimla />} />
           <Route path="kasol" element={<Kasol />} />
@@ -98,7 +99,7 @@ useEffect(() => {
           <Route path="kasol" element={<KasolPackage />} />
         </Route>
 
-        <Route path="/AdventurePage" caseSensitive element={<AdventurePage />} />
+        <Route path="/AdventurePage" caseSensitive element={<Navigate to="/adventure" replace />} />
         <Route path="/adventure" caseSensitive element={<AdventurePage />} />
         <Route path="/adventures" caseSensitive element={<Navigate to="/adventure" replace />} />
         <Route path="/about" caseSensitive element={<About />} />
@@ -115,8 +116,15 @@ useEffect(() => {
         </Route>
       </Routes>
       <Footer />
+    </>);
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
-  </>);
+  );
 }
 
 export default App;

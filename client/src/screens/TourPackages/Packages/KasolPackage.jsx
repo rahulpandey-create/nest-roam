@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import Breadcrumbs from "../../../seo/Breadcrumbs";
 import {
   MapPin,
   CalendarDays,
@@ -14,7 +16,7 @@ import {
   Compass,
 } from "lucide-react";
 
-import manaliinner from "../../../assets/kasolinner.jpg";
+import manaliinner from "../../../assets/kasolinner.webp";
 import TravelEnquiry from "../../TravelEnquiry";
 
 const itinerary = [
@@ -125,22 +127,22 @@ const exclusions = [
 const gallery = [
   {
     image:
-      "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=900&q=85",
+      "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=900&q=82",
     title: "Beautiful Kasol",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=900&q=85",
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=82",
     title: "Parvati Valley",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900&q=85",
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=82",
     title: "Himalayan Peaks",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=900&q=85",
+      "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=82",
     title: "Mountain Landscapes",
   },
 ];
@@ -176,13 +178,7 @@ const KasolPackage = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-[#101c2c] via-[#101c2c]/85 to-black/10" />
 
         <div className="relative z-10 w-full max-w-[1280px] mx-auto px-5 md:px-5 pb-16 md:pb-24 pt-36">
-          <div className="flex items-center gap-2 text-white/80 text-sm mb-6">
-            <span>Home</span>
-            <span>/</span>
-            <span>Packages</span>
-            <span>/</span>
-            <span className="text-[#a8db69]">Kasol Tour Package</span>
-          </div>
+          <Breadcrumbs pagePath="/tour-packages/kasol" className="mb-6" />
 
           <h1 className="fontsylegilda text-white leading-[1.15]">
             Discover The Beauty Of <br /> Kasol
@@ -325,6 +321,10 @@ const KasolPackage = () => {
               From scenic mountain views to cosy cafes and beautiful
               Himalayan villages, every moment in Kasol promises a
               refreshing escape from everyday life.
+            </p>
+
+            <p className="mt-5 text-sm text-[#414141]">
+              Read more about the destination: <Link to="/destinations/kasol" className="font-semibold text-[#1d2d50] underline underline-offset-4">Kasol destination information</Link>.
             </p>
 
             <button

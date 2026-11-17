@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 
 import { useCallback, useEffect, useState } from "react";
-import bghimachal from "../../assets/bghimachal.png";
-import manali from "../../assets/manali.png";
-import manaliinner from '../../assets/manalibg.png';
-import spitivalley from '../../assets/spitivalley.png';
+import bghimachal from "../../assets/bghimachal.webp";
+import manali from "../../assets/manali.webp";
+import manaliinner from '../../assets/manalibg.webp';
+import spitivalley from '../../assets/spitivalley.webp';
 
 const SLIDES = [
   {
@@ -142,6 +142,9 @@ export default function Banner() {
           key={`${s.title}-${index}`}
           src={s.image}
           alt={s.title}
+          loading={i === 0 ? "eager" : "lazy"}
+          fetchPriority={i === 0 ? "high" : "auto"}
+          decoding="async"
           className={`banner-bg-image absolute inset-0 h-full w-full object-cover ${
             i === index
               ? `banner-active ${i % 2 === 0 ? "zoom-in" : "zoom-out"}`
@@ -174,9 +177,15 @@ export default function Banner() {
                   {s.eyebrow}
                 </p>
 
-                <h1 className="fontsylegilda leading-12.5 sm:leading-normal">
-                  {s.title}
-                </h1>
+                {i === 0 ? (
+                  <h1 className="fontsylegilda leading-12.5 sm:leading-normal">
+                    {s.title}
+                  </h1>
+                ) : (
+                  <h2 className="fontsylegilda leading-12.5 sm:leading-normal">
+                    {s.title}
+                  </h2>
+                )}
 
                 <p className="mt-3 md:mt-1 max-w-xl text-[16px] font-light leading-relaxed text-white/90">
                   {s.text}

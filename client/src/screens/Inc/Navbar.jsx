@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import nestroamlogo from "../../assets/nestroamlogo.svg";
+import nestroamlogo from "../../assets/nestroam-logo.webp";
 import whatsapp from "../../assets/whatsapp.svg";
 import arrowright from "../../assets/arrowright.svg";
 
@@ -11,6 +11,12 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDestinationOpen, setIsDestinationOpen] = useState(false);
   const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const API_URL = import.meta.env.VITE_API_URL?.replace(/\/+$/, "");
+  const [status, setStatus] = useState({
+    type: "",
+    message: "",
+  });
 
   // Close Navigation Menu
   const closeMenu = () => {
@@ -19,15 +25,84 @@ const Navbar = () => {
   };
 
   // Handle Booking Form Submission
-  const handleContact = (e) => {
-    const data = Object.fromEntries(
-      new FormData(e.currentTarget).entries()
-    );
 
-    console.log("Booking Enquiry:", data);
+  const handleContact = async (e) => {
+    const form = e.currentTarget;
 
-    setIsBookingOpen(false);
+    if (isSubmitting) return;
+
+    if (!API_URL) {
+      setStatus({
+        type: "error",
+        message: "API configuration is missing. Please try again later.",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    setStatus({ type: "", message: "" });
+
+    try {
+      const formData = new FormData(form);
+
+      const travelDate = formData.get("travelDate");
+
+      if (!travelDate) {
+        throw new Error("Please select your travel date.");
+      }
+
+      const [year, month, day] = travelDate.split("-");
+
+      const formattedDate = `${day}/${month}/${year}`;
+
+      const enquiryData = {
+        name: formData.get("fullName").trim(),
+        email: formData.get("email").trim(),
+        phone: formData.get("phone").trim(),
+        destination: formData.get("destination"),
+        travelDate: formattedDate,
+        travellers: formData.get("travellers"),
+        message: formData.get("message").trim(),
+      };
+
+      const response = await fetch(`${API_URL}/api/enquiries`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(enquiryData),
+      });
+
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok || !result.success) {
+        throw new Error(
+          result.message || "Unable to submit your enquiry."
+        );
+      }
+
+      form.reset();
+
+      setStatus({
+        type: "success",
+        message:
+          "Your enquiry has been submitted successfully! Our team will contact you soon.",
+      });
+
+    } catch (error) {
+      console.error("Booking enquiry submission failed:", error);
+
+      setStatus({
+        type: "error",
+        message:
+          error.message || "Something went wrong. Please try again.",
+      });
+
+    } finally {
+      setIsSubmitting(false);
+    }
   };
+
 
   // Destinations
   const destinations = [
@@ -50,7 +125,10 @@ const Navbar = () => {
             >
               <img
                 src={nestroamlogo}
-                alt="Nest Roam Logo"
+                alt="Nestroam Holidays logo"
+                width={238}
+                height={236}
+                decoding="async"
                 className="w-[100px] sm:w-[118px] h-auto "
               />
             </Link>
@@ -116,7 +194,7 @@ const Navbar = () => {
               className={`w-full md:flex md:w-auto md:order-1 ${isMenuOpen ? "block" : "hidden"
                 }`}
             >
-              <ul className="flex flex-col items-center p-4 md:p-0 mt-4 font-normal md:flex-row md:space-x-8 md:mt-0 bg-[#eaeaea] md:bg-transparent rounded-[20px] " > 
+              <ul className="flex flex-col items-center p-4 md:p-0 mt-4 font-normal md:flex-row md:space-x-8 md:mt-0 bg-[#eaeaea] md:bg-transparent rounded-[20px] " >
 
                 {/* Home */}
                 <li className="w-full md:w-auto">
@@ -308,6 +386,8 @@ const Navbar = () => {
             <TravelEnquiryForm
               onSubmit={handleContact}
               buttonText="Submit Enquiry"
+              isSubmitting={isSubmitting}
+              status={status}
             />
 
           </div>

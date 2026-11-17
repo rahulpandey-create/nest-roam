@@ -1,5 +1,7 @@
 
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import Breadcrumbs from "../../../seo/Breadcrumbs";
 import {
   MapPin,
   CalendarDays,
@@ -15,7 +17,7 @@ import {
   Compass,
 } from "lucide-react";
 
-import shimlap from "../../../assets/shimlainner.jpg";
+import shimlap from "../../../assets/shimlainner.webp";
 import TravelEnquiry from "../../TravelEnquiry";
 
 const itinerary = [
@@ -133,22 +135,22 @@ const exclusions = [
 const gallery = [
   {
     image:
-      "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=900&q=85",
+      "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=900&q=82",
     title: "Beautiful Shimla",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900&q=85",
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=82",
     title: "Himalayan Peaks",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=900&q=85",
+      "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=82",
     title: "Scenic Kufri Views",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=900&q=85",
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=82",
     title: "Mountain Getaway",
   },
 ];
@@ -184,13 +186,7 @@ const ShimlaPackage = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-[#081c2b]/85 via-[#081c2b]/70 to-transparent" />
 
         <div className="relative z-10 w-full max-w-[1280px] mx-auto px-5 md:px-5 pb-16 md:pb-24 pt-36">
-          <div className="flex items-center gap-2 text-white/80 text-sm mb-6">
-            <span>Home</span>
-            <span>/</span>
-            <span>Packages</span>
-            <span>/</span>
-            <span className="text-[#a8db69]">Shimla & Kufri Retreat</span>
-          </div>
+          <Breadcrumbs pagePath="/tour-packages/shimla" className="mb-6" />
 
           <h1 className="fontsylegilda text-white leading-16.5">
             Discover The Shimla <br /> & Kufri Retreat
@@ -333,6 +329,10 @@ const ShimlaPackage = () => {
               From beautiful mountain viewpoints to charming local markets,
               every moment of this journey brings a new experience. Make
               unforgettable memories in the Queen of Hills.
+            </p>
+
+            <p className="mt-5 text-sm text-[#414141]">
+              Read more about the destination: <Link to="/destinations/shimla" className="font-semibold text-[#1d2d50] underline underline-offset-4">Shimla destination information</Link>.
             </p>
 
             <button

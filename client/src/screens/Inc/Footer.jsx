@@ -1,8 +1,8 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-import footerlogo from '../../assets/footerlogo.png';
-import footerbg from '../../assets/footerbg.png';
+import footerlogo from '../../assets/footerlogo.webp';
+import footerbg from '../../assets/footerbg.webp';
 import FloatingContact from "../FloatingContact";
 
 const Footer = () => {

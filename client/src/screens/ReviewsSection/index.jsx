@@ -172,6 +172,8 @@ const ReviewsSection = () => {
                         <img
                           src={item.image}
                           alt={item.name}
+                          loading="lazy"
+                          decoding="async"
                           className="w-[50px] h-[50px] rounded-full border border-[#dddddd] object-cover shrink-0"
                         />
 

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import Breadcrumbs from "../../seo/Breadcrumbs";
 import SectionScrollButton from "../components/SectionScrollButton";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
@@ -7,7 +9,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import spitiinner from '../../assets/spitiinner.jpg';
+import spitiinner from '../../assets/spitiinner.webp';
 import mountain from '../../assets/mountain.svg';
 import train from '../../assets/train.svg';
 import nature from '../../assets/nature.svg';
@@ -21,7 +23,7 @@ const attractions = [
         category: "Spiritual & Heritage",
         distance: "14 km from Kaza",
         image:
-            "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=900&q=85",
+            "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=900&q=82",
         description:
             "Discover the iconic hilltop monastery known for its ancient Buddhist culture, peaceful atmosphere and breathtaking valley views.",
     },
@@ -30,7 +32,7 @@ const attractions = [
         category: "Nature & Adventure",
         distance: "Approx. 90 km from Kaza",
         image:
-            "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=900&q=85",
+            "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=82",
         description:
             "Experience the magical beauty of this high-altitude lake surrounded by dramatic mountains and spectacular landscapes.",
     },
@@ -39,7 +41,7 @@ const attractions = [
         category: "Mountain Village",
         distance: "19 km from Kaza",
         image:
-            "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900&q=85",
+            "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=82",
         description:
             "Explore a beautiful Himalayan village surrounded by rugged mountains, traditional houses and incredible natural scenery.",
     },
@@ -48,7 +50,7 @@ const attractions = [
         category: "Culture & Heritage",
         distance: "16 km from Kaza",
         image:
-            "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=900&q=85",
+            "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=82",
         description:
             "Visit the famous Buddha statue, explore traditional village life and enjoy spectacular views of the Spiti mountains.",
     },
@@ -57,7 +59,7 @@ const attractions = [
         category: "Unique Experiences",
         distance: "16 km from Kaza",
         image:
-            "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=900&q=85",
+            "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=82",
         description:
             "Experience the charm of one of the world's highest post offices and discover the peaceful beauty of remote Himalayan life.",
     },
@@ -66,7 +68,7 @@ const attractions = [
         category: "Spiritual & Heritage",
         distance: "32 km from Kaza",
         image:
-            "https://images.unsplash.com/photo-1511497584788-876760111969?w=900&q=85",
+            "https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=900&q=82",
         description:
             "Explore the historic monastery dramatically perched above the confluence of the Spiti and Pin rivers.",
     },
@@ -164,13 +166,7 @@ export default function Spiti() {
 
                     <div className="max-w-[750px]">
 
-                        <div className="flex items-center gap-2 text-white/80 text-sm mb-2">
-                            <span>Home</span>
-                            <span>/</span>
-                            <span>Destinations</span>
-                            <span>/</span>
-                            <span className="text-white">Spiti Valley</span>
-                        </div>
+                        <Breadcrumbs pagePath="/destinations/spiti" className="mb-2" />
 
                         <h1 className="fontsylegilda text-white leading-12.5 sm:leading-normal">
                             Discover
@@ -270,6 +266,10 @@ export default function Spiti() {
                             through Spiti brings something extraordinary.
                         </p>
 
+                        <p className="mt-5 text-sm text-[#414141]">
+                            Looking for trip details? <Link to="/tour-packages/spiti" className="font-semibold text-[#1d2d50] underline underline-offset-4">Explore the Spiti Valley tour package information</Link>.
+                        </p>
+
                         <SectionScrollButton
                             targetId="attractions"
                             className="inline-flex items-center gap-3 mt-6 text-[16px] md:text-[16px] font-semibold text-[#1d2d50] group"
@@ -299,7 +299,7 @@ export default function Spiti() {
                     <div className="relative">
 
                         <img
-                            src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1000&q=85"
+                            src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=82"
                             alt="Beautiful Spiti mountain landscape"
                             className="w-full h-[450px] object-cover rounded-[28px]"
                         />
@@ -667,7 +667,7 @@ export default function Spiti() {
                     </div>
 
                     <img
-                        src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1000&q=85"
+                        src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=82"
                         alt="Spiti mountain and valley scenery"
                         className="w-full h-[480px] object-cover rounded-[28px]"
                     />
@@ -716,7 +716,7 @@ export default function Spiti() {
                             >
 
                                 <img
-                                    src={`https://images.unsplash.com/${photo}?w=1000&q=85`}
+                                    src={`https://images.unsplash.com/${photo}?auto=format&fit=crop&w=1000&q=82`}
                                     alt={`Spiti Valley travel gallery ${index + 1}`}
                                     className="w-full h-full object-cover hover:scale-110 transition duration-700"
                                 />

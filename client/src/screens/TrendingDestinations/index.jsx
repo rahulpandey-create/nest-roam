@@ -3,10 +3,10 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 
-import manaliImg from "../../assets/manalis.png";
-import shimlaImg from "../../assets/shimla.png";
-import kasolImg from "../../assets/kasol.png";
-import spitiImg from "../../assets/spiti.png";
+import manaliImg from "../../assets/manalis.webp";
+import shimlaImg from "../../assets/shimla.webp";
+import kasolImg from "../../assets/kasol.webp";
+import spitiImg from "../../assets/spiti.webp";
 
 const destinations = [
   {
@@ -35,7 +35,7 @@ const destinations = [
   },
 ];
 
-const TrendingDestinations = () => {
+const TrendingDestinations = ({ asPage = false }) => {
   const { pathname } = useLocation();
 
   return (
@@ -52,9 +52,15 @@ const TrendingDestinations = () => {
       Discover Your Next Escape
     </span>
 
-    <h2 className="text-[36px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">
-      Trending Destinations
-    </h2>
+    {asPage ? (
+      <h1 className="text-[36px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">
+        Explore Himachal Pradesh Destinations
+      </h1>
+    ) : (
+      <h2 className="text-[36px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">
+        Trending Destinations
+      </h2>
+    )}
   </div>
 
   {/* Empty Space - 1 Column */}

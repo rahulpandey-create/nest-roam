@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import Breadcrumbs from "../../../seo/Breadcrumbs";
 import {
 MapPin,
 CalendarDays,
@@ -14,7 +16,7 @@ Route,
 Compass,
 } from "lucide-react";
 
-import manaliinner from "../../../assets/manaliinner.jpg";
+import manaliinner from "../../../assets/manaliinner.webp";
 import TravelEnquiry from "../../TravelEnquiry";
 
 const itinerary = [
@@ -126,22 +128,22 @@ const exclusions = [
 const gallery = [
 {
 image:
-"https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=900&q=85",
+"https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=900&q=82",
 title: "Beautiful Manali",
 },
 {
 image:
-"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=900&q=85",
+"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=82",
 title: "Mountain Landscapes",
 },
 {
 image:
-"https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900&q=85",
+"https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=82",
 title: "Himalayan Peaks",
 },
 {
 image:
-"https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=900&q=85",
+"https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=82",
 title: "Scenic Valleys",
 },
 ];
@@ -174,13 +176,7 @@ return (
         <div className="absolute inset-0 bg-gradient-to-r from-[#081c2b]/85 via-[#081c2b]/70 to-transparent" />
 
         <div className="relative z-10 w-full max-w-[1280px] mx-auto px-5 md:px-5 pb-16 md:pb-24 pt-36">
-            <div className="flex items-center gap-2 text-white/80 text-sm mb-6">
-                <span>Home</span>
-                <span>/</span>
-                <span>Packages</span>
-                <span>/</span>
-                <span className="text-[#a8db69]">Manali Tour Package</span>
-            </div>
+            <Breadcrumbs pagePath="/tour-packages/manali" className="mb-6" />
 
             <h1 className="fontsylegilda text-white leading-[1.15]">
                 Discover The Beauty Of <br /> Manali
@@ -316,7 +312,11 @@ return (
                     Manali promises a memorable Himalayan experience.
                 </p>
 
-                <button onClick={scrollToEnquiry}
+                <p className="mt-5 text-sm text-[#414141]">
+              Read more about the destination: <Link to="/destinations/manali" className="font-semibold text-[#1d2d50] underline underline-offset-4">Manali destination information</Link>.
+            </p>
+
+            <button onClick={scrollToEnquiry}
                     className="mt-8 inline-flex items-center gap-3 text-[#719f18] font-bold hover:gap-5 transition-all">
                     Plan Your Manali Trip
                     <ArrowRight size={19} />

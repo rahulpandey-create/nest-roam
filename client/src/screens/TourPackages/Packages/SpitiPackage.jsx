@@ -1,5 +1,7 @@
 
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import Breadcrumbs from "../../../seo/Breadcrumbs";
 import {
   MapPin,
   CalendarDays,
@@ -15,7 +17,7 @@ import {
   Compass,
 } from "lucide-react";
 
-import spitiinner from "../../../assets/spitiinner.jpg";
+import spitiinner from "../../../assets/spitiinner.webp";
 import TravelEnquiry from "../../TravelEnquiry";
 
 const itinerary = [
@@ -144,22 +146,22 @@ const exclusions = [
 const gallery = [
   {
     image:
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=900&q=85",
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=82",
     title: "Mountain Landscapes",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900&q=85",
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=82",
     title: "Himalayan Peaks",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=900&q=85",
+      "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=82",
     title: "Scenic Mountain Views",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=900&q=85",
+      "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=82",
     title: "Mountain Adventure",
   },
 ];
@@ -195,13 +197,7 @@ const SpitiPackage = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-[#101c2c] via-[#101c2c]/45 to-black/10" />
 
         <div className="relative z-10 w-full max-w-[1280px] mx-auto px-5 md:px-5 pb-16 md:pb-24 pt-36">
-          <div className="flex items-center gap-2 text-white/80 text-sm mb-6">
-            <span>Home</span>
-            <span>/</span>
-            <span>Packages</span>
-            <span>/</span>
-            <span className="text-[#a8db69]">Spiti Valley Expedition</span>
-          </div>
+          <Breadcrumbs pagePath="/tour-packages/spiti" className="mb-6" />
 
 
           <h1 class="fontsylegilda text-white leading-16.5">Discover The Spiti Valley <br />Expedition</h1>
@@ -324,6 +320,10 @@ const SpitiPackage = () => {
             <p class="text-[16px] md:text-[16px] leading-[1.55] text-[#414141] font-normal">The expedition reaches its highlight at Chandratal Lake, a stunning high-altitude lake surrounded by majestic Himalayan peaks. Every day brings a new landscape and a memorable experience.</p>
 
 
+
+            <p className="mt-5 text-sm text-[#414141]">
+              Read more about the destination: <Link to="/destinations/spiti" className="font-semibold text-[#1d2d50] underline underline-offset-4">Spiti Valley destination information</Link>.
+            </p>
 
             <button
               onClick={scrollToEnquiry}

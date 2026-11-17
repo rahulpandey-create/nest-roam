@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import Breadcrumbs from "../../seo/Breadcrumbs";
 import SectionScrollButton from "../components/SectionScrollButton";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
@@ -7,7 +9,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import shimlainner from '../../assets/shimlainner.jpg';
+import shimlainner from '../../assets/shimlainner.webp';
 import mountain from '../../assets/mountain.svg';
 import train from '../../assets/train.svg';
 import nature from '../../assets/nature.svg';
@@ -21,7 +23,7 @@ const attractions = [
         category: "Culture & Heritage",
         distance: "1 km from Shimla",
         image:
-            "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=900&q=85",
+            "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=82",
         description:
             "Enjoy panoramic mountain views, colonial architecture and the lively atmosphere of Shimla's iconic open space.",
     },
@@ -30,7 +32,7 @@ const attractions = [
         category: "Adventure & Nature",
         distance: "16 km from Shimla",
         image:
-            "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900&q=85",
+            "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=82",
         description:
             "Experience beautiful snow-covered landscapes, scenic mountain trails and exciting outdoor activities.",
     },
@@ -39,7 +41,7 @@ const attractions = [
         category: "Spiritual & Heritage",
         distance: "2 km from Shimla",
         image:
-            "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=900&q=85",
+            "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=82",
         description:
             "Visit the famous hilltop temple surrounded by peaceful forests and breathtaking views of the Himalayas.",
     },
@@ -48,7 +50,7 @@ const attractions = [
         category: "Shopping & Local Experience",
         distance: "0.5 km from Shimla",
         image:
-            "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=900&q=85",
+            "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=82",
         description:
             "Explore charming shops, local cafes, colonial buildings and the vibrant heart of Shimla.",
     },
@@ -57,7 +59,7 @@ const attractions = [
         category: "Architecture & Heritage",
         distance: "1 km from Shimla",
         image:
-            "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=900&q=85",
+            "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=900&q=82",
         description:
             "Discover one of North India's oldest churches, known for its beautiful neo-Gothic architecture.",
     },
@@ -66,7 +68,7 @@ const attractions = [
         category: "Scenic Landscapes",
         distance: "8 km from Shimla",
         image:
-            "https://images.unsplash.com/photo-1511497584788-876760111969?w=900&q=85",
+            "https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=900&q=82",
         description:
             "Take in stunning views of dense deodar forests and the peaceful natural beauty surrounding Shimla.",
     },
@@ -164,13 +166,7 @@ export default function Shimla() {
 
                     <div className="max-w-[750px]">
 
-                        <div className="flex items-center gap-2 text-white/80 text-sm mb-2">
-                            <span>Home</span>
-                            <span>/</span>
-                            <span>Destinations</span>
-                            <span>/</span>
-                            <span className="text-white">Shimla</span>
-                        </div>
+                        <Breadcrumbs pagePath="/destinations/shimla" className="mb-2" />
 
                         <h1 className="fontsylegilda text-white leading-12.5 sm:leading-normal">
                             Discover
@@ -270,6 +266,10 @@ export default function Shimla() {
                             in Shimla brings something special.
                         </p>
 
+                        <p className="mt-5 text-sm text-[#414141]">
+                            Looking for trip details? <Link to="/tour-packages/shimla" className="font-semibold text-[#1d2d50] underline underline-offset-4">Explore the Shimla tour package information</Link>.
+                        </p>
+
                         <SectionScrollButton
                             targetId="attractions"
                             className="inline-flex items-center gap-3 mt-6 text-[16px] md:text-[16px] font-semibold text-[#1d2d50] group"
@@ -299,7 +299,7 @@ export default function Shimla() {
                     <div className="relative">
 
                         <img
-                            src="https://images.unsplash.com/photo-1511497584788-876760111969?w=1000&q=85"
+                            src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1000&q=82"
                             alt="Beautiful Shimla forest landscape"
                             className="w-full h-[450px] object-cover rounded-[28px]"
                         />
@@ -664,7 +664,7 @@ export default function Shimla() {
                     </div>
 
                     <img
-                        src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1000&q=85"
+                        src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=82"
                         alt="Shimla forest and mountain scenery"
                         className="w-full h-[480px] object-cover rounded-[28px]"
                     />
@@ -713,7 +713,7 @@ export default function Shimla() {
                             >
 
                                 <img
-                                    src={`https://images.unsplash.com/${photo}?w=1000&q=85`}
+                                    src={`https://images.unsplash.com/${photo}?auto=format&fit=crop&w=1000&q=82`}
                                     alt={`Shimla travel gallery ${index + 1}`}
                                     className="w-full h-full object-cover hover:scale-110 transition duration-700"
                                 />

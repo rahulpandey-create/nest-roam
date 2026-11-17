@@ -13,6 +13,7 @@ const app = express();
 const allowedOrigins = [
   "https://nestroamholidays.com",
   "https://www.nestroamholidays.com",
+  "http://localhost:5173",
 ];
 
 app.use(helmet());

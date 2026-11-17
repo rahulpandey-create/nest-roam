@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 
-import contactImage from "../../assets/contact.jpg";
+import contactImage from "../../assets/contact.webp";
 import TravelEnquiryForm from "../components/TravelEnquiryForm";
 
 const API_URL = import.meta.env.VITE_API_URL?.replace(/\/+$/, "");
@@ -99,6 +99,8 @@ const TravelEnquiry = () => {
             <img
               src={contactImage}
               alt="Beautiful Himalayan mountain landscape"
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover object-left"
             />
           </div>

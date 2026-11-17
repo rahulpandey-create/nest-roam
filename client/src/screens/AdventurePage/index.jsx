@@ -13,11 +13,11 @@ import {
   CheckCircle2,
 } from "lucide-react";
 
-import trekking from "../../assets/trekking.png";
-import rafting from "../../assets/rafting.png";
-import paragliding from "../../assets/paragliding.png";
-import camping from "../../assets/camping.png";
-import snowactivities from "../../assets/snowactivities.png";
+import trekking from "../../assets/trekking.webp";
+import rafting from "../../assets/rafting.webp";
+import paragliding from "../../assets/paragliding.webp";
+import camping from "../../assets/camping.webp";
+import snowactivities from "../../assets/snowactivities.webp";
 
 import trekkingIcon from "../../assets/trekking.svg";
 import raftingIcon from "../../assets/rafting.svg";
@@ -25,8 +25,8 @@ import paraglidingIcon from "../../assets/paragliding.svg";
 import campingIcon from "../../assets/camping.svg";
 import snowIcon from "../../assets/snowactivity.svg";
 
-import adventurebg from "../../assets/adventurebg.png";
-import adventurebgg from "../../assets/adventurebgg.jpeg";
+import adventurebg from "../../assets/adventurebg.webp";
+import adventurebgg from "../../assets/adventurebgg.webp";
 
 const adventures = [
   {
@@ -172,7 +172,7 @@ const AdventuresPage = () => {
                                  </p>
          
                                  <h1 className="fontsylegilda leading-12.5 sm:leading-normal text-white">
-                                     Explore Our Tour Packages
+                                     Adventure Experiences in Himachal Pradesh
                                  </h1>
          
                                  <p className="mt-3 md:mt-1 max-w-xl mx-auto text-[16px] font-light leading-relaxed text-white/90 text-center">

@@ -15,7 +15,7 @@ import {
   Compass,
 } from "lucide-react";
 
-import spitiinner from "../../../assets/spitiinner.jpg";
+import spitiinner from "../../../assets/spitiinner.webp";
 import TravelEnquiry from "../../TravelEnquiry";
 
 const itinerary = [
@@ -144,22 +144,22 @@ const exclusions = [
 const gallery = [
   {
     image:
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=900&q=85",
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=82",
     title: "Mountain Landscapes",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900&q=85",
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=82",
     title: "Himalayan Peaks",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=900&q=85",
+      "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=82",
     title: "Scenic Mountain Views",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=900&q=85",
+      "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=82",
     title: "Mountain Adventure",
   },
 ];

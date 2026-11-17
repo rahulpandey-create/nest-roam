@@ -1,12 +1,14 @@
 
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import Breadcrumbs from "../../seo/Breadcrumbs";
 import SectionScrollButton from "../components/SectionScrollButton";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import manaliinner from '../../assets/manaliinner.jpg';
+import manaliinner from '../../assets/manaliinner.webp';
 import mountain from '../../assets/mountain.svg';
 import train from '../../assets/train.svg';
 import nature from '../../assets/nature.svg';
@@ -19,7 +21,7 @@ const attractions = [
         category: "Adventure & Nature",
         distance: "13 km from Manali",
         image:
-            "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&q=85",
+            "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=900&q=82",
         description:
             "Experience breathtaking mountain views, adventure activities and beautiful alpine landscapes.",
     },
@@ -28,7 +30,7 @@ const attractions = [
         category: "Culture & Heritage",
         distance: "2.5 km from Manali",
         image:
-            "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=900&q=85",
+            "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=900&q=82",
         description:
             "Discover the beautiful wooden architecture of this historic temple surrounded by cedar forests.",
     },
@@ -37,7 +39,7 @@ const attractions = [
         category: "Local Experience",
         distance: "3 km from Manali",
         image:
-            "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=900&q=85",
+            "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=82",
         description:
             "Explore charming cafes, mountain views, local markets and the relaxed Himalayan atmosphere.",
     },
@@ -46,7 +48,7 @@ const attractions = [
         category: "Mountain Escape",
         distance: "51 km from Manali",
         image:
-            "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900&q=85",
+            "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=82",
         description:
             "Witness dramatic Himalayan landscapes and snow-covered mountain scenery.",
     },
@@ -144,13 +146,7 @@ export default function Manali() {
 
                     <div className="max-w-[750px]">
 
-                        <div className="flex items-center gap-2 text-white/80 text-sm mb-2">
-                            <span>Home</span>
-                            <span>/</span>
-                            <span>Destinations</span>
-                            <span>/</span>
-                            <span className="text-white">Manali</span>
-                        </div>
+                        <Breadcrumbs pagePath="/destinations/manali" className="mb-2" />
 
                         {/* <span className="text-[20px] text-white text-sm mb-6">
               
@@ -225,12 +221,16 @@ export default function Manali() {
                         </p>
 
 
+                        <p className="mt-5 text-sm text-[#414141]">
+                            Looking for trip details? <Link to="/tour-packages/manali" className="font-semibold text-[#1d2d50] underline underline-offset-4">Explore the Manali tour package information</Link>.
+                        </p>
+
                         <SectionScrollButton targetId="attractions" className="inline-flex items-center gap-3 mt-6 text-[16px] md:text-[16px] font-semibold text-[#1d2d50] group">Discover Manali<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="text-[#8fc31f] transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></SectionScrollButton>
                     </div>
 
                     <div className="relative">
                         <img
-                            src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=1000&q=85"
+                            src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1000&q=82"
                             alt="Beautiful mountain landscape"
                             className="w-full h-[450px] object-cover rounded-[28px]"
                         />
@@ -461,7 +461,7 @@ export default function Manali() {
                     </div>
 
                     <img
-                        src="https://images.unsplash.com/photo-1511497584788-876760111969?w=1000&q=85"
+                        src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1000&q=82"
                         alt="Forest and mountain scenery"
                         className="w-full h-[480px] object-cover rounded-[28px]"
                     />
@@ -493,7 +493,7 @@ export default function Manali() {
                                     }`}
                             >
                                 <img
-                                    src={`https://images.unsplash.com/${photo}?w=1000&q=85`}
+                                    src={`https://images.unsplash.com/${photo}?auto=format&fit=crop&w=1000&q=82`}
                                     alt={`Manali travel gallery ${index + 1}`}
                                     className="w-full h-full object-cover hover:scale-110 transition duration-700"
                                 />

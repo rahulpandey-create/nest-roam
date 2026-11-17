@@ -2,8 +2,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import manalip from "../../assets/manalip.png";
-import adventurebgg from "../../assets/adventurebgg.jpeg";
+import manalip from "../../assets/manalip.webp";
+import adventurebgg from "../../assets/adventurebgg.webp";
 
 import {
   Mountain,
@@ -104,60 +104,60 @@ const About = () => {
 
       {/* ================= HERO BANNER ================= */}
       <section className="relative min-h-[350px] md:min-h-[550px] flex items-center justify-center overflow-hidden mt-[-150px]">
-               
-                                   <img
-                                       src={adventurebgg}
-                                       alt="Himachal Pradesh mountains"
-                                       className="absolute inset-0 w-full h-full object-cover"
-                                   />
-               
-                                   <div className="absolute inset-0 bg-[#101d32]/65"></div>
-               
-                                   <div className="relative z-10 text-center px-5 max-w-[900px] mx-auto mt-[265px] mb-[100px]">
-               
-                                       <p className="text-[20px] font-light mb-3 md:mb-5 text-white mt-20">
-                                           Welcome To Nestroam Holidays
-                                       </p>
-               
-                                       <h1 className="fontsylegilda leading-12.5 sm:leading-18.5 text-white mb-5">
-                                           Travel Beyond Destinations, Create Memories
-                                       </h1>
-               
-                                       <p className="mt-3 md:mt-1 max-w-xl mx-auto text-[16px] font-light leading-relaxed text-white/90 text-center">
-                                           We believe every journey has a story. Discover beautiful destinations, meaningful experiences and unforgettable moments with Nestroam Holidays.
-                                       </p>
-               
-                                       <div className="flex justify-center mt-7">
-                                         <button
-                    type="button"
-                    onClick={() =>
-                      document.getElementById("our-story")?.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start",
-                      })
-                    }
-                    className="btn-font group inline-flex min-w-[15rem] items-center justify-between gap-6 rounded-full bg-white px-8 py-4 text-lg font-normal text-neutral-900 transition hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                  >
-                    Explore Adventures
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.8"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                      className="h-6 w-6 text-lime-600 transition-transform group-hover:translate-x-1"
-                    >
-                      <path d="M4 12h16M14 6l6 6-6 6" />
-                    </svg>
-                  </button>
-                                       </div>
-               
-                                   </div>
-                               </section>
 
-      
+        <img
+          src={adventurebgg}
+          alt="Himachal Pradesh mountains"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+
+        <div className="absolute inset-0 bg-[#101d32]/65"></div>
+
+        <div className="relative z-10 text-center px-5 max-w-[900px] mx-auto mt-[265px] mb-[100px]">
+
+          <p className="text-[20px] font-light mb-3 md:mb-5 text-white mt-20">
+            Welcome To Nestroam Holidays
+          </p>
+
+          <h1 className="fontsylegilda leading-12.5 sm:leading-18.5 text-white mb-5">
+            Travel Beyond Destinations, Create Memories
+          </h1>
+
+          <p className="mt-3 md:mt-1 max-w-xl mx-auto text-[16px] font-light leading-relaxed text-white/90 text-center">
+            We believe every journey has a story. Discover beautiful destinations, meaningful experiences and unforgettable moments with Nestroam Holidays.
+          </p>
+
+          <div className="flex justify-center mt-7">
+            <button
+              type="button"
+              onClick={() =>
+                document.getElementById("our-story")?.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                })
+              }
+              className="btn-font group inline-flex min-w-[15rem] items-center justify-between gap-6 rounded-full bg-white px-8 py-4 text-lg font-normal text-neutral-900 transition hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            >
+              Explore Adventures
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+                className="h-6 w-6 text-lime-600 transition-transform group-hover:translate-x-1"
+              >
+                <path d="M4 12h16M14 6l6 6-6 6" />
+              </svg>
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+
 
       {/* ================= ABOUT INTRODUCTION ================= */}
 
@@ -178,9 +178,9 @@ const About = () => {
 
               <Mountain size={30} className="mb-3" />
 
-              <h3 className="text-[21px] font-bold">
+              <p className="text-[21px] font-bold">
                 Explore More. Experience More.
-              </h3>
+              </p>
 
               <p className="text-sm mt-2 leading-relaxed">
                 Every journey brings a new story to tell.
@@ -195,14 +195,14 @@ const About = () => {
             <span className="inline-flex bg-[#8fc31f] text-[#1d2d50] text-sm font-semibold px-7 py-2.5 rounded-full mb-5">
               About Nestroam
             </span>
-<h2 class="text-[36px] sm:text-[36px] md:text-[36px] font-bold leading-tight text-[#1d2d50] mb-3">We Make Every Journey Worth Remembering</h2>
+            <h2 className="text-[36px] sm:text-[36px] md:text-[36px] font-bold leading-tight text-[#1d2d50] mb-3">We Make Every Journey Worth Remembering</h2>
             <p class="text-[16px] leading-[1.55] text-[#414141] max-w-[600px] mb-3">Nestroam Holidays is a travel company built around the idea
               that travelling should be more than just visiting places.
               It should be about experiences, connections and memories
               that last a lifetime.</p>
-            
 
-          
+
+
 
             <div className="space-y-4 mb-8 about-nest">
 
