@@ -32,19 +32,20 @@ import Contact from './screens/Contact/index.jsx';
 import AdventurePage from './screens/AdventurePage';
 import About from './screens/About';
 import SEO from './seo/SEO';
+import NotFound from './screens/NotFound';
 
 function Home() {
   return (
     <>
-      <Banner/>
-      <FindPlace/>
-      <TrendingDestinations/>
-      <TourPackagesSection/>
-      <AdventureExperiences/>
-      <WhyChooseUs/>
-      <TravelEnquiry/>
-      <FloatingContact/>
-      <ReviewsSection/>
+      <Banner />
+      <FindPlace />
+      <TrendingDestinations />
+      <TourPackagesSection />
+      <AdventureExperiences />
+      <WhyChooseUs />
+      <TravelEnquiry />
+      <FloatingContact />
+      <ReviewsSection />
     </>
   );
 }
@@ -52,23 +53,23 @@ function Home() {
 
 export function AppContent() {
 
-useEffect(() => {
+  useEffect(() => {
 
-  const lenis = new Lenis({
-    autoRaf: true,
-    lerp: 0.08,
-    smoothWheel: true,
-    wheelMultiplier: 1,
-  });
+    const lenis = new Lenis({
+      autoRaf: true,
+      lerp: 0.08,
+      smoothWheel: true,
+      wheelMultiplier: 1,
+    });
 
-  window.lenis = lenis;
+    window.lenis = lenis;
 
-  return () => {
-    lenis.destroy();
-    delete window.lenis;
-  };
+    return () => {
+      lenis.destroy();
+      delete window.lenis;
+    };
 
-}, []);
+  }, []);
 
 
   return (
@@ -114,6 +115,7 @@ useEffect(() => {
           <Route path="SpitiPackage" element={<Navigate to="/tour-packages/spiti" replace />} />
           <Route path="KasolPackage" element={<Navigate to="/tour-packages/kasol" replace />} />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </>);

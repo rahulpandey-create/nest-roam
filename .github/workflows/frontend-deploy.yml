@@ -52,6 +52,9 @@ jobs:
           test -d dist/assets
           test -f dist/robots.txt
           test -f dist/.htaccess
+          test -f dist/404.html
+          test -f dist/contact.html
+          test -f dist/about.html
           test -f dist/destinations/manali.html
           test -f dist/tour-packages/spiti.html
           if [ "$VITE_SITE_INDEXABLE" = "true" ]; then

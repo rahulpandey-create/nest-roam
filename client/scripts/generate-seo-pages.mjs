@@ -144,6 +144,27 @@ for (const [route, page] of Object.entries(seoConfig.routes)) {
   await writeFile(outputPath, output, "utf8");
 }
 
+// Generate the custom 404 document.
+// The server's ErrorDocument directive serves this file with HTTP 404 status.
+const notFoundHead = [
+  `<title>Page Not Found | ${escapeHtml(site.name)}</title>`,
+  `<meta name="description" content="The page you requested could not be found. Explore Nestroam Holidays or contact us for travel enquiries." />`,
+  `<meta name="robots" content="noindex, nofollow" />`,
+].join("\n    ");
+
+const notFoundDocument = template.replace(
+  marker,
+  `<!-- SEO_HEAD_START -->\n    ${notFoundHead}\n    <!-- SEO_HEAD_END -->`,
+);
+
+await writeFile(
+  path.join(distDirectory, "404.html"),
+  notFoundDocument,
+  "utf8",
+);
+
+console.log("Generated custom 404.html.");
+
 const robotsContent = siteIndexable
   ? `User-agent: *\nAllow: /\n\nSitemap: ${site.url}/sitemap.xml\n`
   : "User-agent: *\nAllow: /\n";
