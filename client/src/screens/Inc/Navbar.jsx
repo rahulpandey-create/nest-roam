@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import nestroamlogo from "../../assets/nestroam-logo.webp";
@@ -17,6 +17,17 @@ const Navbar = () => {
     type: "",
     message: "",
   });
+
+  // Pause background smooth scrolling while the booking modal is open.
+  useEffect(() => {
+    if (!isBookingOpen) return;
+
+    window.lenis?.stop();
+
+    return () => {
+      window.lenis?.start();
+    };
+  }, [isBookingOpen]);
 
   // Close Navigation Menu
   const closeMenu = () => {
@@ -355,7 +366,8 @@ const Navbar = () => {
           onClick={() => setIsBookingOpen(false)}
         >
           <div
-            className="relative bg-white w-full max-w-[750px] max-h-[90vh] overflow-y-auto rounded-[25px] p-6 md:p-10"
+            data-lenis-prevent
+            className="relative bg-white w-full max-w-[750px] max-h-[90vh] overflow-y-auto overscroll-contain rounded-[25px] p-6 md:p-10"
             onClick={(e) => e.stopPropagation()}
           >
 
