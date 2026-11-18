@@ -307,13 +307,13 @@ const SpitiPackage = () => {
       {/* OVERVIEW */}
       <section
         id="overview"
-        className="scroll-mt-28 max-w-[1280px] mx-auto px-5 md:px-5 py-20 md:py-28"
+        className="scroll-mt-28 max-w-[1280px] mx-auto px-5 md:px-5 py-9 md:py-28"
       >
         <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-20 items-center">
           <div>
 
-            <span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-6">Discover The Experience</span>
-            <h2 class="text-[36px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50] mb-5">Experience The Untouched Beauty Of Spiti Valley</h2>
+            <span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">Discover The Experience</span>
+            <h2 class="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50] mb-5">Experience The Untouched Beauty Of Spiti Valley</h2>
 
             <p class="text-[16px] md:text-[16px] leading-[1.55] text-[#414141] font-normal mb-2">Discover the raw beauty of Spiti Valley with this 5 Nights / 6 Days Himalayan expedition. Journey through dramatic mountain landscapes, ancient monasteries and some of the most beautiful remote villages in the Himalayas.</p>
             <p class="text-[16px] md:text-[16px] leading-[1.55] text-[#414141] font-normal mb-2">Explore Langza, Hikkim and Komic, discover the spiritual charm of Key Monastery, cross the iconic Chicham Bridge and experience the peaceful beauty of Pin Valley and Tabo.</p>
@@ -352,13 +352,13 @@ const SpitiPackage = () => {
       {/* HIGHLIGHTS */}
       <section
         id="highlights"
-        className="scroll-mt-28 bg-[#F6F7F8] py-20 md:py-24 m-5 rounded-[40px]"
+        className="scroll-mt-28 bg-[#F6F7F8] py-9 md:py-24 m-5 rounded-[28px] md:rounded-[40px]"
       >
         <div className="max-w-[1280px] mx-auto px-5 md:px-5">
           <div className="max-w-2xl mb-12">
 
-            <span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-6">What Makes It Special</span>
-            <h2 class="text-[36px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50] mb-5">Spiti Trip Highlights</h2>
+            <span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">What Makes It Special</span>
+            <h2 class="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50] mb-5">Spiti Trip Highlights</h2>
             <p class="text-[16px] md:text-[16px] leading-[1.55] text-[#414141] font-normal mb-2">From ancient monasteries to high-altitude villages, discover
               the unforgettable experiences waiting for you in Spiti.</p>
 
@@ -421,11 +421,11 @@ const SpitiPackage = () => {
       {/* ITINERARY */}
       <section
         id="itinerary"
-        className="scroll-mt-28 max-w-[1280px] mx-auto px-5 md:px-5 py-12 md:py-12"
+        className="scroll-mt-28 max-w-[1280px] mx-auto px-5 md:px-5 py-5 md:py-12"
       >
 
-        <div class="text-center mb-10 md:mb-14"><span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-7 py-2.5 rounded-full mb-5">Your Journey</span>
-          <h2 class="text-[36px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50] mb-4">6 Days Of Spiti Exploration</h2>
+        <div class="text-center mb-10 md:mb-14"><span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">Your Journey</span>
+          <h2 class="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50] mb-4">6 Days Of Spiti Exploration</h2>
           <p class="text-[16px] leading-[1.55] text-[#414141] font-normal max-w-[650px] mx-auto">Explore the journey day by day and discover the incredible landscapes, villages and experiences of Spiti Valley.</p>
         </div>
 
@@ -551,8 +551,8 @@ const SpitiPackage = () => {
         <div className="max-w-[1280px] mx-auto px-5 md:px-5">
 
           <div class="text-center mb-10 md:mb-14">
-            <span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-7 py-2.5 rounded-full mb-5">Package Details</span>
-            <h2 class="text-[36px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50] mb-4">What's Included?</h2>
+            <span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">Package Details</span>
+            <h2 class="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50] mb-4">What's Included?</h2>
             <p class="text-[16px] leading-[1.55] text-[#414141] font-normal max-w-[650px] mx-auto">Know what is covered in your Spiti expedition and plan your journey <br />with complete clarity.
 
             </p></div>
@@ -614,13 +614,13 @@ const SpitiPackage = () => {
       {/* GALLERY */}
       <section
         id="gallery"
-        className="scroll-mt-28 max-w-[1280px] mx-auto px-5 md:px-5 py-12 md:py-12"
+        className="scroll-mt-28 max-w-[1280px] mx-auto px-5 md:px-5 py-5 md:py-12"
       >
 
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-12">
           <div class="md:col-span-7">
-            <span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-6"> Moments & Memories</span>
-            <h2 class="text-[36px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">Explore Spiti Valley</h2>
+            <span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6"> Moments & Memories</span>
+            <h2 class="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">Explore Spiti Valley</h2>
           </div><div class="hidden md:block md:col-span-1"></div>
           <div class="md:col-span-4 max-w-[640px] lg:pt-1">
             <p class="text-[16px] md:text-[16px] leading-[1.55] text-[#414141] font-normal">A glimpse into the breathtaking landscapes, ancient heritage and unforgettable experiences of Spiti.</p>
@@ -650,32 +650,7 @@ const SpitiPackage = () => {
       </section>
 
       {/* FINAL CTA */}
-      <section className="px-5 md:px-10 pb-12 md:pb-12">
-        <div className="max-w-[1280px] mx-auto bg-[#1d2d50] rounded-[28px] md:rounded-[36px] px-7 md:px-16 py-12 md:py-16 relative overflow-hidden">
-          <div className="absolute w-72 h-72 rounded-full bg-[#8fc31f]/10 -right-20 -top-20 blur-2xl" />
-          <div className="absolute w-60 h-60 rounded-full bg-[#8fc31f]/10 -left-20 -bottom-28 blur-2xl" />
-
-          <div className="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
-            <div className="max-w-2xl">
-              <span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-6">Your Spiti Adventure Awaits</span>
-              <h2 class="text-[36px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#ffffff] mb-3">Ready To Discover Spiti Valley?</h2>
-              <p class="text-[16px] md:text-[16px] leading-[1.55] text-[#fdfdfd] font-normal">Explore the extraordinary landscapes of the Himalayas. Get in touch with our team for package details and availability.
-
-              </p>
-
-
-            </div>
-
-            <button
-              onClick={scrollToEnquiry}
-              className="shrink-0 bg-[#fff] hover:bg-[#a8db69] text-[#172b3a] px-8 py-4 rounded-full font-bold flex items-center gap-3 transition-all"
-            >
-              Enquire Now
-              <ArrowRight size={19} />
-            </button>
-          </div>
-        </div>
-      </section>
+      
 
       {/* EXISTING ENQUIRY COMPONENT */}
       <section id="package-enquiry" className="scroll-mt-24">

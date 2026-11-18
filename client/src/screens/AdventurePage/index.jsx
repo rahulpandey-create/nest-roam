@@ -165,7 +165,7 @@ const AdventuresPage = () => {
          
                              <div className="absolute inset-0 bg-[#101d32]/65"></div>
          
-                             <div className="relative z-10 text-center px-5 max-w-[900px] mx-auto mt-[265px] mb-[100px]">
+                             <div className="relative z-10 text-center px-5 max-w-[900px] mx-auto mt-[265px] md:mb-[100px] mb-[48px]">
          
                                  <p className="text-[20px] font-light mb-3 md:mb-1 text-white mt-20">
                                      Explore With Nestroam
@@ -216,7 +216,7 @@ const AdventuresPage = () => {
       {/* ADVENTURE ACTIVITIES */}
       <section
         id="adventure-activities"
-        className="py-12 md:py-10 px-5 md:px-10"
+        className="py-9 md:py-10 px-5 md:px-10"
         style={{
           backgroundImage: `url(${adventurebg})`,
           backgroundSize: "cover",
@@ -226,16 +226,16 @@ const AdventuresPage = () => {
 
         <div className="max-w-[1280px] mx-auto">
 
-          <div className="text-center mb-14">
+          <div className="text-center mb-10 md:mb-14">
 
-            <span className="inline-flex bg-[#8fc31f] text-[#1d2d50] text-sm font-semibold px-7 py-2.5 rounded-full mb-5">
+            <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">
               Explore Activities
             </span>
 
-            <h2 className="text-[35px] md:text-[35px] font-bold text-[#1d2d50] mb-3">
+            <h2 className="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">
               Adventures For Every Explorer
             </h2>
-            <p class="text-[16px] leading-[1.55] text-[#414141] font-normal max-w-[650px] mx-auto">Whether you are a thrill seeker or a nature lover,
+            <p class="text-[#414141] leading-[1.55] mt-3  md:mt-7">Whether you are a thrill seeker or a nature lover,
               find the perfect<br/> adventure for your next getaway.</p>
 
           
@@ -386,15 +386,15 @@ const AdventuresPage = () => {
       </section>
 
       {/* WHY CHOOSE US */}
-      <section className="bg-[#F6F7F8] py-16 px-5 md:px-10 m-5 rounded-[40px]">
+      <section className="bg-[#F6F7F8] py-10 md:py-16 px-5 md:px-10 m-5 rounded-[28px] md:rounded-[40px]">
 
         <div className="max-w-[1280px] mx-auto">
             
 
           <div className="text-center mb-12">
-            <span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-7 py-2.5 rounded-full mb-5">The Nestroam Difference</span>
-            <h2 class="text-[35px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50] mb-3">Adventure With Confidence</h2>
-            <p class="text-[16px] leading-[1.55] text-[#414141] font-normal max-w-[650px] mx-auto">We believe every adventure should be exciting,
+            <span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">The Nestroam Difference</span>
+            <h2 class="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">Adventure With Confidence</h2>
+            <p class="text-[#414141] leading-[1.55] mt-3  md:mt-7">We believe every adventure should be exciting,
               <br/>comfortable and memorable.</p>
           </div>
 
@@ -410,7 +410,7 @@ const AdventuresPage = () => {
                 >
 
                   <div className="w-[65px] h-[65px] bg-[#0000] rounded-full flex items-center justify-center mx-auto mb-5">
-                    <Icon size={29} className="text-[#1d2d50]" />
+                    <Icon size={48} className="text-[#1d2d50]" />
                   </div>
 
                   <h3 className="text-[#1d2d50] font-bold text-[19px] mb-3" style={{ fontSize: "20px", fontWeight: "600" }}>
@@ -431,9 +431,9 @@ const AdventuresPage = () => {
       </section>
 
       {/* FINAL CTA */}
-      <section className="px-5 md:px-10 pb-16 md:pb-7">
+      <section className="px-5 md:px-10 pb-7 md:pb-7">
 
-        <div className="max-w-[1280px] mx-auto relative rounded-[28px] overflow-hidden bg-[#1d2d50] px-6 py-14 md:py-20 text-center">
+        <div className="max-w-[1280px] mx-auto relative rounded-[28px] overflow-hidden bg-[#1d2d50] px-6 py-10 md:py-14 md:py-20 text-center">
 
           <div
             className=" inset-0 opacity-10"
@@ -443,8 +443,8 @@ const AdventuresPage = () => {
               backgroundPosition: "center",
             }}
           />
-          <div class="text-center mb-0"><span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-7 py-2.5 rounded-full mb-5">Your Adventure Awaits</span>
-          <h2 class="text-[35px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#fff] mb-3">Ready To Make Your Next Trip
+          <div class="text-center mb-0"><span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">Your Adventure Awaits</span>
+          <h2 class="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50] text-[#fff] mb-3">Ready To Make Your Next Trip
 Unforgettable?</h2>
           <p class="text-[16px] leading-[1.55] text-[#fff] font-normal max-w-[650px] mx-auto">Let's plan an exciting Himalayan adventure together. Tell us what excites you and we will help you make it happen.</p>
           <Link

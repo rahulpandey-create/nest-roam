@@ -34,11 +34,11 @@ const FindPlace = () => {
   };
 
   return (
-    <section className="w-full bg-white py-10 form-style border-b-1 border-[#D9D9D9]">
+    <section className="w-full bg-white py-8 md:py-10 form-style border-b-1 border-[#D9D9D9]">
       <div className="max-w-[1280px] mx-auto px-4 md:px-10 xl:px-4">
 
         {/* Heading */}
-        <h2 className="text-[32px] md:text-[32px] font-bold text-[#1d2d50] mb-8">
+        <h2 className="text-[32px] md:text-[32px] font-bold text-[#1d2d50] mb-5 md:mb-8">
           Find Your Place
         </h2>
 
@@ -52,7 +52,7 @@ const FindPlace = () => {
                 setShowDestinations(!showDestinations);
                 setShowTravellers(false);
               }}
-              className="w-full h-[64px] bg-[#f3f4f6] rounded-full px-8 flex items-center gap-3 text-left hover:bg-[#ebedf0] transition"
+              className="w-full h-[54px] md:h-[64px] bg-[#f3f4f6] rounded-full px-8 flex items-center gap-3 text-left hover:bg-[#ebedf0] transition"
             >
               <MapPin size={28} strokeWidth={1.5} className="text-[#1d2d50] shrink-0" />
 
@@ -82,7 +82,7 @@ const FindPlace = () => {
           </div>
 
           {/* Travel Date */}
-          <div className="relative h-[64px] bg-[#f3f4f6] rounded-full px-8 flex items-center gap-3">
+          <div className="relative h-[54px] md:h-[64px] bg-[#f3f4f6] rounded-full px-8 flex items-center gap-3">
             <CalendarDays
               size={28}
               strokeWidth={1.5}
@@ -105,7 +105,7 @@ const FindPlace = () => {
                 setShowTravellers(!showTravellers);
                 setShowDestinations(false);
               }}
-              className="w-full h-[64px] bg-[#f3f4f6] rounded-full px-8 flex items-center gap-3 text-left hover:bg-[#ebedf0] transition"
+              className="w-full h-[54px] md:h-[64px] bg-[#f3f4f6] rounded-full px-8 flex items-center gap-3 text-left hover:bg-[#ebedf0] transition"
             >
               <Users
                 size={28}
@@ -163,7 +163,7 @@ const FindPlace = () => {
           {/* Search Button */}
           <button
             onClick={handleSearch}
-            className="h-[64px] rounded-full border-[1.5px] border-[#1d2d50] flex items-center justify-center gap-3 text-[16px] md:text-[16px] text-[#333] hover:bg-[#1d2d50] hover:text-white transition-all duration-300"
+            className="h-[54px] md:h-[64px] mt-4 md:mt-0 rounded-full border-[1.5px] border-[#1d2d50] flex items-center justify-center gap-3 text-[16px] md:text-[16px] text-[#333] hover:bg-[#1d2d50] hover:text-white transition-all duration-300"
           >
             <Search size={28} strokeWidth={1.5} />
             <span>Search Packages</span>

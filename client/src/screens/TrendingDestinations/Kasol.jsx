@@ -239,21 +239,21 @@ export default function Kasol() {
             </section>
 
             {/* INTRODUCTION */}
-            <section className="py-20 md:py-28">
+            <section className="py-9 md:py-28">
 
-                <div className="max-w-[1280px] mx-auto grid md:grid-cols-2 gap-14 items-center px-4">
+                <div className="max-w-[1280px] mx-auto grid md:grid-cols-2 gap-4 md:gap-14 items-center px-4">
 
                     <div>
 
-                        <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-5">
+                        <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">
                             The Beauty Of Parvati Valley
                         </span>
 
-                        <h2 className="text-[36px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">
+                        <h2 className="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">
                             A little closer to the mountains.
                         </h2>
 
-                        <p className="text-[#414141] leading-[1.55] mt-7">
+                        <p className="text-[#414141] leading-[1.55] mt-3  md:mt-7">
                             Nestled along the beautiful Parvati River,
                             Kasol is a peaceful Himalayan destination where
                             lush green valleys, towering mountains and
@@ -272,7 +272,7 @@ export default function Kasol() {
 
                         <SectionScrollButton
                             targetId="attractions"
-                            className="inline-flex items-center gap-3 mt-6 text-[16px] md:text-[16px] font-semibold text-[#1d2d50] group"
+                            className="inline-flex items-center gap-3 mt-3.5 md:mt-6 text-[16px] md:text-[16px] font-semibold text-[#1d2d50] group"
                         >
                             Discover Kasol
 
@@ -319,21 +319,21 @@ export default function Kasol() {
             </section>
 
             {/* HIGHLIGHTS */}
-            <section className="bg-[#F6F7F8] py-16 px-5 md:px-10 m-5 rounded-[40px]">
+            <section className="bg-[#F6F7F8] py-9 md:py-16 px-5 md:px-10 m-5 rounded-[40px]">
 
                 <div className="max-w-[1280px] mx-auto text-center">
 
                     <div className="text-center mb-10 md:mb-14">
 
-                        <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-7 py-2.5 rounded-full mb-5">
+                        <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">
                             Why Visit Kasol
                         </span>
 
-                        <h2 className="text-[36px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50] mb-4">
+                        <h2 className="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">
                             More than just a destination
                         </h2>
 
-                        <p className="text-[16px] leading-[1.55] text-[#414141] font-normal max-w-[650px] mx-auto">
+                        <p className="text-[16px] leading-[1.55] text-[#414141] font-normal max-w-[650px] mx-auto mt-3 md:mt-4">
                             Discover the experiences that make Kasol a favourite
                             <br />
                             Himalayan getaway.
@@ -341,7 +341,7 @@ export default function Kasol() {
 
                     </div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mt-12">
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-5 mt-12">
 
                         {experiences.map((item, index) => (
 
@@ -382,19 +382,19 @@ export default function Kasol() {
             </section>
 
             {/* ATTRACTIONS */}
-            <section id="attractions" className="scroll-mt-24 py-20 md:py-28 px-5 md:px-10">
+            <section id="attractions" className="scroll-mt-24 py-5 md:py-28 px-5 md:px-10">
 
                 <div className="max-w-[1280px] mx-auto">
 
-                    <div className="grid grid-cols-1 md:grid-cols-12 gap-6 mb-12">
+                    <div className="grid grid-cols-1 md:grid-cols-12 gap-3.5 md:gap-6 mb-5 md:mb-12">
 
                         <div className="md:col-span-7">
 
-                            <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-5">
+                            <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">
                                 Explore The Region
                             </span>
 
-                            <h2 className="text-[36px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">
+                            <h2 className="text-[32px] md:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">
                                 Places to explore
                             </h2>
 
@@ -424,7 +424,7 @@ export default function Kasol() {
                         grabCursor={true}
                         watchOverflow={false}
                         loop={attractions.length > 3}
-                        className="places-swiper mt-12"
+                        className="places-swiper mt-6 md:mt-12"
                         breakpoints={{
                             640: { slidesPerView: 2, spaceBetween: 20 },
                             1024: { slidesPerView: 2.5, spaceBetween: 24 },
@@ -452,7 +452,7 @@ export default function Kasol() {
 
                                     </div>
 
-                                    <div className="p-6">
+                                    <div className="p-6 h-68 md:h-auto">
 
                                         <p className="text-[#719c40] text-[14px] font-semibold uppercase tracking-wider">
                                             {place.category}
@@ -551,33 +551,33 @@ export default function Kasol() {
             </section>
 
             {/* ITINERARY */}
-            <section className="bg-[#1d2d50] text-white py-16 md:py-28 px-5 md:px-10 m-5 rounded-[40px]">
+            <section className="bg-[#1d2d50] text-white py-9 md:py-28 px-5 md:px-10 m-5 rounded-[20px] md:rounded-[40px]">
 
                 <div className="max-w-[1280px] mx-auto">
 
                     <div className="text-center">
 
-                        <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-7 py-2.5 rounded-full mb-5">
+                        <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">
                             Make Every Moment Count
                         </span>
 
-                        <h2 className="text-[36px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#fff] mb-4">
+                        <h2 className="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#ffffff]">
                             Your 3-day Kasol escape
                         </h2>
 
-                        <p className="text-[16px] leading-[1.55] text-[#fff] font-normal max-w-[650px] mx-auto">
+                        <p className="text-[16px] leading-[1.55] text-[#ffffff] font-normal max-w-[650px] mx-auto mt-3 md:mt-4">
                             A suggested itinerary to make the most of your mountain getaway.
                         </p>
 
                     </div>
 
-                    <div className="grid md:grid-cols-3 gap-7 mt-16">
+                    <div className="grid md:grid-cols-3 gap-7 mt-8 md:mt-16">
 
                         {itinerary.map((item, index) => (
 
                             <div
                                 key={item.day}
-                                className="border border-white/15 rounded-2xl p-7 md:p-9 hover:bg-white/5 transition"
+                                className="border border-white/15 rounded-2xl p-5 md:p-7 md:p-9 hover:bg-white/5 transition"
                             >
 
                                 <span className="text-[#a8db69] font-bold text-sm tracking-widest">
@@ -599,7 +599,7 @@ export default function Kasol() {
                                     {item.places}
                                 </p>
 
-                                <p className="text-white/80 leading-7 mt-5 text-sm">
+                                <p className="text-white/80 leading-7 mt-1 md:mt-5 text-sm">
                                     {item.description}
                                 </p>
 
@@ -614,21 +614,21 @@ export default function Kasol() {
             </section>
 
             {/* BEST TIME TO VISIT */}
-            <section className="py-20 px-5 md:px-10 border-b border-[#D9D9D9]">
+            <section className="py-6 md:py-20 px-5 md:px-10 border-b border-[#D9D9D9]">
 
-                <div className="max-w-[1280px] mx-auto grid md:grid-cols-2 gap-12 items-center">
+                <div className="max-w-[1280px] mx-auto grid md:grid-cols-2 gap-6 md:gap-12 items-center">
 
                     <div>
 
-                        <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-6">
+                        <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">
                             Plan Your Journey
                         </span>
 
-                        <h2 className="text-[36px] leading-tight font-bold text-[#1d2d50] mb-4">
+                        <h2 className="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">
                             Every season has its magic.
                         </h2>
 
-                        <p className="text-[16px] leading-[1.55] text-[#414141] font-normal">
+                        <p className="text-[16px] leading-[1.55] text-[#414141] font-normal max-w-[650px] mx-auto mt-3 md:mt-4">
                             Kasol offers different experiences throughout the year.
                             Choose your season depending on the kind of mountain
                             escape you are looking for.
@@ -677,21 +677,21 @@ export default function Kasol() {
             </section>
 
             {/* GALLERY */}
-            <section className="px-5 md:px-10 py-16">
+            <section className="px-5 md:px-10 py-8 md:py-16">
 
                 <div className="max-w-[1280px] mx-auto">
 
                     <div className="text-center mb-10">
 
-                        <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-5">
+                        <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">
                             Moments That Stay
                         </span>
 
-                        <h2 className="text-[35px] font-bold mb-4">
+                        <h2 className="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">
                             Kasol in pictures
                         </h2>
 
-                        <p className="text-[16px] leading-[1.55] text-[#414141] font-normal max-w-[650px] mx-auto">
+                        <p className="text-[16px] leading-[1.55] text-[#414141] font-normal max-w-[650px] mx-auto mt-3 md:mt-4">
                             Explore the breathtaking beauty of Kasol through
                             stunning riverside landscapes, mountain villages
                             and unforgettable adventures.
@@ -710,7 +710,7 @@ export default function Kasol() {
 
                             <div
                                 key={photo}
-                                className={`overflow-hidden rounded-[28px] ${
+                                className={`overflow-hidden rounded-[20px] md:rounded-[28px] ${
                                     index === 0 ? "md:col-span-2 md:row-span-2" : ""
                                 }`}
                             >
@@ -732,17 +732,17 @@ export default function Kasol() {
             </section>
 
             {/* FAQ */}
-            <section className="bg-[#F6F7F8] py-20 px-5 md:px-10 m-5 rounded-[40px]">
+            <section className="bg-[#F6F7F8] md:py-20 py-9 px-5 md:px-10 mt-0 md:mt-5 m-5 md:m-5 rounded-[20px] md:rounded-[40px]">
 
                 <div className="max-w-[850px] mx-auto">
 
                     <div className="text-center mb-12">
 
-                        <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-5">
+                        <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">
                             Got Questions
                         </span>
 
-                        <h2 className="text-4xl font-bold mt-0">
+                        <h2 className="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">
                             Frequently asked questions
                         </h2>
 

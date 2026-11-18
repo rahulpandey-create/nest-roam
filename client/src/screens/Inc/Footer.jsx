@@ -120,7 +120,7 @@ const Footer = () => {
           </div>
 
           {/* Contact Section */}
-          <div className="border-white/35 md:border-l md:pl-8 xl:border-l xl:pl-8">
+          <div className="border-white/35 md:border-l md:pl-8 xl:border-l xl:pl-5">
 
             <h3 className="mb-8 text-[20px] font-semibold" style={{ fontSize: "20px" }}>
               Get In Touch
@@ -130,7 +130,7 @@ const Footer = () => {
 
               <a
                 href={`tel:${phone}`}
-                className="flex items-center gap-3 text-[18px] text-white/85 transition hover:text-[#8fc31f]"
+                className="flex items-center gap-2 text-[16px] text-white/85 transition hover:text-[#8fc31f]"
               >
                 <PhoneIcon />
                 {displayPhone}
@@ -140,7 +140,7 @@ const Footer = () => {
                 href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}&su=${encodeURIComponent("Travel Enquiry")}&body=${encodeURIComponent("Hello,\n\nI would like to enquire about your travel services.\n\n")}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-[16px] text-white/85 transition hover:text-[#8fc31f] break-all"
+                className="flex items-center gap-2 text-[16px] text-white/85 transition hover:text-[#8fc31f] break-all" style={{ fontSize: "15px" }}
               >
                 <MailIcon />
                 {email}
@@ -149,7 +149,7 @@ const Footer = () => {
             </div>
 
             {/* Social Media */}
-            <div className="mt-20 flex flex-wrap items-center gap-5">
+            <div className="mt-10 md:mt-20 flex flex-wrap items-center gap-5">
 
               <h3 className="text-[25px] font-semibold">
                 Follow Us :
@@ -185,7 +185,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Footer */}
-        <div className="fontgoogle flex flex-col justify-between gap-5 border-t border-white/40 py-8 text-[16px] text-white/95 md:flex-row md:items-center md:text-[18px]">
+        <div className="fontgoogle flex flex-col justify-between gap-5 border-t border-white/40 py-8 text-white/95 md:flex-row md:items-center text-[14px] md:text-[18px]">
 
           <p>
             © 2026 NESTROAM HOLIDAYS. All Rights Reserved.
@@ -226,7 +226,7 @@ const FacebookIcon = () => (
 );
 
 const InstagramIcon = () => (
-  <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+  <svg width="28" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
     <rect x="3" y="3" width="18" height="18" rx="5" />
     <circle cx="12" cy="12" r="4" />
     <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
@@ -234,7 +234,7 @@ const InstagramIcon = () => (
 );
 
 const YoutubeIcon = () => (
-  <svg width="36" height="30" viewBox="0 0 24 24" fill="currentColor">
+  <svg width="28" height="34" viewBox="0 0 24 24" fill="currentColor">
     <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z" />
   </svg>
 );

@@ -91,22 +91,22 @@ const ReviewsSection = () => {
   return (
     <section className="w-full px-3 md:px-5 pb-5">
 
-      <div className="relative w-full overflow-hidden bg-[#F6F7F8] rounded-[30px] md:rounded-[40px] py-16 md:py-20 lg:py-[65px]">
+      <div className="relative w-full overflow-hidden bg-[#F6F7F8] rounded-[30px] md:rounded-[40px] py-9 md:py-20 lg:py-[65px]">
 
         <div className="w-full max-w-[1280px] mx-auto px-4 md:px-4">
 
           {/* Section Header */}
-          <div className="text-center mb-12 md:mb-[60px]">
+          <div className="text-center mb-6 md:mb-[60px]">
 
-            <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-9 py-2 rounded-full mb-5">
+            <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">
               Reviews
             </span>
 
-            <h2 className="text-[36px] sm:text-[36px] md:text-[36px] font-bold leading-tight text-[#1d2d50] mb-4">
+            <h2 className="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">
               What Our Travellers Say
             </h2>
 
-            <p className="text-[16px] leading-[1.55] text-[#333333] max-w-[650px] mx-auto">
+            <p className="text-[16px] leading-[1.55] text-[#414141] font-normal max-w-[650px] mx-auto mt-3 md:mt-4">
               Hear from our happy travellers and discover the unforgettable
               <br className="hidden md:block" />
               experiences that make every journey special.

@@ -104,65 +104,65 @@ const About = () => {
 
       {/* ================= HERO BANNER ================= */}
       <section className="relative min-h-[350px] md:min-h-[550px] flex items-center justify-center overflow-hidden mt-[-150px]">
-
-        <img
-          src={adventurebgg}
-          alt="Himachal Pradesh mountains"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-
-        <div className="absolute inset-0 bg-[#101d32]/65"></div>
-
-        <div className="relative z-10 text-center px-5 max-w-[900px] mx-auto mt-[265px] mb-[100px]">
-
-          <p className="text-[20px] font-light mb-3 md:mb-5 text-white mt-20">
-            Welcome To Nestroam Holidays
-          </p>
-
-          <h1 className="fontsylegilda leading-12.5 sm:leading-18.5 text-white mb-5">
-            Travel Beyond Destinations, Create Memories
-          </h1>
-
-          <p className="mt-3 md:mt-1 max-w-xl mx-auto text-[16px] font-light leading-relaxed text-white/90 text-center">
-            We believe every journey has a story. Discover beautiful destinations, meaningful experiences and unforgettable moments with Nestroam Holidays.
-          </p>
-
-          <div className="flex justify-center mt-7">
-            <button
-              type="button"
-              onClick={() =>
-                document.getElementById("our-story")?.scrollIntoView({
-                  behavior: "smooth",
-                  block: "start",
-                })
-              }
-              className="btn-font group inline-flex min-w-[15rem] items-center justify-between gap-6 rounded-full bg-white px-8 py-4 text-lg font-normal text-neutral-900 transition hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-            >
-              Explore Adventures
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-                className="h-6 w-6 text-lime-600 transition-transform group-hover:translate-x-1"
-              >
-                <path d="M4 12h16M14 6l6 6-6 6" />
-              </svg>
-            </button>
-          </div>
-
-        </div>
-      </section>
+               
+                                   <img
+                                       src={adventurebgg}
+                                       alt="Himachal Pradesh mountains"
+                                       className="absolute inset-0 w-full h-full object-cover object-right"
+                                   />
+               
+                                   <div className="absolute inset-0 bg-[#101d32]/65"></div>
+               
+                                   <div className="relative z-10 text-center px-5 max-w-[900px] mx-auto mt-[265px] mb-[100px]">
+               
+                                       <p className="text-[20px] font-light mb-3 md:mb-5 text-white mt-20">
+                                           Welcome To Nestroam Holidays
+                                       </p>
+               
+                                       <h1 className="fontsylegilda leading-12.5 sm:leading-18.5 text-white mb-5">
+                                           Travel Beyond Destinations, Create Memories
+                                       </h1>
+               
+                                       <p className="mt-3 md:mt-1 max-w-xl mx-auto text-[16px] font-light leading-relaxed text-white/90 text-center">
+                                           We believe every journey has a story. Discover beautiful destinations, meaningful experiences and unforgettable moments with Nestroam Holidays.
+                                       </p>
+               
+                                       <div className="flex justify-center mt-7">
+                                         <button
+                    type="button"
+                    onClick={() =>
+                      document.getElementById("our-story")?.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                      })
+                    }
+                    className="btn-font group inline-flex min-w-[15rem] items-center justify-between gap-6 rounded-full bg-white px-8 py-4 text-lg font-normal text-neutral-900 transition hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                  >
+                    Explore Adventures
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                      className="h-6 w-6 text-lime-600 transition-transform group-hover:translate-x-1"
+                    >
+                      <path d="M4 12h16M14 6l6 6-6 6" />
+                    </svg>
+                  </button>
+                                       </div>
+               
+                                   </div>
+                               </section>
 
 
 
 
       {/* ================= ABOUT INTRODUCTION ================= */}
 
-      <section id="our-story" className="py-16 md:py-24 px-5 md:px-10">
+      <section id="our-story" className="py-9 md:py-24 px-5 md:px-10">
 
         <div className="max-w-[1280px] mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-center">
 
@@ -193,11 +193,11 @@ const About = () => {
 
           <div className="pt-5 md:pt-0">
 
-            <span className="inline-flex bg-[#8fc31f] text-[#1d2d50] text-sm font-semibold px-7 py-2.5 rounded-full mb-5">
+            <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">
               About Nestroam
             </span>
-            <h2 className="text-[36px] sm:text-[36px] md:text-[36px] font-bold leading-tight text-[#1d2d50] mb-3">We Make Every Journey Worth Remembering</h2>
-            <p class="text-[16px] leading-[1.55] text-[#414141] max-w-[600px] mb-3">Nestroam Holidays is a travel company built around the idea
+            <h2 class="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">We Make Every Journey Worth Remembering</h2>
+            <p class="text-[#414141] leading-[1.55] mt-3  md:mt-7">Nestroam Holidays is a travel company built around the idea
               that travelling should be more than just visiting places.
               It should be about experiences, connections and memories
               that last a lifetime.</p>
@@ -205,7 +205,7 @@ const About = () => {
 
 
 
-            <div className="space-y-4 mb-8 about-nest">
+            <div className="space-y-4 mt-5 md:mt-0 mb-8 about-nest">
 
               {highlights.map((item, index) => (
                 <div key={index} className="flex items-center gap-3 ">
@@ -239,9 +239,9 @@ const About = () => {
 
       {/* ================= BRAND HIGHLIGHTS ================= */}
 
-      <section className="bg-[#fff] py-12 md:py-10 px-5 md:px-10">
+      <section className="bg-[#fff] py-12 pt-0 md:pt-12 md:py-10 px-5 md:px-10">
 
-        <div className="max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 ">
 
           {[
             {
@@ -287,18 +287,18 @@ const About = () => {
 
       {/* ================= WHY CHOOSE US ================= */}
 
-      <section className="py-16 md:py-24 px-5 md:px-10 bg-[#F6F7F8] rounded-[40px] m-5">
+      <section className="py-9 md:py-24 px-5 md:px-10 bg-[#F6F7F8] rounded-[28px] md:rounded-[40px] m-5 md:m-5 md:mt-5 mt-0">
 
         <div className="max-w-[1280px] mx-auto">
 
           <div className="text-center max-w-[720px] mx-auto mb-12">
 
-            <span className="inline-flex bg-[#8fc31f] text-[#1d2d50] text-sm font-semibold px-7 py-2.5 rounded-full mb-5">
+            <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">
               Why Choose Us
             </span>
-            <h2 class="text-[36px] sm:text-[36px] md:text-[36px] font-bold leading-tight text-[#1d2d50] mb-3">Your Journey, Our Commitment</h2>
-            <p class="text-[16px] leading-[1.55] text-[#414141] max-w-[600px] m-auto mb-3">We want to make every part of your travel experience
-              convenient, <br />enjoyable and memorable.</p>
+            <h2 class="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">Your Journey, Our Commitment</h2>
+            <p class="text-[#414141] leading-[1.55] mt-3  md:mt-3">We want to make every part of your travel experience
+              convenient, <br/>enjoyable and memorable.</p>
 
 
           </div>
@@ -333,16 +333,16 @@ const About = () => {
 
       {/* ================= OUR VALUES ================= */}
 
-      <section className="py-16 md:py-24 px-5 md:px-10">
+      <section className="py-6 md:py-24 px-5 md:px-10">
 
-        <div className="max-w-[1280px] mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div className="max-w-[1280px] mx-auto grid md:grid-cols-2 gap-6 md:gap-12 items-center">
 
           <div>
 
-            <span className="inline-flex bg-[#8fc31f] text-[#1d2d50] text-sm font-semibold px-7 py-2.5 rounded-full mb-5">
+            <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">
               What We Believe
             </span>
-            <h2 class="text-[36px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50] mb-3">The Values Behind <br />Every Journey</h2>
+            <h2 class="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50] mb-3">The Values Behind <br />Every Journey</h2>
             <p class="text-[16px] md:text-[16px] leading-[1.55] text-[#414141] font-normal">Great travel experiences begin with understanding what
               travellers truly want. Our values guide the way we plan,
               communicate and create journeys.</p>
@@ -383,16 +383,16 @@ const About = () => {
 
       {/* ================= HOW WE WORK ================= */}
 
-      <section className="bg-[#F6F7F8] py-16 md:py-24 px-5 md:px-10 rounded-[40px] m-5">
+      <section className="bg-[#F6F7F8] py-9 md:py-24 px-5 md:px-10 rounded-[28px] md:rounded-[40px] m-5 md:m-5 md:mt-5 mt-0">
 
         <div className="max-w-[1200px] mx-auto">
 
           <div className="text-center mb-12">
 
-            <span className="inline-flex bg-[#8fc31f] text-[#1d2d50] text-sm font-semibold px-7 py-2.5 rounded-full mb-5">
+            <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">
               Your Travel Journey
             </span>
-            <h2 class="text-[36px] sm:text-[36px] md:text-[36px] font-bold leading-tight text-[#1d2d50] mb-3">From Dreaming To Exploring</h2>
+            <h2 class="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">From Dreaming To Exploring</h2>
 
 
           </div>
@@ -426,7 +426,7 @@ const About = () => {
 
       {/* ================= FINAL CTA ================= */}
 
-      <section className="px-5 md:px-10 py-16 md:py-24">
+      <section className="px-5 md:px-10 py-5 md:py-24">
 
         <div className="relative max-w-[1280px] mx-auto overflow-hidden rounded-[30px] min-h-[350px] flex items-center justify-center">
 
@@ -434,15 +434,15 @@ const About = () => {
             src={manalip}
             alt="Explore the mountains with Nestroam Holidays"
             loading="lazy"
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover "
           />
 
           <div className="absolute inset-0 bg-[#101d32]/80" />
 
           <div className="relative z-10 text-center max-w-[750px] px-5 py-14">
-            <span class="inline-flex bg-[#8fc31f] text-[#1d2d50] text-sm font-semibold px-7 py-2.5 rounded-full mb-5">Your Next Adventure Starts Here</span>
-            <h2 class="text-[36px] sm:text-[36px] md:text-[36px] font-bold leading-tight text-[#ffffff] mb-2">Let's Create Your Next Travel Story</h2>
-            <p className="text-white/80 text-[15px] md:text-[16px] leading-relaxed mt-5">
+            <span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">Your Next Adventure Starts Here</span>
+            <h2 class="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#ffffff]">Let's Create Your Next Travel Story</h2>
+            <p className="text-white/80 text-[15px] md:text-[16px] leading-relaxed mt-3 md:mt-5">
               Tell us where you want to go. We'll help you plan a journey
               filled with beautiful places and unforgettable experiences.
             </p>

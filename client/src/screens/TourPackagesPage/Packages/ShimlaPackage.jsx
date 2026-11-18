@@ -303,15 +303,15 @@ const ShimlaPackage = () => {
       {/* OVERVIEW */}
       <section
         id="overview"
-        className="scroll-mt-28 max-w-[1280px] mx-auto px-5 md:px-5 py-20 md:py-28"
+        className="scroll-mt-28 max-w-[1280px] mx-auto px-5 md:px-5 py-9 md:py-28"
       >
         <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-20 items-center">
           <div>
-            <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-6">
+            <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">
               Discover The Experience
             </span>
 
-            <h2 className="text-[36px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50] mb-5">
+            <h2 className="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50] mb-5">
               Experience The Charming Beauty Of Shimla
             </h2>
 
@@ -362,15 +362,15 @@ const ShimlaPackage = () => {
       {/* HIGHLIGHTS */}
       <section
         id="highlights"
-        className="scroll-mt-28 bg-[#F6F7F8] py-20 md:py-24 m-5 rounded-[40px]"
+        className="scroll-mt-28 bg-[#F6F7F8] py-9 md:py-24 m-5 rounded-[28px] md:rounded-[40px]"
       >
         <div className="max-w-[1280px] mx-auto px-5 md:px-5">
           <div className="max-w-2xl mb-12">
-            <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-6">
+            <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">
               What Makes It Special
             </span>
 
-            <h2 className="text-[36px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50] mb-5">
+            <h2 className="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50] mb-5">
               Shimla Trip Highlights
             </h2>
 
@@ -439,14 +439,14 @@ const ShimlaPackage = () => {
       {/* ITINERARY */}
       <section
         id="itinerary"
-        className="scroll-mt-28 max-w-[1280px] mx-auto px-5 md:px-5 py-12 md:py-12"
+        className="scroll-mt-28 max-w-[1280px] mx-auto px-5 md:px-5 py-5 md:py-12"
       >
         <div className="text-center mb-10 md:mb-14">
-          <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-7 py-2.5 rounded-full mb-5">
+          <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">
             Your Journey
           </span>
 
-          <h2 className="text-[36px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50] mb-4">
+          <h2 className="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50] mb-4">
             4 Days Of Shimla Exploration
           </h2>
 
@@ -580,11 +580,11 @@ const ShimlaPackage = () => {
       >
         <div className="max-w-[1280px] mx-auto px-5 md:px-5">
           <div className="text-center mb-10 md:mb-14">
-            <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-7 py-2.5 rounded-full mb-5">
+            <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">
               Package Details
             </span>
 
-            <h2 className="text-[36px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50] mb-4">
+            <h2 className="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50] mb-4">
               What's Included?
             </h2>
 
@@ -651,15 +651,15 @@ const ShimlaPackage = () => {
       {/* GALLERY */}
       <section
         id="gallery"
-        className="scroll-mt-28 max-w-[1280px] mx-auto px-5 md:px-5 py-12 md:py-12"
+        className="scroll-mt-28 max-w-[1280px] mx-auto px-5 md:px-5 py-5 md:py-12"
       >
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 mb-12">
           <div className="md:col-span-7">
-            <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-6">
+            <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">
               Moments & Memories
             </span>
 
-            <h2 className="text-[36px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">
+            <h2 className="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">
               Explore Shimla & Kufri
             </h2>
           </div>
@@ -698,18 +698,18 @@ const ShimlaPackage = () => {
       </section>
 
       {/* FINAL CTA */}
-      <section className="px-5 md:px-10 pb-12 md:pb-12">
+      <section className="px-5 md:px-10 pb-0 md:pb-12">
         <div className="max-w-[1280px] mx-auto bg-[#1d2d50] rounded-[28px] md:rounded-[36px] px-7 md:px-16 py-12 md:py-16 relative overflow-hidden">
           <div className="absolute w-72 h-72 rounded-full bg-[#8fc31f]/10 -right-20 -top-20 blur-2xl" />
           <div className="absolute w-60 h-60 rounded-full bg-[#8fc31f]/10 -left-20 -bottom-28 blur-2xl" />
 
           <div className="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
             <div className="max-w-2xl">
-              <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-6">
+              <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">
                 Your Shimla Getaway Awaits
               </span>
 
-              <h2 className="text-[36px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#ffffff] mb-3">
+              <h2 className="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">
                 Ready To Discover Shimla?
               </h2>
 
@@ -721,7 +721,7 @@ const ShimlaPackage = () => {
 
             <button
               onClick={scrollToEnquiry}
-              className="shrink-0 bg-[#fff] hover:bg-[#a8db69] text-[#172b3a] px-8 py-4 rounded-full font-bold flex items-center gap-3 transition-all"
+              className="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]"
             >
               Enquire Now
               <ArrowRight size={19} />
