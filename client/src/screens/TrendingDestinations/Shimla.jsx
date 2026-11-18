@@ -14,6 +14,14 @@ import mountain from '../../assets/mountain.svg';
 import train from '../../assets/train.svg';
 import nature from '../../assets/nature.svg';
 import cafe from '../../assets/cafe.svg';
+import Theridge from '../../assets/Theridge.webp';
+import Jakhootemple from '../../assets/Jakhootemple.webp';
+import kufri from '../../assets/kufri.webp';
+import shimlawinter from '../../assets/shimlawinter.webp';
+import Mallroad from '../../assets/Mallroad.webp';
+import shimlaabout from '../../assets/shimlaabout.webp';
+import Christchurch from '../../assets/Christchurch.webp';
+import Greenvalley from '../../assets/Greenvalley.webp';
 
 import TravelEnquiry from "../TravelEnquiry";
 
@@ -23,7 +31,7 @@ const attractions = [
         category: "Culture & Heritage",
         distance: "1 km from Shimla",
         image:
-            "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=82",
+            Theridge,
         description:
             "Enjoy panoramic mountain views, colonial architecture and the lively atmosphere of Shimla's iconic open space.",
     },
@@ -32,7 +40,7 @@ const attractions = [
         category: "Adventure & Nature",
         distance: "16 km from Shimla",
         image:
-            "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=82",
+            kufri,
         description:
             "Experience beautiful snow-covered landscapes, scenic mountain trails and exciting outdoor activities.",
     },
@@ -41,7 +49,7 @@ const attractions = [
         category: "Spiritual & Heritage",
         distance: "2 km from Shimla",
         image:
-            "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=82",
+            Jakhootemple,
         description:
             "Visit the famous hilltop temple surrounded by peaceful forests and breathtaking views of the Himalayas.",
     },
@@ -50,7 +58,7 @@ const attractions = [
         category: "Shopping & Local Experience",
         distance: "0.5 km from Shimla",
         image:
-            "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=82",
+            Mallroad,
         description:
             "Explore charming shops, local cafes, colonial buildings and the vibrant heart of Shimla.",
     },
@@ -59,7 +67,7 @@ const attractions = [
         category: "Architecture & Heritage",
         distance: "1 km from Shimla",
         image:
-            "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=900&q=82",
+            Christchurch,
         description:
             "Discover one of North India's oldest churches, known for its beautiful neo-Gothic architecture.",
     },
@@ -68,7 +76,7 @@ const attractions = [
         category: "Scenic Landscapes",
         distance: "8 km from Shimla",
         image:
-            "https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=900&q=82",
+            Greenvalley,
         description:
             "Take in stunning views of dense deodar forests and the peaceful natural beauty surrounding Shimla.",
     },
@@ -299,7 +307,7 @@ export default function Shimla() {
                     <div className="relative">
 
                         <img
-                            src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1000&q=82"
+                            src={shimlaabout}
                             alt="Beautiful Shimla forest landscape"
                             className="w-full h-[450px] object-cover rounded-[28px]"
                         />
@@ -664,7 +672,7 @@ export default function Shimla() {
                     </div>
 
                     <img
-                        src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=82"
+                        src={shimlawinter}
                         alt="Shimla forest and mountain scenery"
                         className="w-full h-[480px] object-cover rounded-[28px]"
                     />
@@ -695,33 +703,27 @@ export default function Shimla() {
 
                     </div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 h-[400px] md:h-[500px]">
-
-                        {[
-                            "photo-1464822759023-fed622ff2c3b",
-                            "photo-1500530855697-b586d89ba3ee",
-                            "photo-1470770841072-f978cf4d019e",
-                            "photo-1519681393784-d120267933ba",
-                        ].map((photo, index) => (
-
-                            <div
-                                key={photo}
-                                className={`overflow-hidden rounded-[20px] md:rounded-[28px] ${
-                                    index === 0 ? "md:col-span-2 md:row-span-2" : ""
-                                }`}
-                            >
-
-                                <img
-                                    src={`https://images.unsplash.com/${photo}?auto=format&fit=crop&w=1000&q=82`}
-                                    alt={`Shimla travel gallery ${index + 1}`}
-                                    className="w-full h-full object-cover hover:scale-110 transition duration-700"
-                                />
-
-                            </div>
-
-                        ))}
-
-                    </div>
+                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4 h-[400px] md:h-[500px]">
+                                           {[
+                                               Mallroad,
+                                               Theridge,
+                                               shimlawinter,
+                                               Jakhootemple,
+                                               shimlaabout,
+                                           ].map((photo, index) => (
+                                               <div
+                                                   key={index}
+                                                   className={`overflow-hidden rounded-[20px] md:rounded-[28px] ${index === 0 ? "md:col-span-2 md:row-span-2" : ""
+                                                       }`}
+                                               >
+                                                   <img
+                                                       src={photo}
+                                                       alt={`Manali travel gallery ${index + 1}`}
+                                                       className="w-full h-full object-cover hover:scale-110 transition duration-700"
+                                                   />
+                                               </div>
+                                           ))}
+                                       </div>
 
                 </div>
 

@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-import adventurebgg from "../assets/adventurebgg.jpeg";
+import adventurebgg from "../assets/adventurebgg.webp";
 
 export default function NotFound() {
   return (

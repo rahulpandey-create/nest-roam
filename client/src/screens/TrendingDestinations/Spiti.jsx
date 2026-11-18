@@ -14,6 +14,14 @@ import mountain from '../../assets/mountain.svg';
 import train from '../../assets/train.svg';
 import nature from '../../assets/nature.svg';
 import cafe from '../../assets/cafe.svg';
+import spitaboutimg from '../../assets/spitaboutimg.webp';
+import Keymonastery from '../../assets/Keymonastery.webp';
+import Chandratallake from '../../assets/Chandratallake.webp';
+import kibber from '../../assets/kibber.webp';
+import Langza from '../../assets/Langza.webp';
+import hikkim from '../../assets/hikkim.webp';
+import Dhankar from '../../assets/Dhankar.webp';
+import spitisummer from '../../assets/spitisummer.webp';
 
 import TravelEnquiry from "../TravelEnquiry";
 
@@ -23,7 +31,7 @@ const attractions = [
         category: "Spiritual & Heritage",
         distance: "14 km from Kaza",
         image:
-            "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=900&q=82",
+            Keymonastery,
         description:
             "Discover the iconic hilltop monastery known for its ancient Buddhist culture, peaceful atmosphere and breathtaking valley views.",
     },
@@ -32,7 +40,7 @@ const attractions = [
         category: "Nature & Adventure",
         distance: "Approx. 90 km from Kaza",
         image:
-            "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=82",
+            Chandratallake,
         description:
             "Experience the magical beauty of this high-altitude lake surrounded by dramatic mountains and spectacular landscapes.",
     },
@@ -41,7 +49,7 @@ const attractions = [
         category: "Mountain Village",
         distance: "19 km from Kaza",
         image:
-            "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=82",
+            kibber,
         description:
             "Explore a beautiful Himalayan village surrounded by rugged mountains, traditional houses and incredible natural scenery.",
     },
@@ -50,7 +58,7 @@ const attractions = [
         category: "Culture & Heritage",
         distance: "16 km from Kaza",
         image:
-            "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=82",
+            Langza,
         description:
             "Visit the famous Buddha statue, explore traditional village life and enjoy spectacular views of the Spiti mountains.",
     },
@@ -59,7 +67,7 @@ const attractions = [
         category: "Unique Experiences",
         distance: "16 km from Kaza",
         image:
-            "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=82",
+            hikkim,
         description:
             "Experience the charm of one of the world's highest post offices and discover the peaceful beauty of remote Himalayan life.",
     },
@@ -68,7 +76,7 @@ const attractions = [
         category: "Spiritual & Heritage",
         distance: "32 km from Kaza",
         image:
-            "https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=900&q=82",
+            Dhankar,
         description:
             "Explore the historic monastery dramatically perched above the confluence of the Spiti and Pin rivers.",
     },
@@ -299,7 +307,7 @@ export default function Spiti() {
                     <div className="relative">
 
                         <img
-                            src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=82"
+                            src={spitaboutimg}
                             alt="Beautiful Spiti mountain landscape"
                             className="w-full h-[450px] object-cover rounded-[28px]"
                         />
@@ -667,7 +675,7 @@ export default function Spiti() {
                     </div>
 
                     <img
-                        src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=82"
+                        src={spitisummer}
                         alt="Spiti mountain and valley scenery"
                         className="w-full h-[480px] object-cover rounded-[28px]"
                     />
@@ -700,32 +708,26 @@ export default function Spiti() {
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 h-[400px] md:h-[500px]">
-
-                        {[
-                            "photo-1464822759023-fed622ff2c3b",
-                            "photo-1500530855697-b586d89ba3ee",
-                            "photo-1470770841072-f978cf4d019e",
-                            "photo-1519681393784-d120267933ba",
-                        ].map((photo, index) => (
-
-                            <div
-                                key={photo}
-                                className={`overflow-hidden rounded-[20px] md:rounded-[28px] ${
-                                    index === 0 ? "md:col-span-2 md:row-span-2" : ""
-                                }`}
-                            >
-
-                                <img
-                                    src={`https://images.unsplash.com/${photo}?auto=format&fit=crop&w=1000&q=82`}
-                                    alt={`Spiti Valley travel gallery ${index + 1}`}
-                                    className="w-full h-full object-cover hover:scale-110 transition duration-700"
-                                />
-
-                            </div>
-
-                        ))}
-
-                    </div>
+                                            {[
+                                                kibber,
+                                                spitisummer,
+                                                Chandratallake,
+                                                Dhankar,
+                                                Keymonastery,
+                                            ].map((photo, index) => (
+                                                <div
+                                                    key={index}
+                                                    className={`overflow-hidden rounded-[20px] md:rounded-[28px] ${index === 0 ? "md:col-span-2 md:row-span-2" : ""
+                                                        }`}
+                                                >
+                                                    <img
+                                                        src={photo}
+                                                        alt={`Manali travel gallery ${index + 1}`}
+                                                        className="w-full h-full object-cover hover:scale-110 transition duration-700"
+                                                    />
+                                                </div>
+                                            ))}
+                                        </div>
 
                 </div>
 

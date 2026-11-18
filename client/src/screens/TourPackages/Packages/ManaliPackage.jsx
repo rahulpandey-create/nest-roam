@@ -17,6 +17,10 @@ Compass,
 } from "lucide-react";
 
 import manaliinner from "../../../assets/manaliinner.webp";
+import aboutmanaali from "../../../assets/aboutmanaali.webp";
+import hadimbadevi from "../../../assets/hadimbadevi.webp";
+import oldmanali from "../../../assets/oldmanali.webp";
+import Rohtangpass from "../../../assets/Rohtangpass.webp";
 import TravelEnquiry from "../../TravelEnquiry";
 
 const itinerary = [
@@ -128,22 +132,22 @@ const exclusions = [
 const gallery = [
 {
 image:
-"https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=900&q=82",
+aboutmanaali,
 title: "Beautiful Manali",
 },
 {
 image:
-"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=82",
+hadimbadevi,
 title: "Mountain Landscapes",
 },
 {
 image:
-"https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=82",
+oldmanali,
 title: "Himalayan Peaks",
 },
 {
 image:
-"https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=82",
+Rohtangpass,
 title: "Scenic Valleys",
 },
 ];

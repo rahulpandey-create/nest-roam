@@ -14,6 +14,13 @@ import train from '../../assets/train.svg';
 import nature from '../../assets/nature.svg';
 import cafe from '../../assets/cafe.svg';
 import TravelEnquiry from "../TravelEnquiry";
+import aboutmanaali from '../../assets/aboutmanaali.webp';
+import Solangvalley from '../../assets/Solangvalley.webp';
+import hadimbadevi from '../../assets/hadimbadevi.webp';
+import oldmanali from '../../assets/oldmanali.webp';
+import Rohtangpass from '../../assets/Rohtangpass.webp';
+import manalisummer from '../../assets/manalisummer.webp';
+
 
 const attractions = [
     {
@@ -21,7 +28,7 @@ const attractions = [
         category: "Adventure & Nature",
         distance: "13 km from Manali",
         image:
-            "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=900&q=82",
+            Solangvalley,
         description:
             "Experience breathtaking mountain views, adventure activities and beautiful alpine landscapes.",
     },
@@ -30,7 +37,7 @@ const attractions = [
         category: "Culture & Heritage",
         distance: "2.5 km from Manali",
         image:
-            "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=900&q=82",
+            hadimbadevi,
         description:
             "Discover the beautiful wooden architecture of this historic temple surrounded by cedar forests.",
     },
@@ -39,7 +46,7 @@ const attractions = [
         category: "Local Experience",
         distance: "3 km from Manali",
         image:
-            "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=82",
+            oldmanali,
         description:
             "Explore charming cafes, mountain views, local markets and the relaxed Himalayan atmosphere.",
     },
@@ -48,7 +55,7 @@ const attractions = [
         category: "Mountain Escape",
         distance: "51 km from Manali",
         image:
-            "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=82",
+            Rohtangpass,
         description:
             "Witness dramatic Himalayan landscapes and snow-covered mountain scenery.",
     },
@@ -225,14 +232,14 @@ export default function Manali() {
                             Looking for trip details? <Link to="/tour-packages/manali" className="font-semibold text-[#1d2d50] underline underline-offset-4">Explore the Manali tour package information</Link>.
                         </p>
 
-                      
+
 
                         <SectionScrollButton targetId="attractions" className="inline-flex items-center gap-3 mt-3.5 md:mt-6 text-[16px] md:text-[16px] font-semibold text-[#1d2d50] group">Discover Manali<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="text-[#8fc31f] transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></SectionScrollButton>
                     </div>
 
                     <div className="relative">
                         <img
-                            src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1000&q=82"
+                            src={aboutmanaali}
                             alt="Beautiful mountain landscape"
                             className="w-full h-[450px] object-cover rounded-[28px]"
                         />
@@ -284,15 +291,15 @@ export default function Manali() {
             <section id="attractions" className="scroll-mt-24 py-5 md:py-28 px-5 md:px-10">
                 <div className="max-w-[1280px] mx-auto">
 
-                    
+
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-3.5 md:gap-6 mb-5 md:mb-12"><div class="md:col-span-7">
                         <span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">Explore The Region</span>
                         <h2 class="text-[32px] md:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">Places to explore</h2>
-                        </div>
+                    </div>
                         <div class="hidden md:block md:col-span-1"></div>
                         <div class="md:col-span-4 max-w-[640px] lg:pt-1">
                             <p class="text-[16px] md:text-[16px] leading-[1.55] text-[#414141] font-normal">From beautiful valleys to cultural landmarks, discover the most loved attractions around Manali.</p>
-                            </div></div>
+                        </div></div>
 
                     <Swiper
                         modules={[Navigation, Pagination]}
@@ -463,7 +470,7 @@ export default function Manali() {
                     </div>
 
                     <img
-                        src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1000&q=82"
+                        src={manalisummer}
                         alt="Forest and mountain scenery"
                         className="w-full h-[480px] object-cover rounded-[28px]"
                     />
@@ -477,25 +484,26 @@ export default function Manali() {
 
                     <div className="text-center mb-10">
                         <span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">Moment That Stay</span>
-                        
+
                         <h2 className="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">Manali in pictures</h2>
                         <p class="text-[16px] leading-[1.55] text-[#414141] font-normal max-w-[650px] mx-auto mt-3 md:mt-4">Explore the breathtaking beauty of Manali through stunning landscapes, unforgettable moments, and mountain adventures.</p>
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 h-[400px] md:h-[500px]">
                         {[
-                            "photo-1464822759023-fed622ff2c3b",
-                            "photo-1500530855697-b586d89ba3ee",
-                            "photo-1470770841072-f978cf4d019e",
-                            "photo-1519681393784-d120267933ba",
+                            oldmanali,
+                            hadimbadevi,
+                            Solangvalley,
+                            Rohtangpass,
+                            manaliinner,
                         ].map((photo, index) => (
                             <div
-                                key={photo}
+                                key={index}
                                 className={`overflow-hidden rounded-[20px] md:rounded-[28px] ${index === 0 ? "md:col-span-2 md:row-span-2" : ""
                                     }`}
                             >
                                 <img
-                                    src={`https://images.unsplash.com/${photo}?auto=format&fit=crop&w=1000&q=82`}
+                                    src={photo}
                                     alt={`Manali travel gallery ${index + 1}`}
                                     className="w-full h-full object-cover hover:scale-110 transition duration-700"
                                 />
@@ -512,7 +520,7 @@ export default function Manali() {
 
                     <div className="text-center mb-12">
                         <span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">Got Questions</span>
-                        
+
                         <h2 className="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">
                             Frequently asked questions
                         </h2>
@@ -551,7 +559,7 @@ export default function Manali() {
 
             {/* CTA */}
             <section id="contact" className="scroll-mt-24">
-                <TravelEnquiry/>
+                <TravelEnquiry />
             </section>
 
         </main>

@@ -18,6 +18,10 @@ import {
 } from "lucide-react";
 
 import spitiinner from "../../../assets/spitiinner.webp";
+import spitaboutimg from "../../../assets/spitaboutimg.webp";
+import Keymonastery from "../../../assets/Keymonastery.webp";
+import Chandratallake from "../../../assets/Chandratallake.webp";
+import kibber from "../../../assets/kibber.webp";
 import TravelEnquiry from "../../TravelEnquiry";
 
 const itinerary = [
@@ -146,22 +150,22 @@ const exclusions = [
 const gallery = [
   {
     image:
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=82",
+      spitaboutimg,
     title: "Mountain Landscapes",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=82",
+      Keymonastery,
     title: "Himalayan Peaks",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=82",
+      Chandratallake,
     title: "Scenic Mountain Views",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=82",
+      kibber,
     title: "Mountain Adventure",
   },
 ];

@@ -18,6 +18,10 @@ import {
 } from "lucide-react";
 
 import shimlap from "../../../assets/shimlainner.webp";
+import shimlaabout from "../../../assets/shimlaabout.webp";
+import Theridge from "../../../assets/Theridge.webp";
+import Jakhootemple from "../../../assets/Jakhootemple.webp";
+import shimlawinter from "../../../assets/shimlawinter.webp";
 import TravelEnquiry from "../../TravelEnquiry";
 
 const itinerary = [
@@ -135,22 +139,22 @@ const exclusions = [
 const gallery = [
   {
     image:
-      "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=900&q=82",
+      shimlaabout,
     title: "Beautiful Shimla",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=82",
+      Theridge,
     title: "Himalayan Peaks",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=82",
+      Jakhootemple,
     title: "Scenic Kufri Views",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=82",
+      shimlawinter,
     title: "Mountain Getaway",
   },
 ];

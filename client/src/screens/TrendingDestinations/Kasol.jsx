@@ -14,8 +14,15 @@ import mountain from '../../assets/mountain.svg';
 import train from '../../assets/train.svg';
 import nature from '../../assets/nature.svg';
 import cafe from '../../assets/cafe.svg';
-
+import paravtiabout from '../../assets/paravtiabout.webp';
+import Chalalvillage from '../../assets/Chalalvillage.webp';
+import Manikaransahib from '../../assets/Manikaransahib.webp';
 import TravelEnquiry from "../TravelEnquiry";
+import toshvillage from '../../assets/toshvillage.webp';
+import Parvatiriver from '../../assets/Parvatiriver.webp';
+import Kheerganga from '../../assets/Kheerganga.webp';
+import Malanavillage from '../../assets/Malanavillage.webp';
+import kasolwinter from '../../assets/kasolwinter.webp';
 
 const attractions = [
     {
@@ -23,7 +30,7 @@ const attractions = [
         category: "Village & Nature",
         distance: "2 km from Kasol",
         image:
-            "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=82",
+            Chalalvillage,
         description:
             "Walk through peaceful mountain trails, traditional wooden houses and beautiful riverside surroundings.",
     },
@@ -32,7 +39,7 @@ const attractions = [
         category: "Spiritual & Heritage",
         distance: "4 km from Kasol",
         image:
-            "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=900&q=82",
+            Manikaransahib,
         description:
             "Visit the famous pilgrimage destination known for its natural hot springs and peaceful spiritual atmosphere.",
     },
@@ -41,7 +48,7 @@ const attractions = [
         category: "Mountain Escape",
         distance: "21 km from Kasol",
         image:
-            "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=82",
+            toshvillage,
         description:
             "Discover breathtaking Himalayan views, charming mountain cafes and the peaceful beauty of a traditional village.",
     },
@@ -50,7 +57,7 @@ const attractions = [
         category: "Riverside Experience",
         distance: "Near Kasol",
         image:
-            "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=82",
+            Parvatiriver,
         description:
             "Relax beside the beautiful Parvati River and enjoy the soothing sounds of flowing water and mountain scenery.",
     },
@@ -59,7 +66,7 @@ const attractions = [
         category: "Trekking & Adventure",
         distance: "Approx. 22 km trek from Barshaini",
         image:
-            "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=82",
+            Kheerganga,
         description:
             "Experience an unforgettable Himalayan trek through dense forests, waterfalls and breathtaking mountain landscapes.",
     },
@@ -68,7 +75,7 @@ const attractions = [
         category: "Culture & Heritage",
         distance: "Approx. 21 km from Kasol",
         image:
-            "https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=900&q=82",
+            Malanavillage,
         description:
             "Explore the remote Himalayan village known for its distinctive traditions, architecture and mountain surroundings.",
     },
@@ -299,7 +306,7 @@ export default function Kasol() {
                     <div className="relative">
 
                         <img
-                            src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=82"
+                            src={paravtiabout}
                             alt="Beautiful Parvati Valley landscape"
                             className="w-full h-[450px] object-cover rounded-[28px]"
                         />
@@ -667,7 +674,7 @@ export default function Kasol() {
                     </div>
 
                     <img
-                        src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1000&q=82"
+                        src={kasolwinter}
                         alt="Kasol forest and mountain scenery"
                         className="w-full h-[480px] object-cover rounded-[28px]"
                     />
@@ -700,31 +707,25 @@ export default function Kasol() {
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 h-[400px] md:h-[500px]">
-
                         {[
-                            "photo-1464822759023-fed622ff2c3b",
-                            "photo-1500530855697-b586d89ba3ee",
-                            "photo-1470770841072-f978cf4d019e",
-                            "photo-1519681393784-d120267933ba",
+                            paravtiabout,
+                            Malanavillage,
+                            kasolwinter,
+                            Kheerganga,
+                            Manikaransahib,
                         ].map((photo, index) => (
-
                             <div
-                                key={photo}
-                                className={`overflow-hidden rounded-[20px] md:rounded-[28px] ${
-                                    index === 0 ? "md:col-span-2 md:row-span-2" : ""
-                                }`}
+                                key={index}
+                                className={`overflow-hidden rounded-[20px] md:rounded-[28px] ${index === 0 ? "md:col-span-2 md:row-span-2" : ""
+                                    }`}
                             >
-
                                 <img
-                                    src={`https://images.unsplash.com/${photo}?auto=format&fit=crop&w=1000&q=82`}
-                                    alt={`Kasol travel gallery ${index + 1}`}
+                                    src={photo}
+                                    alt={`Manali travel gallery ${index + 1}`}
                                     className="w-full h-full object-cover hover:scale-110 transition duration-700"
                                 />
-
                             </div>
-
                         ))}
-
                     </div>
 
                 </div>
