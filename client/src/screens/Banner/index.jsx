@@ -182,9 +182,9 @@ export default function Banner() {
                     {s.title}
                   </h1>
                 ) : (
-                  <h2 className="fontsylegilda leading-12.5 sm:leading-normal">
+                  <h1 className="fontsylegilda leading-12.5 sm:leading-normal">
                     {s.title}
-                  </h2>
+                  </h1>
                 )}
 
                 <p className="mt-3 md:mt-1 max-w-xl text-[16px] font-light leading-relaxed text-white/90">

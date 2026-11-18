@@ -49,8 +49,8 @@ const features = [
 
 const WhyChooseUs = () => {
     return (
-        <section id="about" className="w-full px-3 md:px-5 scroll-mt-24">
-            <div className="relative overflow-hidden bg-[#F6F7F8] rounded-[30px] md:rounded-[40px] pt-9 pb-15 ">
+        <section id="about" className="w-full px-4 md:px-5 scroll-mt-24">
+            <div className="relative overflow-hidden bg-[#F6F7F8] rounded-[30px] md:rounded-[40px] pt-9 pb-9 md:pb-15 ">
 
                 {/* Decorative Background */}
                 <div
@@ -69,15 +69,15 @@ const WhyChooseUs = () => {
                     {/* Section Header */}
                     <div className="text-center mb-10 md:mb-10">
 
-                        <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] md:text-[14px] font-semibold px-8 py-2 rounded-full mb-5">
+                        <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">
                             Why Choose Us
                         </span>
 
-                        <h2 className="text-[36px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50] mb-4">
+                        <h2 className="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">
                             Making Every Journey Special
                         </h2>
 
-                        <p className="text-[16px] md:text-[16px] leading-[1.55] text-[#414141] font-normal max-w-[650px] mx-auto">
+                        <p className="text-[16px] leading-[1.55] text-[#414141] font-normal max-w-[650px] mx-auto mt-3 md:mt-4">
                             Explore handpicked travel packages for unforgettable
                             <br className="hidden md:block" />
                             journeys and lasting memories.

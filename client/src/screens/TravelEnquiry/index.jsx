@@ -89,7 +89,7 @@ const TravelEnquiry = () => {
   };
 
   return (
-    <section className="w-full bg-white py-16 md:py-20">
+    <section className="w-full bg-white py-6 md:py-20">
       <div className="max-w-[1280px] mx-auto px-4">
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-11 items-center">
@@ -109,17 +109,17 @@ const TravelEnquiry = () => {
           <div className="w-full">
 
             {/* Badge */}
-            <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[15px] md:text-[16px] font-semibold px-9 py-2 rounded-full mb-5">
+            <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">
               Get In Touch
             </span>
 
             {/* Heading */}
-            <h2 className="text-[36px] sm:text-[36px] md:text-[36px] font-bold leading-tight text-[#1d2d50] mb-3">
+            <h2 className="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">
               Let’s Plan Your Trip
             </h2>
 
             {/* Description */}
-            <p className="text-[16px] leading-[1.55] text-[#414141] max-w-[600px] mb-7">
+            <p className="text-[16px] leading-[1.55] text-[#414141] font-normal max-w-[650px] mx-auto my-3 md:my-4">
               Tell us your travel plans and we’ll get back with the best
               options <br /> for your himachal getaway
             </p>

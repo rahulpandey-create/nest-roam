@@ -66,7 +66,7 @@ const Contact = () => {
     <main className="bg-white">
 
       {/* Hero Section */}
-      <section className="relative min-h-[400px] md:min-h-[550px] flex items-center justify-center overflow-hidden mt-[-150px]">
+      <section className="relative min-h-[350px] md:min-h-[550px] flex items-center justify-center overflow-hidden mt-[0px] md:mt-[-150px] pb-[50px] md:pb-[0px]">
 
         <img
           src={manali}
@@ -115,11 +115,11 @@ const Contact = () => {
 
 
       {/* Why Connect With Us */}
-      <section className="bg-[#F6F7F8] py-16 md:py-24 px-5 md:px-10 m-5 rounded-[40px]">
+      <section className="bg-[#F6F7F8] py-9 md:py-24 px-5 md:px-10 m-5 rounded-[28px] md:rounded-[40px]">
 
         <div className="max-w-[1280px] mx-auto">
           
-          <div class="text-center mb-10 md:mb-14"><span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-7 py-2.5 rounded-full mb-5">Why Nestroam</span><h2 class="text-[36px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50] mb-4">Let's Make Travel Simple
+          <div class="text-center mb-10 md:mb-14"><span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">Why Nestroam</span><h2 class="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50] mb-4">Let's Make Travel Simple
 </h2><p class="text-[16px] leading-[1.55] text-[#414141] font-normal max-w-[650px] mx-auto">We're here to make planning your next getaway easier, smoother and more exciting.
 
 </p></div>
@@ -151,13 +151,13 @@ const Contact = () => {
         </div>
       </section>
 {/* Introduction Section */}
-      <section className="py-16 md:py-24 px-5 md:px-10 border-b">
+      <section className="py-8 md:py-24 px-5 md:px-10 border-b">
 
         <div className="max-w-[1100px] mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-center">
 
           <div>
             <span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[15px] md:text-[16px] font-semibold px-9 py-2 rounded-full mb-5">We're Here To Help</span>
-            <h2 class="text-[36px] sm:text-[36px] md:text-[36px] font-bold leading-tight text-[#1d2d50] mb-3">Every Great Journey Starts With A Conversation</h2>
+            <h2 class="text-[32px] sm:text-[36px] md:text-[36px] font-bold leading-tight text-[#1d2d50] mb-3">Every Great Journey Starts With A Conversation</h2>
             <p class="text-[16px] leading-[1.55] text-[#414141] max-w-[600px] mb-3">Tell us your travel plans and we’ll get back with the best options for your himachal getaway</p>
             <p class="text-[16px] leading-[1.55] text-[#414141] max-w-[600px] mb-3">Planning a mountain escape, an adventurous road trip or a
               peaceful getaway? We would love to hear about your travel plans.</p>
@@ -200,13 +200,13 @@ const Contact = () => {
       </section>
 
       {/* How It Works */}
-      <section className="py-16 md:py-24 px-5 md:px-10">
+      <section className="py-8 md:py-24 px-5 md:px-10">
 
         <div className="max-w-[1200px] mx-auto">
 
          
-          <div class="text-center mb-10 md:mb-14"><span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-7 py-2.5 rounded-full mb-5">Simple & Easy</span>
-          <h2 class="text-[36px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50] mb-4">How Your Journey Begins</h2>
+          <div class="text-center mb-10 md:mb-14"><span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">Simple & Easy</span>
+          <h2 class="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50] mb-4">How Your Journey Begins</h2>
           
           </div>
 

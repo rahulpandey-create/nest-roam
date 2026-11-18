@@ -122,11 +122,11 @@ const TourPackagesPage = () => {
 
                         <div className="text-center mb-10 md:mb-14">
 
-                            <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-7 py-2.5 rounded-full mb-5">
+                            <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">
                                 Popular Package
                             </span>
 
-                            <h2 className="text-[30px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50] mb-4">
+                            <h2 className="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">
                                 Our Exclusive Tour Packages
                             </h2>
 

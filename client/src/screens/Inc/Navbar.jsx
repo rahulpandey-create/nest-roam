@@ -140,7 +140,7 @@ const Navbar = () => {
               <button
                 type="button"
                 onClick={() => setIsBookingOpen(true)}
-                className="bg-[#1a2a4c59] text-white py-3 pl-8 pr-7 rounded-[100px] flex items-center gap-3 cursor-pointer border border-white hover:bg-[#8DB828] hover:text-[#fff] transition-all duration-300 hover:border-[#8DB828]"
+                className="bg-[#1A2A4C] md:bg-[#1a2a4c59] text-white py-3 pl-8 pr-7 rounded-[100px] flex items-center gap-3 cursor-pointer border border-white hover:bg-[#8DB828] hover:text-[#fff] transition-all duration-300 hover:border-[#8DB828]"
               >
                 Book Now
                 <img src={arrowright} alt="" />
@@ -328,7 +328,7 @@ const Navbar = () => {
                     target="_blank"
                     message="Hello, I would like to inquire about your travel packages."
                     rel="noopener noreferrer"
-                    className="bg-white px-6 py-3 rounded-[100px] flex items-center gap-3 text-[#1A2A4C] whitespace-nowrap w-90 md:w-auto"
+                    className="bg-white px-6 py-3 rounded-[100px] flex items-center gap-3 text-[#1A2A4C] whitespace-nowrap w-78 md:w-90  md:w-auto"
                   >
                     <img src={whatsapp} alt="WhatsApp" />
                     +91-9671773155

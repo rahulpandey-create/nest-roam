@@ -199,16 +199,16 @@ export default function Manali() {
             </section>
 
             {/* INTRODUCTION */}
-            <section className="py-20 md:py-28">
-                <div className="max-w-[1280px] mx-auto grid md:grid-cols-2 gap-14 items-center px-4">
+            <section className="py-9 md:py-28">
+                <div className="max-w-[1280px] mx-auto grid md:grid-cols-2 gap-4 md:gap-14 items-center px-4">
 
                     <div>
 
-                        <span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-5">The Beauty Of Himachal</span>
-                        <h2 class="text-[36px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">A little closer to nature.</h2>
+                        <span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">The Beauty Of Himachal</span>
+                        <h2 class="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">A little closer to nature.</h2>
 
 
-                        <p className="text-[#414141] leading-[1.55] mt-7">
+                        <p className="text-[#414141] leading-[1.55] mt-3  md:mt-7">
                             Nestled in the beautiful Beas River Valley, Manali is a
                             destination where majestic mountains, lush green forests and
                             peaceful surroundings create the perfect mountain getaway.
@@ -225,7 +225,9 @@ export default function Manali() {
                             Looking for trip details? <Link to="/tour-packages/manali" className="font-semibold text-[#1d2d50] underline underline-offset-4">Explore the Manali tour package information</Link>.
                         </p>
 
-                        <SectionScrollButton targetId="attractions" className="inline-flex items-center gap-3 mt-6 text-[16px] md:text-[16px] font-semibold text-[#1d2d50] group">Discover Manali<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="text-[#8fc31f] transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></SectionScrollButton>
+                      
+
+                        <SectionScrollButton targetId="attractions" className="inline-flex items-center gap-3 mt-3.5 md:mt-6 text-[16px] md:text-[16px] font-semibold text-[#1d2d50] group">Discover Manali<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="text-[#8fc31f] transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></SectionScrollButton>
                     </div>
 
                     <div className="relative">
@@ -246,15 +248,15 @@ export default function Manali() {
             </section>
 
             {/* HIGHLIGHTS */}
-            <section className="bg-[#F6F7F8] py-16 px-5 md:px-10 m-5 rounded-[40px]">
+            <section className="bg-[#F6F7F8] py-9 md:py-16 px-5 md:px-10 m-5 rounded-[40px]">
                 <div className="max-w-[1280px] mx-auto text-center">
 
                     <div class="text-center mb-10 md:mb-14">
-                        <span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-7 py-2.5 rounded-full mb-5">Why Visit Manali</span>
-                        <h2 class="text-[36px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50] mb-4">More than just a destination</h2>
-                        <p class="text-[16px] leading-[1.55] text-[#414141] font-normal max-w-[650px] mx-auto">Discover the experiences that make Manali a favourite <br />Himalayan getaway.</p></div>
+                        <span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">Why Visit Manali</span>
+                        <h2 class="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">More than just a destination</h2>
+                        <p class="text-[16px] leading-[1.55] text-[#414141] font-normal max-w-[650px] mx-auto mt-3 md:mt-4">Discover the experiences that make Manali a favourite <br />Himalayan getaway.</p></div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mt-12">
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-5 mt-12">
                         {experiences.map((item, index) => (
                             <div
                                 key={index}
@@ -279,13 +281,13 @@ export default function Manali() {
             </section>
 
             {/* ATTRACTIONS */}
-            <section id="attractions" className="scroll-mt-24 py-20 md:py-28 px-5 md:px-10">
+            <section id="attractions" className="scroll-mt-24 py-5 md:py-28 px-5 md:px-10">
                 <div className="max-w-[1280px] mx-auto">
 
                     
-                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-12"><div class="md:col-span-7">
-                        <span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-5">Explore The Region</span>
-                        <h2 class="text-[36px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">Places to explore</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-3.5 md:gap-6 mb-5 md:mb-12"><div class="md:col-span-7">
+                        <span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">Explore The Region</span>
+                        <h2 class="text-[32px] md:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">Places to explore</h2>
                         </div>
                         <div class="hidden md:block md:col-span-1"></div>
                         <div class="md:col-span-4 max-w-[640px] lg:pt-1">
@@ -302,7 +304,7 @@ export default function Manali() {
                         grabCursor={true}
                         watchOverflow={false}
                         loop={attractions.length > 3}
-                        className="places-swiper mt-12"
+                        className="places-swiper mt-6 md:mt-12"
                         breakpoints={{
                             640: { slidesPerView: 2, spaceBetween: 20 },
                             1024: { slidesPerView: 2.5, spaceBetween: 24 },
@@ -323,7 +325,7 @@ export default function Manali() {
                                         </span>
                                     </div>
 
-                                    <div className="p-6">
+                                    <div className="p-6 h-68 md:h-auto">
                                         <p className="text-[#719c40] text-[14px] font-semibold uppercase tracking-wider">
                                             {place.category}
                                         </p>
@@ -384,23 +386,23 @@ export default function Manali() {
             </section>
 
             {/* ITINERARY */}
-            <section className="bg-[#1d2d50] text-white py-16 md:py-28 px-5 md:px-10 m-5 rounded-[40px]">
+            <section className="bg-[#1d2d50] text-white py-9 md:py-28 px-5 md:px-10 m-5 rounded-[20px] md:rounded-[40px]">
                 <div className="max-w-[1280px] mx-auto">
 
                     <div className="text-center">
 
-                        <span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-7 py-2.5 rounded-full mb-5">Make Every Moment Count</span>
+                        <span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">Make Every Moment Count</span>
 
-                        <h2 class="text-[36px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#fff] mb-4">Your 3-day Manali escape</h2>
-                        <p class="text-[16px] leading-[1.55] text-[#fff] font-normal max-w-[650px] mx-auto">A suggested itinerary to make the most of your mountain getaway.</p>
+                        <h2 class="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#ffffff]">Your 3-day Manali escape</h2>
+                        <p class="text-[16px] leading-[1.55] text-[#ffffff] font-normal max-w-[650px] mx-auto mt-3 md:mt-4">A suggested itinerary to make the most of your mountain getaway.</p>
                     </div>
 
-                    <div className="grid md:grid-cols-3 gap-7 mt-16">
+                    <div className="grid md:grid-cols-3 gap-7 mt-8 md:mt-16">
 
                         {itinerary.map((item, index) => (
                             <div
                                 key={item.day}
-                                className="border border-white/15 rounded-2xl p-7 md:p-9 hover:bg-white/5 transition"
+                                className="border border-white/15 rounded-2xl p-5 md:p-7 md:p-9 hover:bg-white/5 transition"
                             >
                                 <span className="text-[#a8db69] font-bold text-sm tracking-widest">
                                     {item.day}
@@ -418,7 +420,7 @@ export default function Manali() {
                                     {item.places}
                                 </p>
 
-                                <p className="text-white/80 leading-7 mt-5 text-sm">
+                                <p className="text-white/80 leading-7 mt-1 md:mt-5 text-sm">
                                     {item.description}
                                 </p>
                             </div>
@@ -430,15 +432,15 @@ export default function Manali() {
             </section>
 
             {/* BEST TIME TO VISIT */}
-            <section className="py-20 px-5 md:px-10 border-b border-[#D9D9D9]">
-                <div className="max-w-[1280px] mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <section className="py-6 md:py-20 px-5 md:px-10 border-b border-[#D9D9D9]">
+                <div className="max-w-[1280px] mx-auto grid md:grid-cols-2 gap-6 md:gap-12 items-center">
 
                     <div>
-                        <span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-6">Plan Your Journey</span>
+                        <span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">Plan Your Journey</span>
 
-                        <h2 class="text-[36px] leading-tight font-bold text-[#1d2d50] mb-4">Every season has its magic.</h2>
+                        <h2 class="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">Every season has its magic.</h2>
 
-                        <p class="text-[16px] leading-[1.55] text-[#414141] font-normal">Manali offers different experiences throughout the year.
+                        <p class="text-[16px] leading-[1.55] text-[#414141] font-normal max-w-[650px] mx-auto mt-3 md:mt-4">Manali offers different experiences throughout the year.
                             Choose your season depending on the kind of mountain
                             escape you are looking for.</p>
 
@@ -470,14 +472,14 @@ export default function Manali() {
             </section>
 
             {/* GALLERY */}
-            <section className="px-5 md:px-10 py-16">
+            <section className="px-5 md:px-10 py-8 md:py-16">
                 <div className="max-w-[1280px] mx-auto">
 
                     <div className="text-center mb-10">
-                        <span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-5">Moment That Stay</span>
+                        <span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">Moment That Stay</span>
                         
-                        <h2 className="text-[35px] font-bold mb-4">Manali in pictures</h2>
-                        <p class="text-[16px] leading-[1.55] text-[#414141] font-normal max-w-[650px] mx-auto">Explore the breathtaking beauty of Manali through stunning landscapes, unforgettable moments, and mountain adventures.</p>
+                        <h2 className="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">Manali in pictures</h2>
+                        <p class="text-[16px] leading-[1.55] text-[#414141] font-normal max-w-[650px] mx-auto mt-3 md:mt-4">Explore the breathtaking beauty of Manali through stunning landscapes, unforgettable moments, and mountain adventures.</p>
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 h-[400px] md:h-[500px]">
@@ -489,7 +491,7 @@ export default function Manali() {
                         ].map((photo, index) => (
                             <div
                                 key={photo}
-                                className={`overflow-hidden rounded-[28px] ${index === 0 ? "md:col-span-2 md:row-span-2" : ""
+                                className={`overflow-hidden rounded-[20px] md:rounded-[28px] ${index === 0 ? "md:col-span-2 md:row-span-2" : ""
                                     }`}
                             >
                                 <img
@@ -505,13 +507,13 @@ export default function Manali() {
             </section>
 
             {/* FAQ */}
-            <section className="bg-[#F6F7F8] py-20 px-5 md:px-10 m-5 rounded-[40px]">
+            <section className="bg-[#F6F7F8] md:py-20 py-9 px-5 md:px-10 mt-0 md:mt-5 m-5 md:m-5 rounded-[20px] md:rounded-[40px]">
                 <div className="max-w-[850px] mx-auto">
 
                     <div className="text-center mb-12">
-                        <span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-5">Got Questions</span>
+                        <span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">Got Questions</span>
                         
-                        <h2 className="text-4xl font-bold mt-0">
+                        <h2 className="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50]">
                             Frequently asked questions
                         </h2>
                     </div>

@@ -76,7 +76,7 @@ const TourPackages = () => {
             <main className="bg-white">
 
                 {/* Hero Section */}
-                <section className="relative min-h-[350px] md:min-h-[550px] flex items-center justify-center overflow-hidden mt-[-150px]">
+                <section className="relative min-h-[350px] md:min-h-[550px] flex items-center justify-center overflow-hidden mt-[0px] md:mt-[-150px] pb-[50px] md:pb-[0px]">
 
                     <img
                         src={manalip}
@@ -88,7 +88,7 @@ const TourPackages = () => {
 
                     <div className="relative z-10 text-center px-5 max-w-[900px] mx-auto">
 
-                        <p className="text-[20px] font-light mb-3 md:mb-1 text-white mt-20">
+                        <p className="text-[20px] font-light mb-3 md:mb-1 text-white mt-12 md:mt-20 ">
                             Explore With Nestroam
                         </p>
 
@@ -129,7 +129,7 @@ const TourPackages = () => {
 
                         <div className="text-center mb-10 md:mb-14">
 
-                            <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-7 py-2.5 rounded-full mb-5">
+                            <span className="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">
                                 Popular Package
                             </span>
 
@@ -168,7 +168,7 @@ const TourPackages = () => {
                                         {/* Badge */}
 
                                         {item.badge && (
-                                            <span className="absolute top-[50px] left-0 bg-white text-[#1d2d50] text-[16px] md:text-[18px] font-semibold px-8 py-4 rounded-r-full">
+                                            <span className="absolute top-[20px] md:top-[50px] left-0 bg-white text-[#1d2d50] text-[16px] md:text-[18px] font-semibold px-8 py-2 md:py-4 rounded-r-full">
                                                 {item.badge}
                                             </span>
                                         )}
@@ -189,7 +189,7 @@ const TourPackages = () => {
 
                                         {/* Duration */}
 
-                                        <div className="flex items-center gap-3 text-[#888888] text-[16px] md:text-[17px] mb-10">
+                                        <div className="flex items-center gap-3 text-[#888888] text-[16px] md:text-[17px] mb-6 md:mb-10">
 
                                             <CalendarDays
                                                 size={21}
