@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useRef } from "react";
 
 // Reusable Input Icon
 const FieldIcon = ({ type }) => {
@@ -62,6 +62,24 @@ const TravelEnquiryForm = ({
   isSubmitting = false,
   status = { type: "", message: "" },
 }) => {
+
+  const travelDateRef = useRef(null);
+
+  const openDatePicker = () => {
+    const dateInput = travelDateRef.current;
+
+    if (!dateInput || isSubmitting) return;
+
+    try {
+      if (typeof dateInput.showPicker === "function") {
+        dateInput.showPicker();
+      } else {
+        dateInput.focus();
+      }
+    } catch {
+      dateInput.focus();
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -147,15 +165,19 @@ const TravelEnquiryForm = ({
         </div>
 
         {/* Travel Date */}
-        <div className={fieldStyle}>
+        <div
+          className={`${fieldStyle} cursor-pointer`}
+          onClick={openDatePicker}
+        >
           <FieldIcon type="calendar" />
           <input
+            ref={travelDateRef}
             type="date"
             name="travelDate"
             required
             min={new Date().toISOString().split("T")[0]}
             disabled={isSubmitting}
-            className={`${inputStyle} text-[#808080]`}
+            className={`${inputStyle} text-[#808080] cursor-pointer`}
           />
         </div>
 
