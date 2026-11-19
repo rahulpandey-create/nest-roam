@@ -332,14 +332,24 @@ const Navbar = () => {
                   </Link>
                 </li>
 
-                {/* WhatsApp */}
+                {/* WhatsApp (Desktop) / Phone Call (Mobile) */}
                 <li className="relative mt-3 md:mt-0">
+                  {/* Mobile: starts a phone call */}
+                  <a
+                    href="tel:+919671773155"
+                    className="bg-white px-6 py-3 rounded-[100px] flex md:hidden items-center gap-3 text-[#1A2A4C] whitespace-nowrap w-78 md:w-auto"
+                  >
+                    <img src={whatsapp} alt="Call" />
+                    +91-9671773155
+                  </a>
+
+                  {/* Desktop: opens WhatsApp */}
                   <a
                     href="https://wa.me/919671773155"
                     target="_blank"
-                    message="Hello, I would like to inquire about your travel packages."
+                    message="Hello, I would like to enquire about your travel packages."
                     rel="noopener noreferrer"
-                    className="bg-white px-6 py-3 rounded-[100px] flex items-center gap-3 text-[#1A2A4C] whitespace-nowrap w-78 md:w-90  md:w-auto"
+                    className="bg-white px-6 py-3 rounded-[100px] hidden md:flex items-center gap-3 text-[#1A2A4C] whitespace-nowrap w-78 md:w-auto"
                   >
                     <img src={whatsapp} alt="WhatsApp" />
                     +91-9671773155
