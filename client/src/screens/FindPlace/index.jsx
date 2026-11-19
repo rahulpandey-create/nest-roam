@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import {
   MapPin,
@@ -18,6 +19,8 @@ const destinations = [
 ];
 
 const FindPlace = () => {
+  const navigate = useNavigate();
+
   const [destination, setDestination] = useState("");
   const [travelDate, setTravelDate] = useState("");
   const [travellers, setTravellers] = useState(2);
@@ -64,11 +67,13 @@ const FindPlace = () => {
   };
 
   const handleSearch = () => {
-    console.log({
-      destination,
-      travelDate,
-      travellers,
-    });
+    const params = new URLSearchParams();
+    if (destination) params.set("destination", destination);
+    if (travelDate) params.set("date", travelDate);
+    if (travellers) params.set("travellers", String(travellers));
+
+    const query = params.toString();
+    navigate(query ? `/tour-packages?${query}` : "/tour-packages");
   };
 
   return (

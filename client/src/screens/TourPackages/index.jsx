@@ -1,6 +1,5 @@
-
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import { CalendarDays, ArrowUpRight } from "lucide-react";
 
 import manalip from "../../assets/manalip.webp";
@@ -71,6 +70,34 @@ const packages = [
 ];
 
 const TourPackages = () => {
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    const selectedDestination = searchParams.get("destination") || "";
+    const selectedDate = searchParams.get("date") || "";
+    const selectedTravellers = searchParams.get("travellers") || "";
+
+    const hasFilters = Boolean(
+        selectedDestination || selectedDate || selectedTravellers
+    );
+
+    const filteredPackages = packages.filter((item) => {
+        if (!selectedDestination) return true;
+        const query = selectedDestination.toLowerCase();
+        return (
+            item.location.toLowerCase().includes(query) ||
+            item.title.toLowerCase().includes(query)
+        );
+    });
+
+    useEffect(() => {
+        if (hasFilters) {
+            document.getElementById("all-packages")?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+            });
+        }
+    }, [hasFilters, selectedDestination, selectedDate, selectedTravellers]);
+
     const scrollToPackages = () => {
         document.getElementById("all-packages")?.scrollIntoView({
             behavior: "smooth",
@@ -158,88 +185,138 @@ const TourPackages = () => {
 
                     </div>
 
-                    {/* Package Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+                    {/* Active Search Summary */}
+                    {hasFilters && (
+                        <div className="mb-8 flex flex-wrap items-center justify-between gap-4 bg-white rounded-2xl px-6 py-4 border border-gray-200">
+                            <div className="flex flex-wrap items-center gap-3 text-[15px] text-[#1d2d50]">
+                                <span className="font-semibold">
+                                    Showing {filteredPackages.length} {filteredPackages.length === 1 ? "package" : "packages"}
+                                </span>
+                                {selectedDestination && (
+                                    <span className="bg-[#f3f4f6] px-3 py-1 rounded-full">
+                                        Destination: {selectedDestination}
+                                    </span>
+                                )}
+                                {selectedDate && (
+                                    <span className="bg-[#f3f4f6] px-3 py-1 rounded-full">
+                                        Date: {selectedDate}
+                                    </span>
+                                )}
+                                {selectedTravellers && (
+                                    <span className="bg-[#f3f4f6] px-3 py-1 rounded-full">
+                                        Travellers: {selectedTravellers}
+                                    </span>
+                                )}
+                            </div>
 
-                        {packages.map((item) => (
-
-                            <div
-                                key={item.id}
-                                className="group bg-white rounded-[40px] p-[18px] overflow-hidden transition-all duration-300 hover:shadow-[0_12px_35px_rgba(0,0,0,0.10)]"
+                            <button
+                                type="button"
+                                onClick={() => setSearchParams({})}
+                                className="text-[14px] font-semibold text-[#1d2d50] underline hover:text-[#719d18] transition cursor-pointer"
                             >
+                                Clear Filters
+                            </button>
+                        </div>
+                    )}
 
-                                {/* Image */}
-                                <div className="tour-card-image relative h-[300px] lg:h-[390px] overflow-hidden rounded-[32px]">
+                    {/* Package Grid */}
+                    {filteredPackages.length === 0 ? (
+                        <div className="bg-white rounded-[32px] p-10 text-center">
+                            <p className="text-[18px] text-[#1d2d50] font-semibold mb-3">
+                                No packages found for "{selectedDestination}".
+                            </p>
+                            <button
+                                type="button"
+                                onClick={() => setSearchParams({})}
+                                className="bg-[#1d2d50] text-white px-6 py-2.5 rounded-full text-[15px] font-medium hover:opacity-90 transition cursor-pointer"
+                            >
+                                Show All Packages
+                            </button>
+                        </div>
+                    ) : (
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
 
-                                    <img
-                                        src={item.image}
-                                        alt={item.title}
-                                        className=""
-                                    />
+                            {filteredPackages.map((item) => (
 
-                                    {/* Badge */}
-                                    {item.badge && (
-                                        <span className="absolute top-[20px] md:top-[50px] left-0 bg-white text-[#1d2d50] text-[16px] md:text-[18px] font-semibold px-8 py-2 md:py-4 rounded-r-full">
-                                            {item.badge}
-                                        </span>
-                                    )}
+                                <div
+                                    key={item.id}
+                                    className="group bg-white rounded-[40px] p-[18px] overflow-hidden transition-all duration-300 hover:shadow-[0_12px_35px_rgba(0,0,0,0.10)]"
+                                >
 
-                                </div>
+                                    {/* Image */}
+                                    <div className="tour-card-image relative h-[300px] lg:h-[390px] overflow-hidden rounded-[32px]">
 
-                                {/* Card Content */}
-                                <div className="px-2 pt-7 pb-4">
-
-                                    {/* Title */}
-                                    <h3
-                                        className="text-[#1d2d50] text-[22px] md:text-[25px] font-bold leading-tight mb-5 group-hover:text-[#719d18] transition-colors"
-                                        style={{ fontSize: "24px", fontWeight: 600 }}
-                                    >
-                                        {item.title}
-                                    </h3>
-
-                                    {/* Duration */}
-                                    <div className="flex items-center gap-3 text-[#888888] text-[16px] md:text-[17px] mb-6 md:mb-10">
-
-                                        <CalendarDays
-                                            size={21}
-                                            strokeWidth={1.8}
-                                            className="text-[#8fc31f] shrink-0"
+                                        <img
+                                            src={item.image}
+                                            alt={item.title}
+                                            className=""
                                         />
 
-                                        <span>{item.duration}</span>
+                                        {/* Badge */}
+                                        {item.badge && (
+                                            <span className="absolute top-[20px] md:top-[50px] left-0 bg-white text-[#1d2d50] text-[16px] md:text-[18px] font-semibold px-8 py-2 md:py-4 rounded-r-full">
+                                                {item.badge}
+                                            </span>
+                                        )}
 
                                     </div>
 
-                                    {/* Divider + Price + Button */}
-                                    <div className="border-t border-[#d8d8d8] pt-4">
+                                    {/* Card Content */}
+                                    <div className="px-2 pt-7 pb-4">
 
-                                        <div className="flex items-center justify-between gap-3">
+                                        {/* Title */}
+                                        <h3
+                                            className="text-[#1d2d50] text-[22px] md:text-[25px] font-bold leading-tight mb-5 group-hover:text-[#719d18] transition-colors"
+                                            style={{ fontSize: "24px", fontWeight: 600 }}
+                                        >
+                                            {item.title}
+                                        </h3>
 
-                                            {/* Price */}
-                                            <div className="flex items-baseline flex-wrap gap-0 min-w-0">
+                                        {/* Duration */}
+                                        <div className="flex items-center gap-3 text-[#888888] text-[16px] md:text-[17px] mb-6 md:mb-10">
 
-                                                <span className="text-[#8fc31f] text-[23px] md:text-[27px] font-bold whitespace-nowrap">
-                                                    {item.price}
-                                                </span>
+                                            <CalendarDays
+                                                size={21}
+                                                strokeWidth={1.8}
+                                                className="text-[#8fc31f] shrink-0"
+                                            />
 
-                                                <span className="text-[#999999] text-[15px] md:text-[16px] whitespace-nowrap">
-                                                    /person
-                                                </span>
+                                            <span>{item.duration}</span>
+
+                                        </div>
+
+                                        {/* Divider + Price + Button */}
+                                        <div className="border-t border-[#d8d8d8] pt-4">
+
+                                            <div className="flex items-center justify-between gap-3">
+
+                                                {/* Price */}
+                                                <div className="flex items-baseline flex-wrap gap-0 min-w-0">
+
+                                                    <span className="text-[#8fc31f] text-[23px] md:text-[27px] font-bold whitespace-nowrap">
+                                                        {item.price}
+                                                    </span>
+
+                                                    <span className="text-[#999999] text-[15px] md:text-[16px] whitespace-nowrap">
+                                                        /person
+                                                    </span>
+
+                                                </div>
+
+                                                {/* View More Button */}
+                                                <Link
+                                                    to={item.link}
+                                                    className="tour-book-btn"
+                                                >
+                                                    View more
+
+                                                    <ArrowUpRight
+                                                        size={24}
+                                                        strokeWidth={2}
+                                                    />
+                                                </Link>
 
                                             </div>
-
-                                            {/* View More Button */}
-                                            <Link
-                                                to={item.link}
-                                                className="tour-book-btn"
-                                            >
-                                                View more
-
-                                                <ArrowUpRight
-                                                    size={24}
-                                                    strokeWidth={2}
-                                                />
-                                            </Link>
 
                                         </div>
 
@@ -247,11 +324,10 @@ const TourPackages = () => {
 
                                 </div>
 
-                            </div>
+                            ))}
 
-                        ))}
-
-                    </div>
+                        </div>
+                    )}
 
                 </div>
 
