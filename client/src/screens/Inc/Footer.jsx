@@ -188,7 +188,7 @@ const Footer = () => {
         <div className="fontgoogle flex flex-col justify-between gap-5 border-t border-white/40 py-8 text-white/95 md:flex-row md:items-center text-[14px] md:text-[18px]">
 
           <p>
-            © 2026 NESTROAM HOLIDAYS. All Rights Reserved.
+            © 2026 NESTROAM HOLIDAYS PRIVATE LIMITED. All Rights Reserved.
           </p>
 
 
