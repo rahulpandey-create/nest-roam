@@ -345,9 +345,8 @@ const Navbar = () => {
 
                   {/* Desktop: opens WhatsApp */}
                   <a
-                    href="https://wa.me/919671773155"
+                    href="https://wa.me/919671773155?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20your%20travel%20packages."
                     target="_blank"
-                    message="Hello, I would like to enquire about your travel packages."
                     rel="noopener noreferrer"
                     className="bg-white px-6 py-3 rounded-[100px] hidden md:flex items-center gap-3 text-[#1A2A4C] whitespace-nowrap w-78 md:w-auto"
                   >
@@ -361,8 +360,7 @@ const Navbar = () => {
                     </span>
                   </div>
                 </li>
-
-              </ul>
+                </ul>
             </div>
 
           </div>

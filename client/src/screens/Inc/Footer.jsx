@@ -28,9 +28,9 @@ const Footer = () => {
 
   // SOCIAL MEDIA - Add your external social media URLs here
   const socialLinks = [
-    { label: "Facebook", href: "", icon: <FacebookIcon /> },
-    { label: "Instagram", href: "", icon: <InstagramIcon /> },
-    { label: "YouTube", href: "", icon: <YoutubeIcon /> },
+    { label: "Facebook", href: "https://www.facebook.com/", icon: <FacebookIcon /> },
+    { label: "Instagram", href: "https://www.instagram.com/", icon: <InstagramIcon /> },
+    { label: "YouTube", href: "https://www.youtube.com/", icon: <YoutubeIcon /> },
   ];
 
   // CONTACT DETAILS - Change phone and email here
