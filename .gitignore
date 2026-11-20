@@ -6,3 +6,8 @@ dist/
 # Keep environment templates in version control.
 !.env.example
 !**/.env.example
+
+# Uploaded tour package images are runtime data; keep the directory but not user uploads.
+server/uploads/packages/*
+!server/uploads/packages/.gitkeep
+!server/uploads/packages/.htaccess

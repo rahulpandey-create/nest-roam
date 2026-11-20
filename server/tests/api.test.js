@@ -11,6 +11,18 @@ describe("Nestroam API tests", () => {
     expect(response.body.message).toBe("Nestroam API is running.");
   });
 
+  test("Admin routes should reject unauthenticated requests", async () => {
+    const response = await request(app).get("/api/admin/me");
+    expect(response.statusCode).toBe(401);
+    expect(response.body.success).toBe(false);
+  });
+
+  test("Admin package management should reject unauthenticated requests", async () => {
+    const response = await request(app).get("/api/packages/admin/all");
+    expect(response.statusCode).toBe(401);
+    expect(response.body.success).toBe(false);
+  });
+
   test("POST /api/enquiries should reject an empty request", async () => {
     const response = await request(app)
       .post("/api/enquiries")

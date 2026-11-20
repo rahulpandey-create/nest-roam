@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import { Link } from "react-router-dom";
@@ -10,9 +10,10 @@ import "swiper/css/navigation";
 import manalip from '../../assets/manalip.webp';
 import shimlap from "../../assets/shimlap.webp";
 import spitip from "../../assets/spitip.webp";
+import { API } from "../../admin/adminApi";
 
 
-const packages = [
+const fallbackPackages = [
   {
     id: 1,
     title: "Manali Mountain Escape",
@@ -54,8 +55,37 @@ const packages = [
 
 const TourPackagesSection = () => {
 
+    const [packages, setPackages] = useState(fallbackPackages);
     const [swiperInstance, setSwiperInstance] = useState(null);
     const [activeDot, setActiveDot] = useState(0);
+
+    useEffect(() => {
+        let active = true;
+        fetch(`${API}/api/packages`)
+            .then((response) => response.ok ? response.json() : Promise.reject(new Error("Package API unavailable")))
+            .then((data) => {
+                if (!active || !Array.isArray(data.packages) || data.packages.length === 0) return;
+                const managed = data.packages.map((item) => ({
+                    id: `managed-${item.id}`,
+                    title: item.title,
+                    image: item.cover_image?.startsWith("http") ? item.cover_image : `${API}${item.cover_image}`,
+                    badge: item.is_featured ? "Featured" : "",
+                    nights: item.duration || "Flexible duration",
+                    price: item.price !== null && item.price !== undefined && item.price !== ""
+                        ? Number(item.price).toLocaleString("en-IN")
+                        : null,
+                    priceLabel: item.price_label || "per person",
+                    link: `/tour-packages/${item.slug}`,
+                }));
+                const slugs = new Set(data.packages.map((item) => item.slug));
+                setPackages([
+                    ...fallbackPackages.filter((item) => !slugs.has(item.link.split("/").pop())),
+                    ...managed,
+                ]);
+            })
+            .catch(() => {});
+        return () => { active = false; };
+    }, []);
 
     // Exactly 3 navigation positions
     const navigationIndexes = [
@@ -236,8 +266,14 @@ const TourPackagesSection = () => {
                                         <div className="tour-card-bottom">
 
                                             <div className="tour-price">
-                                                <strong>₹{item.price}</strong>
-                                                <span>/person</span>
+                                                {item.price !== null && item.price !== undefined && item.price !== "" ? (
+                                                    <>
+                                                        <strong>₹{item.price}</strong>
+                                                        <span>/{(item.priceLabel || "per person").replace(/^per\s*/i, "")}</span>
+                                                    </>
+                                                ) : (
+                                                    <strong>Price on request</strong>
+                                                )}
                                             </div>
 
                                             <Link to={item.link} className="tour-book-btn">

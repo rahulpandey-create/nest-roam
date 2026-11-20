@@ -1,12 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { CalendarDays, ArrowUpRight } from "lucide-react";
 
 import manalip from "../../assets/manalip.webp";
 import shimlap from "../../assets/shimlap.webp";
 import spitip from "../../assets/spitip.webp";
+import { API } from "../../admin/adminApi";
 
-const packages = [
+const fallbackPackages = [
     {
         id: 1,
         title: "Manali Mountain Escape",
@@ -70,7 +71,39 @@ const packages = [
 ];
 
 const TourPackages = () => {
+    const [packages, setPackages] = useState(fallbackPackages);
     const [searchParams, setSearchParams] = useSearchParams();
+
+    useEffect(() => {
+        let active = true;
+        fetch(`${API}/api/packages`)
+            .then((response) => response.ok ? response.json() : Promise.reject(new Error("Package API unavailable")))
+            .then((data) => {
+                if (!active || !Array.isArray(data.packages) || data.packages.length === 0) return;
+                const managedPackages = data.packages.map((item) => ({
+                    id: `managed-${item.id}`,
+                    slug: item.slug,
+                    title: item.title,
+                    image: item.cover_image?.startsWith("http") ? item.cover_image : `${API}${item.cover_image}`,
+                    badge: item.is_featured ? "Featured" : "",
+                    duration: item.duration || "Flexible duration",
+                    location: item.destination || "",
+                    price: item.price !== null && item.price !== undefined && item.price !== ""
+                        ? `₹${Number(item.price).toLocaleString("en-IN")}`
+                        : null,
+                    priceLabel: item.price_label || "per person",
+                    description: item.short_description || item.description || "",
+                    link: `/tour-packages/${item.slug}`,
+                }));
+                const managedSlugs = new Set(managedPackages.map((item) => item.slug));
+                setPackages([
+                    ...fallbackPackages.filter((item) => !managedSlugs.has(item.link.split("/").pop())),
+                    ...managedPackages,
+                ]);
+            })
+            .catch(() => {});
+        return () => { active = false; };
+    }, []);
 
     const selectedDestination = searchParams.get("destination") || "";
     const selectedDate = searchParams.get("date") || "";
@@ -293,13 +326,20 @@ const TourPackages = () => {
                                                 {/* Price */}
                                                 <div className="flex items-baseline flex-wrap gap-0 min-w-0">
 
-                                                    <span className="text-[#8fc31f] text-[23px] md:text-[27px] font-bold whitespace-nowrap">
-                                                        {item.price}
-                                                    </span>
-
-                                                    <span className="text-[#999999] text-[15px] md:text-[16px] whitespace-nowrap">
-                                                        /person
-                                                    </span>
+                                                    {item.price !== null && item.price !== undefined && item.price !== "" ? (
+                                                        <>
+                                                            <span className="text-[#8fc31f] text-[23px] md:text-[27px] font-bold whitespace-nowrap">
+                                                                {item.price}
+                                                            </span>
+                                                            <span className="text-[#999999] text-[15px] md:text-[16px] whitespace-nowrap">
+                                                                /{(item.priceLabel || "per person").replace(/^per\s*/i, "")}
+                                                            </span>
+                                                        </>
+                                                    ) : (
+                                                        <span className="text-[#8fc31f] text-[20px] md:text-[23px] font-bold">
+                                                            Price on request
+                                                        </span>
+                                                    )}
 
                                                 </div>
 

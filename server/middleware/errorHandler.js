@@ -1,6 +1,9 @@
 const errorHandler = (err, req, res, next) => {
   console.error(err);
 
+  if (err.code === "LIMIT_FILE_SIZE") return res.status(400).json({ success: false, message: "Image must be 5 MB or smaller." });
+  if (err.message?.startsWith("Only JPG")) return res.status(400).json({ success: false, message: err.message });
+
   if (err.message === "Not allowed by CORS") {
     return res.status(403).json({
       success: false,
