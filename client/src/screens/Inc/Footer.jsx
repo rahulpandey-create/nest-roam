@@ -28,8 +28,8 @@ const Footer = () => {
 
   // SOCIAL MEDIA - Add your external social media URLs here
   const socialLinks = [
-    { label: "Facebook", href: "https://www.facebook.com/", icon: <FacebookIcon /> },
-    { label: "Instagram", href: "https://www.instagram.com/", icon: <InstagramIcon /> },
+    { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61596495820475", icon: <FacebookIcon /> },
+    { label: "Instagram", href: "https://www.instagram.com/nestroamholidays", icon: <InstagramIcon /> },
     { label: "YouTube", href: "https://www.youtube.com/", icon: <YoutubeIcon /> },
   ];
 
