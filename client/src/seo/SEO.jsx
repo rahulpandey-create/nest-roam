@@ -62,7 +62,27 @@ export default function SEO() {
   const { pathname } = useLocation();
 
   useEffect(() => {
+    if (pathname.startsWith("/admin")) {
+      const isLoginPage = pathname === "/admin/login";
+
+      document.title = isLoginPage
+        ? "Admin Login | Nestroam Holidays"
+        : "Package Management | Nestroam Holidays";
+
+      upsertMeta(
+        'meta[name="robots"]',
+        { name: "robots" },
+        "noindex, nofollow",
+      );
+
+      upsertCanonical(null);
+      updateStructuredData(pathname);
+      return;
+    }
     const normalizedPath = normalizeSeoPath(pathname);
+    // Dynamic package pages own their metadata after their published record loads.
+    // Do not briefly overwrite their title with the static 404 fallback.
+    if (/^\/tour-packages\/[^/]+$/.test(normalizedPath) && !isSeoPath(normalizedPath)) return;
     const page = getSeoPage(normalizedPath);
     const robotsValue = siteIndexable && isSeoPath(normalizedPath) ? "index, follow" : "noindex, follow";
     const knownSeoPath = isSeoPath(normalizedPath);

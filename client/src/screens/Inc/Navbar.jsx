@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import nestroamlogo from "../../assets/nestroam-logo.webp";
 import whatsapp from "../../assets/whatsapp.svg";
@@ -12,6 +12,13 @@ const Navbar = () => {
   const [isDestinationOpen, setIsDestinationOpen] = useState(false);
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { pathname } = useLocation();
+
+  const isPackagePage = /^\/tour-packages\/[^/]+\/?$/.test(pathname);
+
+  // Package detail pages place the navbar over the hero image.
+  // Keep mobile links dark inside the light mobile menu; use white links on desktop.
+  const navLinkColor = "text-[#1a2a4c] sm:text-white";
   const API_URL = import.meta.env.VITE_API_URL?.replace(/\/+$/, "");
   const [status, setStatus] = useState({
     type: "",
@@ -125,9 +132,21 @@ const Navbar = () => {
 
   return (
     <>
-      <header>
+      <header
+        style={
+          isPackagePage
+            ? {
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                zIndex: 1000,
+              }
+            : undefined
+        }
+      >
         <nav>
-          <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 gap-3 sm:gap-5 bg-[#f8f8f8] sm:bg-transparent">
+          <div className={`max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 gap-3 sm:gap-5 ${isPackagePage ? "bg-transparent" : "bg-[#f8f8f8] sm:bg-transparent"}`}>
 
             {/* Logo */}
             <Link
@@ -212,7 +231,7 @@ const Navbar = () => {
                   <Link
                     to="/"
                     onClick={closeMenu}
-                    className="text-[#1A2A4C] sm:text-white block py-3 md:py-2 hover:text-[#e0ff98] duration-200 "
+                    className={`${navLinkColor} block py-3 md:py-2 hover:text-[#e0ff98] duration-200`}
                   >
                     Home
                   </Link>
@@ -237,7 +256,7 @@ const Navbar = () => {
                     onClick={() =>
                       setIsDestinationOpen(!isDestinationOpen)
                     }
-                    className="text-[#1A2A4C] sm:text-white flex items-center justify-between gap-2 py-3 md:py-2 w-full hover:text-[#e0ff98] duration-200"
+                    className={`${navLinkColor} flex items-center justify-between gap-2 py-3 md:py-2 w-full hover:text-[#e0ff98] duration-200`}
                     aria-expanded={isDestinationOpen}
                   >
                     Destinations
@@ -293,7 +312,7 @@ const Navbar = () => {
                   <Link
                     to="/tour-packages"
                     onClick={closeMenu}
-                    className="text-[#1A2A4C] sm:text-white block py-3 md:py-2 hover:text-[#e0ff98] duration-200"
+                    className={`${navLinkColor} block py-3 md:py-2 hover:text-[#e0ff98] duration-200`}
                   >
                     Tour Package
                   </Link>
@@ -304,7 +323,7 @@ const Navbar = () => {
                   <Link
                     to="/adventures"
                     onClick={closeMenu}
-                    className="text-[#1A2A4C] sm:text-white block py-3 md:py-2 hover:text-[#e0ff98] duration-200"
+                    className={`${navLinkColor} block py-3 md:py-2 hover:text-[#e0ff98] duration-200`}
                   >
                     Adventures
                   </Link>
@@ -315,7 +334,7 @@ const Navbar = () => {
                   <Link
                     to="/about"
                     onClick={closeMenu}
-                    className="text-[#1A2A4C] sm:text-white block py-3 md:py-2 hover:text-[#e0ff98] duration-200"
+                    className={`${navLinkColor} block py-3 md:py-2 hover:text-[#e0ff98] duration-200`}
                   >
                     About Us
                   </Link>
@@ -326,7 +345,7 @@ const Navbar = () => {
                   <Link
                     to="/contact"
                     onClick={closeMenu}
-                    className="text-[#1A2A4C] sm:text-white block py-3 md:py-2 hover:text-[#e0ff98] duration-200"
+                    className={`${navLinkColor} block py-3 md:py-2 hover:text-[#e0ff98] duration-200`}
                   >
                     Contact Us
                   </Link>
@@ -360,7 +379,7 @@ const Navbar = () => {
                     </span>
                   </div>
                 </li>
-                </ul>
+              </ul>
             </div>
 
           </div>

@@ -57,6 +57,24 @@ function validate(body) {
   }};
 }
 
+
+function validatePublishedPackage(data) {
+  const required = [
+    [data.destination, "destination"],
+    [data.duration, "duration"],
+    [data.short_description, "short description"],
+    [data.description, "full description"],
+    [data.cover_image, "cover image"],
+  ];
+  const missing = required.filter(([value]) => !String(value ?? "").trim()).map(([, label]) => label);
+  if (!data.itinerary.length || !data.itinerary.some((day) => day.title.trim() && day.description.trim())) {
+    missing.push("at least one complete itinerary day");
+  }
+  return missing.length
+    ? `Complete these details before publishing: ${missing.join(", ")}. Save as a draft to continue later.`
+    : null;
+}
+
 exports.listPublic = async (req, res, next) => {
   try {
     const [rows] = await db.execute(
@@ -89,6 +107,10 @@ exports.create = async (req, res, next) => {
     if (error) return res.status(400).json({ success: false, message: error });
     if (req.file) data.cover_image = `/uploads/packages/${req.file.filename}`;
     if (!data.cover_image) return res.status(400).json({ success: false, message: "A cover image is required." });
+    if (data.status === "published") {
+      const publishError = validatePublishedPackage(data);
+      if (publishError) return res.status(400).json({ success: false, message: publishError });
+    }
     const [existing] = await db.execute("SELECT id FROM tour_packages WHERE slug = ? LIMIT 1", [data.slug]);
     if (existing.length) return res.status(409).json({ success: false, message: "That URL slug is already in use." });
     const fields = Object.keys(data);
@@ -108,6 +130,10 @@ exports.update = async (req, res, next) => {
     if (!existing[0]) return res.status(404).json({ success: false, message: "Package not found." });
     if (req.file) data.cover_image = `/uploads/packages/${req.file.filename}`;
     else if (!data.cover_image) data.cover_image = existing[0].cover_image;
+    if (data.status === "published") {
+      const publishError = validatePublishedPackage(data);
+      if (publishError) return res.status(400).json({ success: false, message: publishError });
+    }
     const [duplicate] = await db.execute("SELECT id FROM tour_packages WHERE slug = ? AND id <> ? LIMIT 1", [data.slug, req.params.id]);
     if (duplicate.length) return res.status(409).json({ success: false, message: "That URL slug is already in use." });
     const fields = Object.keys(data);
