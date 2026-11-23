@@ -185,7 +185,7 @@ const ShimlaPackage = () => {
 
         <div className="absolute inset-0 bg-gradient-to-r from-[#081c2b]/85 via-[#081c2b]/70 to-transparent" />
 
-        <div className="relative z-10 w-full max-w-[1280px] mx-auto px-5 md:px-5 pb-16 md:pb-24 pt-36">
+        <div className="relative z-10 w-full max-w-[1280px] mx-auto px-5 md:px-5 pb-16 md:pb-24 pt-48 md:pt-80">
           <Breadcrumbs pagePath="/tour-packages/shimla" className="mb-6" />
 
           <h1 className="fontsylegilda text-white leading-16.5">

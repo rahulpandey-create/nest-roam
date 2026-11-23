@@ -196,7 +196,7 @@ const SpitiPackage = () => {
 
         <div className="absolute inset-0 bg-gradient-to-t from-[#101c2c] via-[#101c2c]/45 to-black/10" />
 
-        <div className="relative z-10 w-full max-w-[1280px] mx-auto px-5 md:px-5 pb-16 md:pb-24 pt-36">
+        <div className="relative z-10 w-full max-w-[1280px] mx-auto px-5 md:px-5 pb-16 md:pb-24 pt-48 md:pt-76">
           <Breadcrumbs pagePath="/tour-packages/spiti" className="mb-6" />
 
 
