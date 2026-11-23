@@ -105,10 +105,10 @@ export default function DynamicPackage() {
   const exclusions = Array.isArray(item.exclusions) ? item.exclusions : [];
 
   return <main className="overflow-hidden bg-white text-[#172b3a]">
-    <section className="relative flex min-h-screen items-end overflow-hidden bg-[#101d32]">
+    <section className="relative flex min-h-screen items-start overflow-hidden bg-[#101d32]">
       <img src={image} alt={item.title} className="absolute inset-0 h-full w-full object-cover" fetchPriority="high" />
       <div className="absolute inset-0 bg-gradient-to-r from-[#081c2b]/90 via-[#081c2b]/70 to-[#081c2b]/20" />
-      <div className="relative z-10 mx-auto w-full max-w-[1280px] px-5 pb-16 pt-36 md:pb-24">
+      <div className="relative z-10 mx-auto w-full max-w-[1280px] px-5 pt-40 pb-16 md:pt-44 md:pb-24 lg:pt-48">
         <nav aria-label="Breadcrumb" className="mb-6 text-sm text-white/80">
           <ol className="flex flex-wrap items-center gap-2">
             <li><Link to="/" className="transition hover:text-white">Home</Link></li><li aria-hidden="true">/</li>
