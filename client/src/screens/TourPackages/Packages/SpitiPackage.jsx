@@ -35,6 +35,7 @@ const itinerary = [
       "Kaza",
     ],
     details: [
+      "Airport pickup and drop available.",
       "Start your journey towards the breathtaking Spiti Valley.",
       "Cross the scenic Rohtang Pass and Kunzum Pass.",
       "Visit Kunzum Devi Temple and enjoy the mountain landscapes.",

@@ -35,6 +35,7 @@ const itinerary = [
       "Scandal Point",
     ],
     details: [
+      "Airport pickup and drop available.",
       "Arrive in Shimla and enjoy the beautiful mountain surroundings.",
       "Check in to your hotel and relax after your journey.",
       "Explore the famous Mall Road and enjoy its lively atmosphere.",

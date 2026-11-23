@@ -7,6 +7,7 @@ const parseJson = (value, fallback = []) => {
   if (!value) return fallback;
   try { return typeof value === "string" ? JSON.parse(value) : value; } catch { return fallback; }
 };
+
 const serialize = (row) => ({
   ...row,
   itinerary: parseJson(row.itinerary),
@@ -42,19 +43,21 @@ function validate(body) {
     title: clean(d.title, 160),
     description: clean(d.description, 3000),
   }));
-  return { data: {
-    title, slug, short_description: clean(body.short_description, 500),
-    description: clean(body.description, 10000),
-    destination: clean(body.destination, 180), duration: clean(body.duration, 80),
-    price, price_label: clean(body.price_label, 80),
-    cover_image: clean(body.cover_image, 500),
-    itinerary, inclusions: list(body.inclusions), exclusions: list(body.exclusions),
-    gallery: list(body.gallery), status,
-    is_featured: [true, "true", "1", 1].includes(body.is_featured) ? 1 : 0,
-    display_order: Math.max(0, Math.min(9999, Number(body.display_order) || 0)),
-    meta_title: clean(body.meta_title, 180),
-    meta_description: clean(body.meta_description, 320),
-  }};
+  return {
+    data: {
+      title, slug, short_description: clean(body.short_description, 500),
+      description: clean(body.description, 10000),
+      destination: clean(body.destination, 180), duration: clean(body.duration, 80),
+      price, price_label: clean(body.price_label, 80),
+      cover_image: clean(body.cover_image, 500),
+      itinerary, inclusions: list(body.inclusions), exclusions: list(body.exclusions),
+      gallery: list(body.gallery), status,
+      is_featured: [true, "true", "1", 1].includes(body.is_featured) ? 1 : 0,
+      display_order: Math.max(0, Math.min(9999, Number(body.display_order) || 0)),
+      meta_title: clean(body.meta_title, 180),
+      meta_description: clean(body.meta_description, 320),
+    }
+  };
 }
 
 
@@ -144,7 +147,7 @@ exports.update = async (req, res, next) => {
     );
     if (req.file && existing[0].cover_image?.startsWith("/uploads/packages/")) {
       const oldPath = path.join(__dirname, "..", existing[0].cover_image.replace(/^\/+/, ""));
-      if (fs.existsSync(oldPath)) fs.unlink(oldPath, () => {});
+      if (fs.existsSync(oldPath)) fs.unlink(oldPath, () => { });
     }
     res.json({ success: true, message: "Package updated." });
   } catch (error) { next(error); }
@@ -158,7 +161,7 @@ exports.remove = async (req, res, next) => {
     const image = rows[0].cover_image;
     if (image?.startsWith("/uploads/packages/")) {
       const filePath = path.join(__dirname, "..", image.replace(/^\/+/, ""));
-      if (fs.existsSync(filePath)) fs.unlink(filePath, () => {});
+      if (fs.existsSync(filePath)) fs.unlink(filePath, () => { });
     }
     res.json({ success: true, message: "Package deleted." });
   } catch (error) { next(error); }

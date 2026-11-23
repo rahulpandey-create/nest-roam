@@ -202,7 +202,6 @@ const TravelEnquiryForm = ({
             <option value="10+">10+ Travellers</option>
           </select>
         </div>
-
       </div>
 
       {/* Message */}
@@ -221,11 +220,10 @@ const TravelEnquiryForm = ({
       {status.message && (
         <p
           role={status.type === "error" ? "alert" : "status"}
-          className={`mt-5 text-sm font-medium ${
-            status.type === "success"
+          className={`mt-5 text-sm font-medium ${status.type === "success"
               ? "text-green-700"
               : "text-red-600"
-          }`}
+            }`}
         >
           {status.message}
         </p>
