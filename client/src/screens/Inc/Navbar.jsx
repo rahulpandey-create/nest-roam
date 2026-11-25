@@ -1,0 +1,440 @@
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+
+import nestroamlogo from "../../assets/nestroam-logo.webp";
+import whatsapp from "../../assets/whatsapp.svg";
+import arrowright from "../../assets/arrowright.svg";
+
+import TravelEnquiryForm from "../components/TravelEnquiryForm";
+
+const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDestinationOpen, setIsDestinationOpen] = useState(false);
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { pathname } = useLocation();
+
+  const isPackagePage = /^\/tour-packages\/[^/]+\/?$/.test(pathname);
+
+  // Package detail pages place the navbar over the hero image.
+  // Keep mobile links dark inside the light mobile menu; use white links on desktop.
+  const navLinkColor = "text-[#1a2a4c] sm:text-white";
+  const API_URL = import.meta.env.VITE_API_URL?.replace(/\/+$/, "");
+  const [status, setStatus] = useState({
+    type: "",
+    message: "",
+  });
+
+  // Pause background smooth scrolling while the booking modal is open.
+  useEffect(() => {
+    if (!isBookingOpen) return;
+
+    window.lenis?.stop();
+
+    return () => {
+      window.lenis?.start();
+    };
+  }, [isBookingOpen]);
+
+  // Close Navigation Menu
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+    setIsDestinationOpen(false);
+  };
+
+  // Handle Booking Form Submission
+
+  const handleContact = async (e) => {
+    const form = e.currentTarget;
+
+    if (isSubmitting) return;
+
+    if (!API_URL) {
+      setStatus({
+        type: "error",
+        message: "API configuration is missing. Please try again later.",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    setStatus({ type: "", message: "" });
+
+    try {
+      const formData = new FormData(form);
+
+      const travelDate = formData.get("travelDate");
+
+      if (!travelDate) {
+        throw new Error("Please select your travel date.");
+      }
+
+      const [year, month, day] = travelDate.split("-");
+
+      const formattedDate = `${day}/${month}/${year}`;
+
+      const enquiryData = {
+        name: formData.get("fullName").trim(),
+        email: formData.get("email").trim(),
+        phone: formData.get("phone").trim(),
+        destination: formData.get("destination"),
+        travelDate: formattedDate,
+        travellers: formData.get("travellers"),
+        message: formData.get("message").trim(),
+      };
+
+      const response = await fetch(`${API_URL}/api/enquiries`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(enquiryData),
+      });
+
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok || !result.success) {
+        throw new Error(
+          result.message || "Unable to submit your enquiry."
+        );
+      }
+
+      form.reset();
+
+      setStatus({
+        type: "success",
+        message:
+          "Your enquiry has been submitted successfully! Our team will contact you soon.",
+      });
+
+    } catch (error) {
+      console.error("Booking enquiry submission failed:", error);
+
+      setStatus({
+        type: "error",
+        message:
+          error.message || "Something went wrong. Please try again.",
+      });
+
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+
+  // Destinations
+  const destinations = [
+    { name: "Manali", link: "/destinations/manali" },
+    { name: "Shimla", link: "/destinations/shimla" },
+    { name: "Kasol", link: "/destinations/kasol" },
+    { name: "Spiti", link: "/destinations/spiti" },
+  ];
+
+  return (
+    <>
+      <header
+        style={
+          isPackagePage
+            ? {
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                zIndex: 1000,
+              }
+            : undefined
+        }
+      >
+        <nav>
+          <div className={`max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 gap-3 sm:gap-5 ${isPackagePage ? "bg-transparent" : "bg-[#f8f8f8] sm:bg-transparent"}`}>
+
+            {/* Logo */}
+            <Link
+              to="/"
+              className="flex items-center mr-auto"
+            >
+              <img
+                src={nestroamlogo}
+                alt="Nestroam Holidays logo"
+                width={238}
+                height={236}
+                decoding="async"
+                className="w-[100px] sm:w-[118px] h-auto "
+              />
+            </Link>
+
+            {/* Right Buttons */}
+            <div className="flex items-center gap-3 md:order-2">
+
+              {/* Book Now */}
+              <button
+                type="button"
+                onClick={() => setIsBookingOpen(true)}
+                className="bg-[#1A2A4C] md:bg-[#1a2a4c59] text-white py-3 pl-8 pr-7 rounded-[100px] flex items-center gap-3 cursor-pointer border border-white hover:bg-[#8DB828] hover:text-[#fff] transition-all duration-300 hover:border-[#8DB828]"
+              >
+                Book Now
+                <img src={arrowright} alt="" />
+              </button>
+
+              {/* Hamburger Button */}
+              <button
+                type="button"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="inline-flex items-center justify-center w-10 h-10 text-[#1a2a4c] rounded-lg md:hidden hover:bg-white/10 focus:outline-none border"
+                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+                aria-controls="navbar-sticky"
+                aria-expanded={isMenuOpen}
+              >
+                {isMenuOpen ? (
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                ) : (
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M5 7h14M5 12h14M5 17h14"
+                    />
+                  </svg>
+                )}
+              </button>
+
+            </div>
+
+            {/* Navigation Menu */}
+            <div
+              id="navbar-sticky"
+              className={`w-full md:flex md:w-auto md:order-1 ${isMenuOpen ? "block" : "hidden"
+                }`}
+            >
+              <ul className="flex flex-col items-center p-4 md:p-0 mt-4 font-normal md:flex-row md:space-x-8 md:mt-0 bg-[#eaeaea] md:bg-transparent rounded-[20px] " >
+
+                {/* Home */}
+                <li className="w-full md:w-auto">
+                  <Link
+                    to="/"
+                    onClick={closeMenu}
+                    className={`${navLinkColor} block py-3 md:py-2 hover:text-[#e0ff98] duration-200`}
+                  >
+                    Home
+                  </Link>
+                </li>
+
+                {/* Destinations Dropdown */}
+                <li
+                  className="relative w-full md:w-auto"
+                  onMouseEnter={() => {
+                    if (window.innerWidth >= 768) {
+                      setIsDestinationOpen(true);
+                    }
+                  }}
+                  onMouseLeave={() => {
+                    if (window.innerWidth >= 768) {
+                      setIsDestinationOpen(false);
+                    }
+                  }}
+                >
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setIsDestinationOpen(!isDestinationOpen)
+                    }
+                    className={`${navLinkColor} flex items-center justify-between gap-2 py-3 md:py-2 w-full hover:text-[#e0ff98] duration-200`}
+                    aria-expanded={isDestinationOpen}
+                  >
+                    Destinations
+
+                    <svg
+                      className={`w-4 h-4 transition-transform duration-300 ${isDestinationOpen ? "rotate-180" : ""
+                        }`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </button>
+
+                  {/* Dropdown Items */}
+                  <div
+                    className={`md:absolute md:top-full md:left-0 md:pt-3 z-50 w-full md:w-[220px] ${isDestinationOpen ? "block" : "hidden"
+                      }`}
+                  >
+                    <ul className="bg-white rounded-xl shadow-xl p-3 space-y-1">
+                      <li>
+                        <Link
+                          to="/destinations"
+                          onClick={closeMenu}
+                          className="bg-gray-100 block px-4 py-3 rounded-lg text-[#1A2A4C] hover:bg-[#8DB828] hover:text-white transition-all duration-300"
+                        >
+                          All Destinations
+                        </Link>
+                      </li>
+                      {destinations.map((destination) => (
+                        <li key={destination.name}>
+                          <Link
+                            to={destination.link}
+                            onClick={closeMenu}
+                            className="bg-gray-100 block px-4 py-3 rounded-lg text-[#1A2A4C] hover:bg-[#8DB828] hover:text-white transition-all duration-300"
+                          >
+                            {destination.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </li>
+
+                {/* Tour Package */}
+                <li className="w-full md:w-auto">
+                  <Link
+                    to="/tour-packages"
+                    onClick={closeMenu}
+                    className={`${navLinkColor} block py-3 md:py-2 hover:text-[#e0ff98] duration-200`}
+                  >
+                    Tour Package
+                  </Link>
+                </li>
+
+                {/* Adventures */}
+                <li className="w-full md:w-auto">
+                  <Link
+                    to="/adventures"
+                    onClick={closeMenu}
+                    className={`${navLinkColor} block py-3 md:py-2 hover:text-[#e0ff98] duration-200`}
+                  >
+                    Adventures
+                  </Link>
+                </li>
+
+                {/* About Us */}
+                <li className="w-full md:w-auto">
+                  <Link
+                    to="/about"
+                    onClick={closeMenu}
+                    className={`${navLinkColor} block py-3 md:py-2 hover:text-[#e0ff98] duration-200`}
+                  >
+                    About Us
+                  </Link>
+                </li>
+
+                {/* Contact Us */}
+                <li className="w-full md:w-auto">
+                  <Link
+                    to="/contact"
+                    onClick={closeMenu}
+                    className={`${navLinkColor} block py-3 md:py-2 hover:text-[#e0ff98] duration-200`}
+                  >
+                    Contact Us
+                  </Link>
+                </li>
+
+                {/* WhatsApp (Desktop) / Phone Call (Mobile) */}
+                <li className="relative mt-3 md:mt-0">
+                  {/* Mobile: starts a phone call */}
+                  <a
+                    href="tel:+919671773155"
+                    className="bg-white px-6 py-3 rounded-[100px] flex md:hidden items-center gap-3 text-[#1A2A4C] whitespace-nowrap w-78 md:w-auto"
+                  >
+                    <img src={whatsapp} alt="Call" />
+                    +91-9671773155
+                  </a>
+
+                  {/* Desktop: opens WhatsApp */}
+                  <a
+                    href="https://wa.me/919671773155?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20your%20travel%20packages."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-white px-6 py-3 rounded-[100px] hidden md:flex items-center gap-3 text-[#1A2A4C] whitespace-nowrap w-78 md:w-auto"
+                  >
+                    <img src={whatsapp} alt="WhatsApp" />
+                    +91-9671773155
+                  </a>
+
+                  <div className="relative">
+                    <span className="quicky bg-[#8DB828] absolute right-8 px-3 py-1 rounded-b-[8px] text-white text-[12px]">
+                      Quick Call
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </nav>
+      </header>
+
+      {/* Booking Modal */}
+      {isBookingOpen && (
+        <div
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+          onClick={() => setIsBookingOpen(false)}
+        >
+          <div
+            data-lenis-prevent
+            className="relative bg-white w-full max-w-[750px] max-h-[90vh] overflow-y-auto overscroll-contain rounded-[25px] p-6 md:p-10"
+            onClick={(e) => e.stopPropagation()}
+          >
+
+            {/* Close Button */}
+            <button
+              type="button"
+              onClick={() => setIsBookingOpen(false)}
+              className="absolute top-5 right-5 text-[#1A2A4C] text-3xl leading-none hover:text-[#8DB828] transition-colors"
+              aria-label="Close booking form"
+            >
+              &times;
+            </button>
+
+            {/* Heading */}
+            <span className="inline-flex bg-[#8fc31f] text-[#1d2d50] text-sm font-semibold px-6 py-2 rounded-full mb-4">
+              Book Your Trip
+            </span>
+
+            <h2 className="text-[30px] font-bold text-[#1d2d50] mb-3">
+              Let's Plan Your Trip
+            </h2>
+
+            <p className="text-[#414141] text-[15px] mb-7">
+              Share your travel details and we'll help you plan your perfect getaway.
+            </p>
+
+            {/* Reusable Travel Enquiry Form */}
+            <TravelEnquiryForm
+              onSubmit={handleContact}
+              buttonText="Submit Enquiry"
+              isSubmitting={isSubmitting}
+              status={status}
+            />
+
+          </div>
+        </div>
+      )}
+
+    </>
+  );
+};
+
+export default Navbar;

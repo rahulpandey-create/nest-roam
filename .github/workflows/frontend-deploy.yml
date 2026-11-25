@@ -1,0 +1,150 @@
+
+name: Frontend CI/CD
+
+on:
+  push:
+    branches:
+      - design
+      - main
+    paths:
+      - 'client/**'
+      - '.github/workflows/frontend-ci.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: frontend-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build Frontend
+    runs-on: ubuntu-latest
+
+    # Keep staging noindex; production can be enabled independently at launch.
+    env:
+      VITE_SITE_INDEXABLE: "false"
+
+    defaults:
+      run:
+        working-directory: client
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: client/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build frontend with pre-launch indexing disabled
+        env:
+          VITE_API_URL: ${{ github.ref == 'refs/heads/main' && 'https://api.nestroamholidays.com' || '' }}
+        run: npm run build
+
+      - name: Verify build
+        run: |
+          test -f dist/index.html
+          test -d dist/assets
+          test -f dist/robots.txt
+          test -f dist/.htaccess
+          test -f dist/404.html
+          test -f dist/contact.html
+          test -f dist/about.html
+          test -f dist/destinations/manali.html
+          test -f dist/tour-packages/spiti.html
+          if [ "$VITE_SITE_INDEXABLE" = "true" ]; then
+            test -f dist/sitemap.xml
+            grep -q "Sitemap:" dist/robots.txt
+            grep -q "index, follow" dist/destinations/manali.html
+          else
+            test ! -f dist/sitemap.xml
+            ! grep -q "Sitemap:" dist/robots.txt
+            grep -q "noindex, follow" dist/destinations/manali.html
+          fi
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-build
+          path: client/dist/
+          if-no-files-found: error
+          retention-days: 3
+
+  deploy-staging:
+    name: Deploy to Staging
+    needs: build
+    if: github.ref == 'refs/heads/design'
+    runs-on: ubuntu-latest
+
+    environment:
+      name: staging
+
+    steps:
+      - name: Download build
+        uses: actions/download-artifact@v4
+        with:
+          name: frontend-build
+          path: dist
+
+      - name: Configure SSH
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.CPANEL_SSH_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/nest_roam_deploy
+          chmod 600 ~/.ssh/nest_roam_deploy
+          ssh-keyscan -p "${{ secrets.CPANEL_PORT }}" "${{ secrets.CPANEL_HOST }}" >> ~/.ssh/known_hosts
+
+      - name: Deploy to staging
+        run: |
+          set -o pipefail
+
+          tar -czf - -C dist . | \
+          ssh -i ~/.ssh/nest_roam_deploy \
+            -p "${{ secrets.CPANEL_PORT }}" \
+            "${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }}" \
+            'tar -xzf - -C /home/nestroamholidays/staging.nestroamholidays.com'
+
+  deploy-production:
+    name: Deploy to Production
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+
+    environment:
+      name: production
+
+    steps:
+      - name: Download build
+        uses: actions/download-artifact@v4
+        with:
+          name: frontend-build
+          path: dist
+
+      - name: Configure SSH
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.CPANEL_SSH_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/nest_roam_deploy
+          chmod 600 ~/.ssh/nest_roam_deploy
+          ssh-keyscan -p "${{ secrets.CPANEL_PORT }}" "${{ secrets.CPANEL_HOST }}" >> ~/.ssh/known_hosts
+
+      - name: Deploy to production
+        run: |
+          set -o pipefail
+
+          tar -czf - -C dist . | \
+          ssh -i ~/.ssh/nest_roam_deploy \
+            -p "${{ secrets.CPANEL_PORT }}" \
+            "${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }}" \
+            'tar -xzf - -C /home/nestroamholidays/public_html'
+            
