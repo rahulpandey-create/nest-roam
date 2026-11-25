@@ -137,7 +137,7 @@ const Navbar = () => {
       >
         <nav>
           <div
-            className={`max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 gap-3 sm:gap-5 ${
+            className={`max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 gap-3 sm:gap-3 ${
               isOverlayPage
                 ? "bg-transparent"
                 : "bg-[#f8f8f8] sm:bg-transparent"
@@ -161,7 +161,7 @@ const Navbar = () => {
               <button
                 type="button"
                 onClick={() => setIsBookingOpen(true)}
-                className="bg-[#1A2A4C] md:bg-[#1a2a4c59] text-white py-3 pl-8 pr-7 rounded-[100px] flex items-center gap-3 cursor-pointer border border-white hover:bg-[#8DB828] hover:text-[#fff] transition-all duration-300 hover:border-[#8DB828]"
+                className="bg-[#1A2A4C] md:bg-[#1a2a4c59] text-white py-2 pl-6 pr-4 rounded-[100px] flex items-center gap-2 cursor-pointer border border-white hover:bg-[#8DB828] hover:text-[#fff] transition-all duration-300 hover:border-[#8DB828]"
               >
                 Book Now
                 <img src={arrowright} alt="" />
@@ -365,7 +365,7 @@ const Navbar = () => {
                     href="https://wa.me/919671773155?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20your%20travel%20packages."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-white px-6 py-3 rounded-[100px] hidden md:flex items-center gap-3 text-[#1A2A4C] whitespace-nowrap w-78 md:w-auto"
+                    className="bg-white px-4 py-2 rounded-[100px] hidden md:flex items-start gap-2 text-[#1A2A4C] whitespace-nowrap w-78 md:w-auto"
                   >
                     <img src={whatsapp} alt="WhatsApp" />
                     +91-9671773155
