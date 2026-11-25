@@ -10,6 +10,7 @@ const enquiryRoutes = require("./routes/enquiryRoutes");
 const errorHandler = require("./middleware/errorHandler");
 const adminAuthRoutes = require("./routes/adminAuthRoutes");
 const packageRoutes = require("./routes/packageRoutes");
+const blogRoutes = require("./routes/blogRoutes");
 
 const app = express();
 
@@ -18,6 +19,8 @@ const allowedOrigins = [
   "https://www.nestroamholidays.com",
   "http://localhost:5173",
   "http://127.0.0.1:5173",
+  "http://192.168.18.235:5173"
+
 ];
 
 app.use(helmet({ crossOriginResourcePolicy: { policy: "cross-origin" } }));
@@ -38,7 +41,7 @@ app.use(
   })
 );
 
-app.use(express.json({ limit: "1mb" }));
+app.use(express.json({ limit: "8mb" }));
 app.use(cookieParser());
 app.use("/uploads", express.static(path.join(__dirname, "uploads"), { maxAge: "7d", immutable: true }));
 
@@ -52,6 +55,7 @@ app.get("/api/health", (req, res) => {
 app.use("/api/enquiries", enquiryRoutes);
 app.use("/api/admin", adminAuthRoutes);
 app.use("/api/packages", packageRoutes);
+app.use("/api/blogs", blogRoutes);
 
 app.use(errorHandler);
 

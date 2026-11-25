@@ -14,7 +14,10 @@
       "title": "Nestroam Holidays | Himachal Pradesh Travel & Tours",
       "description": "Explore Himachal Pradesh with Nestroam Holidays. Browse destination information, tour package details and options to enquire about your next trip.",
       "ogImageAlt": "Nestroam Holidays - Himachal Pradesh travel and tour enquiries",
-      "schemaTypes": ["organization", "website"]
+      "schemaTypes": [
+        "organization",
+        "website"
+      ]
     },
     "/destinations": {
       "title": "Himachal Pradesh Destinations | Nestroam Holidays",
@@ -26,9 +29,18 @@
       "description": "Discover Manali in Himachal Pradesh with destination highlights, places to explore, seasonal information and travel enquiry options.",
       "ogImageAlt": "Manali, Himachal Pradesh - Nestroam Holidays",
       "breadcrumbs": [
-        { "name": "Home", "path": "/" },
-        { "name": "Destinations", "path": "/destinations" },
-        { "name": "Manali", "path": "/destinations/manali" }
+        {
+          "name": "Home",
+          "path": "/"
+        },
+        {
+          "name": "Destinations",
+          "path": "/destinations"
+        },
+        {
+          "name": "Manali",
+          "path": "/destinations/manali"
+        }
       ]
     },
     "/destinations/shimla": {
@@ -36,9 +48,18 @@
       "description": "Explore Shimla in Himachal Pradesh with destination highlights, places to visit, seasonal information and travel enquiry options.",
       "ogImageAlt": "Shimla, Himachal Pradesh - Nestroam Holidays",
       "breadcrumbs": [
-        { "name": "Home", "path": "/" },
-        { "name": "Destinations", "path": "/destinations" },
-        { "name": "Shimla", "path": "/destinations/shimla" }
+        {
+          "name": "Home",
+          "path": "/"
+        },
+        {
+          "name": "Destinations",
+          "path": "/destinations"
+        },
+        {
+          "name": "Shimla",
+          "path": "/destinations/shimla"
+        }
       ]
     },
     "/destinations/kasol": {
@@ -46,9 +67,18 @@
       "description": "Discover Kasol and Parvati Valley in Himachal Pradesh through destination highlights, places to explore and travel information.",
       "ogImageAlt": "Kasol and Parvati Valley, Himachal Pradesh - Nestroam Holidays",
       "breadcrumbs": [
-        { "name": "Home", "path": "/" },
-        { "name": "Destinations", "path": "/destinations" },
-        { "name": "Kasol", "path": "/destinations/kasol" }
+        {
+          "name": "Home",
+          "path": "/"
+        },
+        {
+          "name": "Destinations",
+          "path": "/destinations"
+        },
+        {
+          "name": "Kasol",
+          "path": "/destinations/kasol"
+        }
       ]
     },
     "/destinations/spiti": {
@@ -56,9 +86,18 @@
       "description": "Explore Spiti Valley in Himachal Pradesh with destination highlights, places to visit, seasonal information and travel enquiry options.",
       "ogImageAlt": "Spiti Valley, Himachal Pradesh - Nestroam Holidays",
       "breadcrumbs": [
-        { "name": "Home", "path": "/" },
-        { "name": "Destinations", "path": "/destinations" },
-        { "name": "Spiti Valley", "path": "/destinations/spiti" }
+        {
+          "name": "Home",
+          "path": "/"
+        },
+        {
+          "name": "Destinations",
+          "path": "/destinations"
+        },
+        {
+          "name": "Spiti Valley",
+          "path": "/destinations/spiti"
+        }
       ]
     },
     "/tour-packages": {
@@ -75,9 +114,18 @@
       "description": "Review the Manali itinerary and trip information, then contact Nestroam Holidays to discuss travel plans in Himachal Pradesh.",
       "ogImageAlt": "Manali tour package information - Nestroam Holidays",
       "breadcrumbs": [
-        { "name": "Home", "path": "/" },
-        { "name": "Tour Packages", "path": "/tour-packages" },
-        { "name": "Manali Tour Package", "path": "/tour-packages/manali" }
+        {
+          "name": "Home",
+          "path": "/"
+        },
+        {
+          "name": "Tour Packages",
+          "path": "/tour-packages"
+        },
+        {
+          "name": "Manali Tour Package",
+          "path": "/tour-packages/manali"
+        }
       ]
     },
     "/tour-packages/shimla": {
@@ -85,9 +133,18 @@
       "description": "View the Shimla and Kufri trip itinerary and destination information, then contact Nestroam Holidays with your travel enquiry.",
       "ogImageAlt": "Shimla and Kufri tour package information - Nestroam Holidays",
       "breadcrumbs": [
-        { "name": "Home", "path": "/" },
-        { "name": "Tour Packages", "path": "/tour-packages" },
-        { "name": "Shimla & Kufri Retreat", "path": "/tour-packages/shimla" }
+        {
+          "name": "Home",
+          "path": "/"
+        },
+        {
+          "name": "Tour Packages",
+          "path": "/tour-packages"
+        },
+        {
+          "name": "Shimla & Kufri Retreat",
+          "path": "/tour-packages/shimla"
+        }
       ]
     },
     "/tour-packages/kasol": {
@@ -95,9 +152,18 @@
       "description": "View Kasol and Parvati Valley trip information, then contact Nestroam Holidays to discuss travel plans in Himachal Pradesh.",
       "ogImageAlt": "Kasol tour package information - Nestroam Holidays",
       "breadcrumbs": [
-        { "name": "Home", "path": "/" },
-        { "name": "Tour Packages", "path": "/tour-packages" },
-        { "name": "Kasol Tour Package", "path": "/tour-packages/kasol" }
+        {
+          "name": "Home",
+          "path": "/"
+        },
+        {
+          "name": "Tour Packages",
+          "path": "/tour-packages"
+        },
+        {
+          "name": "Kasol Tour Package",
+          "path": "/tour-packages/kasol"
+        }
       ]
     },
     "/tour-packages/spiti": {
@@ -105,9 +171,18 @@
       "description": "View Spiti Valley itinerary information and travel details, then contact Nestroam Holidays with questions about a Himachal Pradesh trip.",
       "ogImageAlt": "Spiti Valley tour package information - Nestroam Holidays",
       "breadcrumbs": [
-        { "name": "Home", "path": "/" },
-        { "name": "Tour Packages", "path": "/tour-packages" },
-        { "name": "Spiti Valley Expedition", "path": "/tour-packages/spiti" }
+        {
+          "name": "Home",
+          "path": "/"
+        },
+        {
+          "name": "Tour Packages",
+          "path": "/tour-packages"
+        },
+        {
+          "name": "Spiti Valley Expedition",
+          "path": "/tour-packages/spiti"
+        }
       ]
     },
     "/adventure": {
@@ -128,6 +203,21 @@
       "title": "Contact Nestroam Holidays | Travel Enquiries",
       "description": "Contact Nestroam Holidays by phone or email to ask about Himachal Pradesh destinations, tour information and travel planning.",
       "ogImageAlt": "Contact Nestroam Holidays"
+    },
+    "/blogs": {
+      "title": "Travel Blog & Destination Guides | Nestroam Holidays",
+      "description": "Explore travel guides, destination inspiration, practical travel tips and stories from Nestroam Holidays.",
+      "ogImageAlt": "Travel stories and destination guides from Nestroam Holidays",
+      "breadcrumbs": [
+        {
+          "name": "Home",
+          "path": "/"
+        },
+        {
+          "name": "Travel Blog",
+          "path": "/blogs"
+        }
+      ]
     }
   }
 }

@@ -12,6 +12,7 @@ const Footer = () => {
     { label: "Home", to: "/" },
     { label: "Destinations", to: "/destinations" },
     { label: "Tour Packages", to: "/tour-packages" },
+    { label: "Travel Blog", to: "/blogs" },
     { label: "Adventures", to: "/adventures" },
     { label: "About Us", to: "/about" },
     { label: "Contact", to: "/contact" },

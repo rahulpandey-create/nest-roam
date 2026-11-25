@@ -1,6 +1,7 @@
 import { access, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { loadEnv } from "vite";
 
 const scriptDirectory = path.dirname(fileURLToPath(import.meta.url));
 const projectDirectory = path.resolve(scriptDirectory, "..");
@@ -8,11 +9,13 @@ const distDirectory = path.join(projectDirectory, "dist");
 const seoConfig = JSON.parse(
   await readFile(path.join(projectDirectory, "src/seo/seoConfig.json"), "utf8"),
 );
+const buildEnv = loadEnv("production", projectDirectory, "");
 
 const template = await readFile(path.join(distDirectory, "index.html"), "utf8");
-const siteIndexable = process.env.VITE_SITE_INDEXABLE === "true";
+const siteIndexable = (process.env.VITE_SITE_INDEXABLE ?? buildEnv.VITE_SITE_INDEXABLE) === "true";
 const robots = siteIndexable ? "index, follow" : "noindex, follow";
 const site = seoConfig.site;
+const apiOrigin = (buildEnv.VITE_API_URL || process.env.VITE_API_URL || "https://api.nestroamholidays.com").replace(/\/+$/, "");
 
 if (siteIndexable) {
   try {
@@ -166,7 +169,7 @@ await writeFile(
 console.log("Generated custom 404.html.");
 
 const robotsContent = siteIndexable
-  ? `User-agent: *\nAllow: /\n\nSitemap: ${site.url}/sitemap.xml\n`
+  ? `User-agent: *\nAllow: /\n\nSitemap: ${site.url}/sitemap.xml\nSitemap: ${apiOrigin}/api/blogs/sitemap.xml\n`
   : "User-agent: *\nAllow: /\n";
 await writeFile(path.join(distDirectory, "robots.txt"), robotsContent, "utf8");
 
@@ -181,10 +184,20 @@ if (siteIndexable) {
   await rm(sitemapPath, { force: true });
 }
 
-const deploymentHtaccess = await readFile(
-  path.resolve(projectDirectory, "../deployment/.htaccess"),
-  "utf8",
-);
+let deploymentHtaccess;
+try {
+  // Prefer the project's deployment rules when the deployment directory is present.
+  deploymentHtaccess = await readFile(
+    path.resolve(projectDirectory, "../deployment/.htaccess"),
+    "utf8",
+  );
+} catch {
+  // Source ZIPs may contain only the client folder; retain the included SPA fallback.
+  deploymentHtaccess = await readFile(
+    path.join(projectDirectory, "public/.htaccess"),
+    "utf8",
+  );
+}
 await writeFile(path.join(distDirectory, ".htaccess"), deploymentHtaccess, "utf8");
 
 console.log(`Generated ${Object.keys(seoConfig.routes).length} SEO route documents, robots.txt and .htaccess.`);

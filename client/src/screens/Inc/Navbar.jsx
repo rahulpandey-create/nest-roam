@@ -15,17 +15,19 @@ const Navbar = () => {
   const { pathname } = useLocation();
 
   const isPackagePage = /^\/tour-packages\/[^/]+\/?$/.test(pathname);
+  const isBlogArticlePage = /^\/blogs\/[^/]+\/?$/.test(pathname);
+  const isOverlayPage = isPackagePage || isBlogArticlePage;
 
-  // Package detail pages place the navbar over the hero image.
-  // Keep mobile links dark inside the light mobile menu; use white links on desktop.
+  // Keep desktop links white on pages where the navbar overlays a hero image.
+  // Mobile links remain dark inside the light mobile menu.
   const navLinkColor = "text-[#1a2a4c] sm:text-white";
   const API_URL = import.meta.env.VITE_API_URL?.replace(/\/+$/, "");
+
   const [status, setStatus] = useState({
     type: "",
     message: "",
   });
 
-  // Pause background smooth scrolling while the booking modal is open.
   useEffect(() => {
     if (!isBookingOpen) return;
 
@@ -36,13 +38,10 @@ const Navbar = () => {
     };
   }, [isBookingOpen]);
 
-  // Close Navigation Menu
   const closeMenu = () => {
     setIsMenuOpen(false);
     setIsDestinationOpen(false);
   };
-
-  // Handle Booking Form Submission
 
   const handleContact = async (e) => {
     const form = e.currentTarget;
@@ -62,7 +61,6 @@ const Navbar = () => {
 
     try {
       const formData = new FormData(form);
-
       const travelDate = formData.get("travelDate");
 
       if (!travelDate) {
@@ -70,7 +68,6 @@ const Navbar = () => {
       }
 
       const [year, month, day] = travelDate.split("-");
-
       const formattedDate = `${day}/${month}/${year}`;
 
       const enquiryData = {
@@ -94,9 +91,7 @@ const Navbar = () => {
       const result = await response.json().catch(() => ({}));
 
       if (!response.ok || !result.success) {
-        throw new Error(
-          result.message || "Unable to submit your enquiry."
-        );
+        throw new Error(result.message || "Unable to submit your enquiry.");
       }
 
       form.reset();
@@ -106,23 +101,18 @@ const Navbar = () => {
         message:
           "Your enquiry has been submitted successfully! Our team will contact you soon.",
       });
-
     } catch (error) {
       console.error("Booking enquiry submission failed:", error);
 
       setStatus({
         type: "error",
-        message:
-          error.message || "Something went wrong. Please try again.",
+        message: error.message || "Something went wrong. Please try again.",
       });
-
     } finally {
       setIsSubmitting(false);
     }
   };
 
-
-  // Destinations
   const destinations = [
     { name: "Manali", link: "/destinations/manali" },
     { name: "Shimla", link: "/destinations/shimla" },
@@ -134,7 +124,7 @@ const Navbar = () => {
     <>
       <header
         style={
-          isPackagePage
+          isOverlayPage
             ? {
                 position: "absolute",
                 top: 0,
@@ -146,26 +136,27 @@ const Navbar = () => {
         }
       >
         <nav>
-          <div className={`max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 gap-3 sm:gap-5 ${isPackagePage ? "bg-transparent" : "bg-[#f8f8f8] sm:bg-transparent"}`}>
-
+          <div
+            className={`max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 gap-3 sm:gap-5 ${
+              isOverlayPage
+                ? "bg-transparent"
+                : "bg-[#f8f8f8] sm:bg-transparent"
+            }`}
+          >
             {/* Logo */}
-            <Link
-              to="/"
-              className="flex items-center mr-auto"
-            >
+            <Link to="/" className="flex items-center mr-auto">
               <img
                 src={nestroamlogo}
                 alt="Nestroam Holidays logo"
                 width={238}
                 height={236}
                 decoding="async"
-                className="w-[100px] sm:w-[118px] h-auto "
+                className="w-[100px] sm:w-[118px] h-auto"
               />
             </Link>
 
             {/* Right Buttons */}
             <div className="flex items-center gap-3 md:order-2">
-
               {/* Book Now */}
               <button
                 type="button"
@@ -215,17 +206,16 @@ const Navbar = () => {
                   </svg>
                 )}
               </button>
-
             </div>
 
             {/* Navigation Menu */}
             <div
               id="navbar-sticky"
-              className={`w-full md:flex md:w-auto md:order-1 ${isMenuOpen ? "block" : "hidden"
-                }`}
+              className={`w-full md:flex md:w-auto md:order-1 ${
+                isMenuOpen ? "block" : "hidden"
+              }`}
             >
-              <ul className="flex flex-col items-center p-4 md:p-0 mt-4 font-normal md:flex-row md:space-x-8 md:mt-0 bg-[#eaeaea] md:bg-transparent rounded-[20px] " >
-
+              <ul className="flex flex-col items-center p-4 md:p-0 mt-4 font-normal md:flex-row md:space-x-6 md:mt-0 bg-[#eaeaea] md:bg-transparent rounded-[20px]">
                 {/* Home */}
                 <li className="w-full md:w-auto">
                   <Link
@@ -253,17 +243,15 @@ const Navbar = () => {
                 >
                   <button
                     type="button"
-                    onClick={() =>
-                      setIsDestinationOpen(!isDestinationOpen)
-                    }
+                    onClick={() => setIsDestinationOpen(!isDestinationOpen)}
                     className={`${navLinkColor} flex items-center justify-between gap-2 py-3 md:py-2 w-full hover:text-[#e0ff98] duration-200`}
                     aria-expanded={isDestinationOpen}
                   >
                     Destinations
-
                     <svg
-                      className={`w-4 h-4 transition-transform duration-300 ${isDestinationOpen ? "rotate-180" : ""
-                        }`}
+                      className={`w-4 h-4 transition-transform duration-300 ${
+                        isDestinationOpen ? "rotate-180" : ""
+                      }`}
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -279,8 +267,9 @@ const Navbar = () => {
 
                   {/* Dropdown Items */}
                   <div
-                    className={`md:absolute md:top-full md:left-0 md:pt-3 z-50 w-full md:w-[220px] ${isDestinationOpen ? "block" : "hidden"
-                      }`}
+                    className={`md:absolute md:top-full md:left-0 md:pt-3 z-50 w-full md:w-[220px] ${
+                      isDestinationOpen ? "block" : "hidden"
+                    }`}
                   >
                     <ul className="bg-white rounded-xl shadow-xl p-3 space-y-1">
                       <li>
@@ -329,6 +318,17 @@ const Navbar = () => {
                   </Link>
                 </li>
 
+                {/* Travel Blog */}
+                <li className="w-full md:w-auto">
+                  <Link
+                    to="/blogs"
+                    onClick={closeMenu}
+                    className={`${navLinkColor} block py-3 md:py-2 hover:text-[#e0ff98] duration-200`}
+                  >
+                    Travel Blog
+                  </Link>
+                </li>
+
                 {/* About Us */}
                 <li className="w-full md:w-auto">
                   <Link
@@ -353,7 +353,6 @@ const Navbar = () => {
 
                 {/* WhatsApp (Desktop) / Phone Call (Mobile) */}
                 <li className="relative mt-3 md:mt-0">
-                  {/* Mobile: starts a phone call */}
                   <a
                     href="tel:+919671773155"
                     className="bg-white px-6 py-3 rounded-[100px] flex md:hidden items-center gap-3 text-[#1A2A4C] whitespace-nowrap w-78 md:w-auto"
@@ -362,7 +361,6 @@ const Navbar = () => {
                     +91-9671773155
                   </a>
 
-                  {/* Desktop: opens WhatsApp */}
                   <a
                     href="https://wa.me/919671773155?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20your%20travel%20packages."
                     target="_blank"
@@ -381,7 +379,6 @@ const Navbar = () => {
                 </li>
               </ul>
             </div>
-
           </div>
         </nav>
       </header>
@@ -397,7 +394,6 @@ const Navbar = () => {
             className="relative bg-white w-full max-w-[750px] max-h-[90vh] overflow-y-auto overscroll-contain rounded-[25px] p-6 md:p-10"
             onClick={(e) => e.stopPropagation()}
           >
-
             {/* Close Button */}
             <button
               type="button"
@@ -421,18 +417,15 @@ const Navbar = () => {
               Share your travel details and we'll help you plan your perfect getaway.
             </p>
 
-            {/* Reusable Travel Enquiry Form */}
             <TravelEnquiryForm
               onSubmit={handleContact}
               buttonText="Submit Enquiry"
               isSubmitting={isSubmitting}
               status={status}
             />
-
           </div>
         </div>
       )}
-
     </>
   );
 };

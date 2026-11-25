@@ -39,6 +39,10 @@ import AdminGuard from './admin/AdminGuard';
 import AdminLayout from './admin/AdminLayout';
 import PackageList from './admin/PackageList';
 import PackageEditor from './admin/PackageEditor';
+import BlogList from './admin/BlogList';
+import BlogEditor from './admin/BlogEditor';
+import BlogIndex from './screens/Blogs/BlogIndex';
+import BlogArticle from './screens/Blogs/BlogArticle';
 
 function Home() {
   return (
@@ -96,9 +100,14 @@ export function AppContent() {
             <Route path="packages" element={<PackageList />} />
             <Route path="packages/new" element={<PackageEditor />} />
             <Route path="packages/:id" element={<PackageEditor />} />
+            <Route path="blogs" element={<BlogList />} />
+            <Route path="blogs/new" element={<BlogEditor />} />
+            <Route path="blogs/:id" element={<BlogEditor />} />
           </Route>
         </Route>
         <Route path="/" element={<Home />} />
+        <Route path="/blogs" element={<BlogIndex />} />
+        <Route path="/blogs/:slug" element={<BlogArticle />} />
 
         {/* Destination pages: /destinations/:destinationSlug */}
         <Route path="destinations">
