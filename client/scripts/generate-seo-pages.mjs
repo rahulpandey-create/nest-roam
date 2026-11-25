@@ -1,6 +1,8 @@
 import { access, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { loadEnv } from "vite";
+import { buildStructuredData } from "../src/seo/schemaBuilder.js";
 
 const scriptDirectory = path.dirname(fileURLToPath(import.meta.url));
 const projectDirectory = path.resolve(scriptDirectory, "..");
@@ -8,11 +10,14 @@ const distDirectory = path.join(projectDirectory, "dist");
 const seoConfig = JSON.parse(
   await readFile(path.join(projectDirectory, "src/seo/seoConfig.json"), "utf8"),
 );
+const buildEnv = loadEnv("production", projectDirectory, "");
 
 const template = await readFile(path.join(distDirectory, "index.html"), "utf8");
-const siteIndexable = process.env.VITE_SITE_INDEXABLE === "true";
+const indexabilitySetting = process.env.VITE_SITE_INDEXABLE ?? buildEnv.VITE_SITE_INDEXABLE;
+const siteIndexable = indexabilitySetting !== "false";
 const robots = siteIndexable ? "index, follow" : "noindex, follow";
 const site = seoConfig.site;
+const apiOrigin = (buildEnv.VITE_API_URL || process.env.VITE_API_URL || "https://api.nestroamholidays.com").replace(/\/+$/, "");
 
 if (siteIndexable) {
   try {
@@ -34,76 +39,10 @@ const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (character) => (
 
 const absoluteUrl = (route) => `${site.url}${route === "/" ? "/" : route}`;
 
-function buildGraph(route, page) {
-  const graph = [];
-  const organizationId = `${site.url}/#organization`;
-
-  graph.push({
-    "@type": "Organization",
-    "@id": organizationId,
-    name: site.name,
-    url: site.url,
-    logo: {
-      "@type": "ImageObject",
-      url: absoluteUrl(site.logo),
-      width: 238,
-      height: 236,
-    },
-    email: site.email,
-    telephone: site.telephone,
-    contactPoint: [{
-      "@type": "ContactPoint",
-      contactType: "customer enquiries",
-      email: site.email,
-      telephone: site.telephone,
-      areaServed: "IN",
-      availableLanguage: "English",
-    }],
-    areaServed: { "@type": "AdministrativeArea", name: site.areaServed },
-  });
-
-  if (page.schemaTypes?.includes("website")) {
-    graph.push({
-      "@type": "WebSite",
-      "@id": `${site.url}/#website`,
-      name: site.name,
-      url: site.url,
-      publisher: { "@id": organizationId },
-      inLanguage: "en-IN",
-    });
-  }
-
-  if (page.service) {
-    graph.push({
-      "@type": "Service",
-      "@id": `${site.url}${route}#service`,
-      name: page.service.name,
-      serviceType: page.service.serviceType,
-      provider: { "@id": organizationId },
-      areaServed: { "@type": "AdministrativeArea", name: site.areaServed },
-    });
-  }
-
-  if (page.breadcrumbs?.length) {
-    graph.push({
-      "@type": "BreadcrumbList",
-      "@id": `${site.url}${route}#breadcrumb`,
-      itemListElement: page.breadcrumbs.map((item, index) => ({
-        "@type": "ListItem",
-        position: index + 1,
-        name: item.name,
-        item: absoluteUrl(item.path),
-      })),
-    });
-  }
-
-  return graph.length ? { "@context": "https://schema.org", "@graph": graph } : null;
-}
-
 function buildSeoHead(route, page) {
   const canonical = absoluteUrl(route);
   const image = absoluteUrl(site.ogImage);
-  const schema = buildGraph(route, page);
+  const schema = buildStructuredData(route, seoConfig);
   const schemaScript = schema
     ? `<script id="nestroam-structured-data" type="application/ld+json">${JSON.stringify(schema).replace(/</g, "\\u003c")}</script>`
     : "";
@@ -120,8 +59,8 @@ function buildSeoHead(route, page) {
     `<meta property="og:url" content="${escapeHtml(canonical)}" />`,
     `<meta property="og:image" content="${escapeHtml(image)}" />`,
     `<meta property="og:image:alt" content="${escapeHtml(page.ogImageAlt)}" />`,
-    `<meta property="og:image:width" content="1200" />`,
-    `<meta property="og:image:height" content="630" />`,
+    `<meta property="og:image:width" content="1400" />`,
+    `<meta property="og:image:height" content="893" />`,
     `<meta property="og:locale" content="${escapeHtml(site.locale)}" />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
     `<meta name="twitter:title" content="${escapeHtml(page.title)}" />`,
@@ -166,7 +105,7 @@ await writeFile(
 console.log("Generated custom 404.html.");
 
 const robotsContent = siteIndexable
-  ? `User-agent: *\nAllow: /\n\nSitemap: ${site.url}/sitemap.xml\n`
+  ? `User-agent: *\nAllow: /\n\nSitemap: ${site.url}/sitemap.xml\nSitemap: ${apiOrigin}/api/blogs/sitemap.xml\n`
   : "User-agent: *\nAllow: /\n";
 await writeFile(path.join(distDirectory, "robots.txt"), robotsContent, "utf8");
 
@@ -181,10 +120,20 @@ if (siteIndexable) {
   await rm(sitemapPath, { force: true });
 }
 
-const deploymentHtaccess = await readFile(
-  path.resolve(projectDirectory, "../deployment/.htaccess"),
-  "utf8",
-);
+let deploymentHtaccess;
+try {
+  // Prefer the project's deployment rules when the deployment directory is present.
+  deploymentHtaccess = await readFile(
+    path.resolve(projectDirectory, "../deployment/.htaccess"),
+    "utf8",
+  );
+} catch {
+  // Source ZIPs may contain only the client folder; retain the included SPA fallback.
+  deploymentHtaccess = await readFile(
+    path.join(projectDirectory, "public/.htaccess"),
+    "utf8",
+  );
+}
 await writeFile(path.join(distDirectory, ".htaccess"), deploymentHtaccess, "utf8");
 
 console.log(`Generated ${Object.keys(seoConfig.routes).length} SEO route documents, robots.txt and .htaccess.`);

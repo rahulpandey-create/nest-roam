@@ -1,2 +1,5 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://nestroamholidays.com/sitemap.xml
+Sitemap: https://api.nestroamholidays.com/api/blogs/sitemap.xml
