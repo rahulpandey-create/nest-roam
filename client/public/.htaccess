@@ -1,10 +1,23 @@
 Options -MultiViews
 RewriteEngine On
 RewriteBase /
+DirectoryIndex index.html
 
-# Serve real files and directories directly. Let React Router handle application routes,
-# including /blogs/:slug when a visitor refreshes or opens a deep link.
-RewriteCond %{REQUEST_FILENAME} -f [OR]
+# Redirect direct .html requests to their clean canonical URL. Internal rewrites
+# below keep the original request URI, so this does not create a redirect loop.
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.html(?:[\s?]) [NC]
+RewriteRule ^(.+)\.html$ /$1 [R=301,L,NE]
+
+# Serve actual static files (bundled assets, images, robots.txt, sitemap.xml).
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Generated SEO pages are named <route>.html. Check this before the directory
+# rule because routes such as /destinations also have child-page directories.
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(.+?)/?$ $1.html [L]
+
+# Leave real asset directories alone; all remaining routes go through React.
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 RewriteRule ^ index.html [L]

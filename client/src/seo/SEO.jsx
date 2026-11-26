@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { buildStructuredData, getSeoPage, isSeoPath, normalizeSeoPath, seoConfig } from "./schemaUtils";
 import { API } from "../admin/adminApi";
 
-const siteIndexable = import.meta.env.VITE_SITE_INDEXABLE === "true";
+const siteIndexable = import.meta.env.VITE_SITE_INDEXABLE !== "false";
 
 function upsertMeta(selector, attributes, content) {
   let element = document.head.querySelector(selector);
