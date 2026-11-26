@@ -12,6 +12,7 @@ const Footer = () => {
     { label: "Home", to: "/" },
     { label: "Destinations", to: "/destinations" },
     { label: "Tour Packages", to: "/tour-packages" },
+    { label: "Travel Blog", to: "/blogs" },
     { label: "Adventures", to: "/adventures" },
     { label: "About Us", to: "/about" },
     { label: "Contact", to: "/contact" },
@@ -28,9 +29,9 @@ const Footer = () => {
 
   // SOCIAL MEDIA - Add your external social media URLs here
   const socialLinks = [
-    { label: "Facebook", href: "", icon: <FacebookIcon /> },
-    { label: "Instagram", href: "", icon: <InstagramIcon /> },
-    { label: "YouTube", href: "", icon: <YoutubeIcon /> },
+    { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61596495820475", icon: <FacebookIcon /> },
+    { label: "Instagram", href: "https://www.instagram.com/nestroamholidays", icon: <InstagramIcon /> },
+    { label: "YouTube", href: "https://www.youtube.com/@NestRoamHolidays", icon: <YoutubeIcon /> },
   ];
 
   // CONTACT DETAILS - Change phone and email here
@@ -188,7 +189,7 @@ const Footer = () => {
         <div className="fontgoogle flex flex-col justify-between gap-5 border-t border-white/40 py-8 text-white/95 md:flex-row md:items-center text-[14px] md:text-[18px]">
 
           <p>
-            © 2026 NESTROAM HOLIDAYS. All Rights Reserved.
+            © 2026 NESTROAM HOLIDAYS PRIVATE LIMITED. All Rights Reserved.
           </p>
 
 

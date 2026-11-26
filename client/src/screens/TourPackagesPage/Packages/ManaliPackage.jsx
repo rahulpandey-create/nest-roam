@@ -32,6 +32,7 @@ const itinerary = [
       "Mall Road",
     ],
     details: [
+        "Airport pickup and drop available.",
       "Arrive in Manali and meet our representative.",
       "Check in to your hotel and relax after your journey.",
       "Visit the beautiful Hadimba Devi Temple surrounded by cedar forests.",

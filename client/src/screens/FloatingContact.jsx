@@ -8,7 +8,7 @@ const FloatingContact = () => {
 
       {/* WhatsApp Button */}
       <a
-        href={`https://wa.me/${phoneNumber}`}
+        href={`https://wa.me/${phoneNumber}?text=Hi!%20I%20am%20interested%20in%20your%20services.%20Please%20provide%20more%20information.`}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
@@ -19,7 +19,7 @@ const FloatingContact = () => {
 
       {/* Call Button */}
       <a
-        href={`tel:+${phoneNumber}`}
+        href={`tel:+91 ${phoneNumber}`}
         aria-label="Call us"
         className="w-14 h-14 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300"
       >

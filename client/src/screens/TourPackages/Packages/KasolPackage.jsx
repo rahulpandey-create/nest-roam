@@ -37,6 +37,7 @@ const itinerary = [
       "Local Cafes",
     ],
     details: [
+      "Airport pickup and drop available.",
       "Arrive in Kasol and meet our representative.",
       "Check in to your hotel or campsite and relax.",
       "Explore the beautiful surroundings of Kasol.",
@@ -172,7 +173,7 @@ const KasolPackage = () => {
     <main className="bg-white text-[#172b3a] overflow-hidden mt-[-96px] md:mt-[-150px]">
 
       {/* HERO SECTION */}
-      <section className="relative min-h-[620px] md:min-h-[720px] flex items-end">
+      <section className="relative min-h-[620px] md:min-h-[720px] flex items-start">
         <img
           src={manaliinner}
           alt="Beautiful Kasol Himalayan landscape"
@@ -181,7 +182,7 @@ const KasolPackage = () => {
 
         <div className="absolute inset-0 bg-gradient-to-t from-[#101c2c] via-[#101c2c]/85 to-black/10" />
 
-        <div className="relative z-10 w-full max-w-[1280px] mx-auto px-5 md:px-5 pb-16 md:pb-24 pt-36">
+        <div className="relative z-10 w-full max-w-[1280px] mx-auto px-5 md:px-5 pb-16 md:pb-24 pt-70 md:pt-80">
           <Breadcrumbs pagePath="/tour-packages/kasol" className="mb-6" />
 
           <h1 className="fontsylegilda text-white leading-[1.15]">

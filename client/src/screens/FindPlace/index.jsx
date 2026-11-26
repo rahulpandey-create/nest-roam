@@ -1,5 +1,5 @@
-
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import {
   MapPin,
@@ -19,18 +19,61 @@ const destinations = [
 ];
 
 const FindPlace = () => {
+  const navigate = useNavigate();
+
   const [destination, setDestination] = useState("");
   const [travelDate, setTravelDate] = useState("");
   const [travellers, setTravellers] = useState(2);
   const [showDestinations, setShowDestinations] = useState(false);
   const [showTravellers, setShowTravellers] = useState(false);
 
+  const dateInputRef = useRef(null);
+  const destinationRef = useRef(null);
+  const travellersRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        destinationRef.current &&
+        !destinationRef.current.contains(event.target)
+      ) {
+        setShowDestinations(false);
+      }
+
+      if (
+        travellersRef.current &&
+        !travellersRef.current.contains(event.target)
+      ) {
+        setShowTravellers(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const handleOpenDatePicker = () => {
+    setShowDestinations(false);
+    setShowTravellers(false);
+
+    const input = dateInputRef.current;
+    if (!input) return;
+
+    try {
+      input.showPicker();
+    } catch {
+      input.focus();
+    }
+  };
+
   const handleSearch = () => {
-    console.log({
-      destination,
-      travelDate,
-      travellers,
-    });
+    const params = new URLSearchParams();
+    if (destination) params.set("destination", destination);
+    if (travelDate) params.set("date", travelDate);
+    if (travellers) params.set("travellers", String(travellers));
+
+    const query = params.toString();
+    navigate(query ? `/tour-packages?${query}` : "/tour-packages");
   };
 
   return (
@@ -46,7 +89,7 @@ const FindPlace = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3">
 
           {/* Destination */}
-          <div className="relative">
+          <div ref={destinationRef} className="relative">
             <button
               onClick={() => {
                 setShowDestinations(!showDestinations);
@@ -82,7 +125,10 @@ const FindPlace = () => {
           </div>
 
           {/* Travel Date */}
-          <div className="relative h-[54px] md:h-[64px] bg-[#f3f4f6] rounded-full px-8 flex items-center gap-3">
+          <div
+            onClick={handleOpenDatePicker}
+            className="relative h-[54px] md:h-[64px] bg-[#f3f4f6] rounded-full px-8 flex items-center gap-3 cursor-pointer hover:bg-[#ebedf0] transition"
+          >
             <CalendarDays
               size={28}
               strokeWidth={1.5}
@@ -90,6 +136,7 @@ const FindPlace = () => {
             />
 
             <input
+              ref={dateInputRef}
               type="date"
               value={travelDate}
               onChange={(e) => setTravelDate(e.target.value)}
@@ -99,7 +146,7 @@ const FindPlace = () => {
           </div>
 
           {/* Travellers */}
-          <div className="relative">
+          <div ref={travellersRef} className="relative">
             <button
               onClick={() => {
                 setShowTravellers(!showTravellers);

@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import "./App.css";
 
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 
 import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
@@ -33,6 +33,16 @@ import AdventurePage from './screens/AdventurePage';
 import About from './screens/About';
 import SEO from './seo/SEO';
 import NotFound from './screens/NotFound';
+import DynamicPackage from './screens/TourPackages/DynamicPackage';
+import AdminLogin from './admin/AdminLogin';
+import AdminGuard from './admin/AdminGuard';
+import AdminLayout from './admin/AdminLayout';
+import PackageList from './admin/PackageList';
+import PackageEditor from './admin/PackageEditor';
+import BlogList from './admin/BlogList';
+import BlogEditor from './admin/BlogEditor';
+import BlogIndex from './screens/Blogs/BlogIndex';
+import BlogArticle from './screens/Blogs/BlogArticle';
 
 function Home() {
   return (
@@ -52,8 +62,11 @@ function Home() {
 
 
 export function AppContent() {
+  const location = useLocation();
+  const isAdminPath = location.pathname.startsWith('/admin');
 
   useEffect(() => {
+    if (isAdminPath) return undefined;
 
     const lenis = new Lenis({
       autoRaf: true,
@@ -69,7 +82,7 @@ export function AppContent() {
       delete window.lenis;
     };
 
-  }, []);
+  }, [isAdminPath]);
 
 
   return (
@@ -77,10 +90,24 @@ export function AppContent() {
       <SEO />
       <ScrollToTop />
 
-      <Navbar />
+      {!isAdminPath && <Navbar />}
 
       <Routes>
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route element={<AdminGuard />}>
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<Navigate to="/admin/packages" replace />} />
+            <Route path="packages" element={<PackageList />} />
+            <Route path="packages/new" element={<PackageEditor />} />
+            <Route path="packages/:id" element={<PackageEditor />} />
+            <Route path="blogs" element={<BlogList />} />
+            <Route path="blogs/new" element={<BlogEditor />} />
+            <Route path="blogs/:id" element={<BlogEditor />} />
+          </Route>
+        </Route>
         <Route path="/" element={<Home />} />
+        <Route path="/blogs" element={<BlogIndex />} />
+        <Route path="/blogs/:slug" element={<BlogArticle />} />
 
         {/* Destination pages: /destinations/:destinationSlug */}
         <Route path="destinations">
@@ -99,6 +126,7 @@ export function AppContent() {
           <Route path="spiti" element={<SpitiPackage />} />
           <Route path="kasol" element={<KasolPackage />} />
         </Route>
+        <Route path="tour-packages/:slug" element={<DynamicPackage />} />
 
         <Route path="/AdventurePage" caseSensitive element={<Navigate to="/adventure" replace />} />
         <Route path="/adventure" caseSensitive element={<AdventurePage />} />
@@ -117,7 +145,7 @@ export function AppContent() {
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer />
+      {!isAdminPath && <Footer />}
     </>);
 }
 

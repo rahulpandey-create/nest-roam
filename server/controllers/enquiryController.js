@@ -166,7 +166,7 @@ const createEnquiry = async (req, res, next) => {
     // Send notification email when SMTP settings are configured
     if (process.env.SMTP_USER && process.env.CONTACT_EMAIL) {
       await mailer.sendMail({
-        from: `"Nestroam" <${process.env.SMTP_USER}>`,
+        from: `"Nestroam Holidays" <${process.env.SMTP_USER}>`,
         to: process.env.CONTACT_EMAIL
           .split(",")
           .map((email) => email.trim())

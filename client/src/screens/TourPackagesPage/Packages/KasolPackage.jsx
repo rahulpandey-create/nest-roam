@@ -31,6 +31,7 @@ const itinerary = [
       "Local Cafes",
     ],
     details: [
+      "Airport pickup and drop available.",
       "Arrive in Kasol and meet our representative.",
       "Check in to your hotel or campsite and relax.",
       "Explore the beautiful surroundings of Kasol.",

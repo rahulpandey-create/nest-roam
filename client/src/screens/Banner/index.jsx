@@ -215,7 +215,7 @@ export default function Banner() {
 
           {/* Right Slider Controls */}
           <div className="flex ml-auto relative top-[-126px] md:top-[100px]">
-            <div>
+            {/* <div>
               <button
                 type="button"
                 onClick={prev}
@@ -233,7 +233,7 @@ export default function Banner() {
               >
                 <ArrowDown className="h-7 w-7" />
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
