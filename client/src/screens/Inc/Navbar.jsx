@@ -118,6 +118,8 @@ const Navbar = () => {
     { name: "Shimla", link: "/destinations/shimla" },
     { name: "Kasol", link: "/destinations/kasol" },
     { name: "Spiti", link: "/destinations/spiti" },
+    { name: "Mcleod Ganj", link: "/destinations/mcleod-ganj" },
+    { name: "Dharamshala", link: "/destinations/dharamshala" },
   ];
 
   return (

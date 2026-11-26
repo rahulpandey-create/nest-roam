@@ -132,6 +132,48 @@
       "schemaType": "destination",
       "entityName": "Spiti Valley"
     },
+    "/destinations/dharamshala": {
+      "title": "Dharamshala Travel Guide & Places to Explore | Nestroam Holidays",
+      "description": "Discover Dharamshala in Himachal Pradesh with destination highlights, places to explore, seasonal information and travel enquiry options.",
+      "ogImageAlt": "Dharamshala, Himachal Pradesh - Nestroam Holidays",
+      "breadcrumbs": [
+        {
+          "name": "Home",
+          "path": "/"
+        },
+        {
+          "name": "Destinations",
+          "path": "/destinations"
+        },
+        {
+          "name": "Dharamshala",
+          "path": "/destinations/dharamshala"
+        }
+      ],
+      "schemaType": "destination",
+      "entityName": "Dharamshala"
+    },
+    "/destinations/mcleod-ganj": {
+      "title": "Mcleod Ganj Travel Guide & Places to Explore | Nestroam Holidays",
+      "description": "Explore Mcleod Ganj in Himachal Pradesh with destination highlights, places to visit, seasonal information and travel enquiry options.",
+      "ogImageAlt": "Mcleod Ganj, Himachal Pradesh - Nestroam Holidays",
+      "breadcrumbs": [
+        {
+          "name": "Home",
+          "path": "/"
+        },
+        {
+          "name": "Destinations",
+          "path": "/destinations"
+        },
+        {
+          "name": "Mcleod Ganj",
+          "path": "/destinations/mcleod-ganj"
+        }
+      ],
+      "schemaType": "destination",
+      "entityName": "Mcleod Ganj"
+    },
     "/tour-packages": {
       "title": "Himachal Pradesh Tour Packages | Nestroam Holidays",
       "description": "Browse travel package information for Manali, Shimla, Kasol and Spiti Valley. Contact Nestroam Holidays with questions about your trip.",

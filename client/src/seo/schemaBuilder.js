@@ -9,6 +9,8 @@ const DESTINATIONS = [
   { name: "Shimla", path: "/destinations/shimla" },
   { name: "Kasol", path: "/destinations/kasol" },
   { name: "Spiti Valley", path: "/destinations/spiti" },
+  { name: "Mcleod Ganj", path: "/destinations/mcleod-ganj" },
+  { name: "Dharamshala", path: "/destinations/dharamshala" },
 ];
 
 const TOUR_PACKAGES = [

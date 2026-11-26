@@ -43,6 +43,8 @@ import BlogList from './admin/BlogList';
 import BlogEditor from './admin/BlogEditor';
 import BlogIndex from './screens/Blogs/BlogIndex';
 import BlogArticle from './screens/Blogs/BlogArticle';
+import McleodGanj from './screens/TrendingDestinations/McleodGanj';
+import Dharamshala from './screens/TrendingDestinations/Dharamshala';
 
 function Home() {
   return (
@@ -116,6 +118,10 @@ export function AppContent() {
           <Route path="shimla" element={<Shimla />} />
           <Route path="kasol" element={<Kasol />} />
           <Route path="spiti" element={<Spiti />} />
+          <Route path="mcleod-ganj" element={<McleodGanj />} />
+          <Route path="dharamshala" element={<Dharamshala />} />
+          <Route path="mcleod-ganj" element={<Navigate to="/destinations/mcleod-ganj" replace />} />
+          <Route path="dharamshala" element={<Navigate to="/destinations/dharamshala" replace />} />
         </Route>
 
         {/* Tour packages: /tour-packages/:packageSlug */}

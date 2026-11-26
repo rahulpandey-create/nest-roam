@@ -8,6 +8,8 @@ import shimlaImg from "../../assets/shimla.webp";
 import kasolImg from "../../assets/kasol.webp";
 import spitiImg from "../../assets/spiti.webp";
 import manalip from "../../assets/manalip.webp";
+import dharamshalasummer from "../../assets/dharamshalasummer.webp";
+import aboutmcleodganj from "../../assets/aboutmcleodganj.webp";
 
 const destinations = [
   {
@@ -34,6 +36,18 @@ const destinations = [
     image: spitiImg,
     link: "/destinations/spiti",
   },
+  {
+    name: "Mcleod Ganj",
+    description: "A vibrant town with rich cultural heritage",
+    image: aboutmcleodganj,
+    link: "/destinations/mcleod-ganj",
+  },
+  {
+    name: "Dharamshala",
+    description: "A serene town nestled in the Himalayas",
+    image: dharamshalasummer,
+    link: "/destinations/dharamshala",
+  }
 ];
 
 const TrendingDestinations = ({ asPage = false }) => {
