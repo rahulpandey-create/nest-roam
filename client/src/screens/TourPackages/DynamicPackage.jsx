@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import {
   ArrowRight, CalendarDays, Check, Clock3, MapPin, Mountain, Route, X,
 } from "lucide-react";
@@ -59,25 +59,40 @@ function setLoadingSeo(slug) {
 
 export default function DynamicPackage() {
   const { slug } = useParams();
+  const navigate = useNavigate();
   const [item, setItem] = useState(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     let active = true;
+
     setItem(null);
     setError("");
     setLoading(true);
     setLoadingSeo(slug);
+
     fetch(`${API}/api/packages/${encodeURIComponent(slug)}`)
       .then(async (response) => {
         const data = await response.json().catch(() => ({}));
-        if (!response.ok) throw new Error(data.message || "Package not found.");
-        if (!data.package) throw new Error("Package not found.");
+
+        // Redirect if the requested package does not exist.
+        if (response.status === 404 || (response.ok && !data.package)) {
+          if (active) {
+            navigate("/tour-packages", { replace: true });
+          }
+          return null;
+        }
+
+        // Preserve existing error handling for other API errors.
+        if (!response.ok) {
+          throw new Error(data.message || "Package not found.");
+        }
+
         return data.package;
       })
       .then((data) => {
-        if (active) {
+        if (active && data) {
           setItem(data);
           setPackageSeo(data, slug);
         }
@@ -86,12 +101,21 @@ export default function DynamicPackage() {
         if (active) {
           setError(fetchError.message);
           document.title = "Package Not Found | Nestroam Holidays";
-          setMeta('meta[name="robots"]', { name: "robots" }, "noindex, follow");
+          setMeta(
+            'meta[name="robots"]',
+            { name: "robots" },
+            "noindex, follow"
+          );
         }
       })
-      .finally(() => { if (active) setLoading(false); });
-    return () => { active = false; };
-  }, [slug]);
+      .finally(() => {
+        if (active) setLoading(false);
+      });
+
+    return () => {
+      active = false;
+    };
+  }, [slug, navigate]);
 
   if (loading) return <main className="grid min-h-[60vh] place-items-center px-5"><p className="text-sm text-slate-500" role="status">Loading tour details…</p></main>;
   if (error || !item) return <main className="grid min-h-[60vh] place-items-center px-5 text-center"><div className="max-w-lg"><p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#719f18]">Nestroam Holidays</p><h1 className="mt-3 text-3xl font-bold text-[#1d2d50]">Package unavailable</h1><p className="mt-3 text-slate-600">{error || "This tour package could not be found."}</p><Link to="/tour-packages" className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#1d2d50] px-6 py-3 font-semibold text-white">Browse packages <ArrowRight size={17} /></Link></div></main>;
