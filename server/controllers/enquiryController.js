@@ -183,7 +183,6 @@ const createEnquiry = async (req, res, next) => {
             <p><strong>Travel Date:</strong> ${safeTravelDate}</p>
             <p><strong>Travellers:</strong> ${safeTravellers}</p>
             <p><strong>Preferred Destination:</strong> ${safeDestination}</p>
-
             <p><strong>Additional Requirements:</strong></p>
             <p style="white-space: pre-line;">${safeMessage}</p>
           </div>

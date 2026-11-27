@@ -1,5 +1,4 @@
-
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
 // Reusable Input Icon
 const FieldIcon = ({ type }) => {
@@ -62,8 +61,14 @@ const TravelEnquiryForm = ({
   isSubmitting = false,
   status = { type: "", message: "" },
 }) => {
-
   const travelDateRef = useRef(null);
+
+  // Custom field states
+  const [destination, setDestination] = useState("");
+  const [customDestination, setCustomDestination] = useState("");
+
+  const [travellers, setTravellers] = useState("");
+  const [customCategory, setCustomCategory] = useState("");
 
   const openDatePicker = () => {
     const dateInput = travelDateRef.current;
@@ -97,10 +102,8 @@ const TravelEnquiryForm = ({
 
   return (
     <form onSubmit={handleSubmit} className={className}>
-
       {/* Input Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-7 gap-y-7 form-style-font">
-
         {/* Full Name */}
         <div className={fieldStyle}>
           <FieldIcon type="user" />
@@ -148,21 +151,49 @@ const TravelEnquiryForm = ({
           <FieldIcon type="location" />
 
           <select
-            name="destination"
-            defaultValue=""
+            name={destination === "custom" ? "" : "destination"}
+            value={destination}
+            onChange={(e) => {
+              setDestination(e.target.value);
+              setCustomDestination("");
+            }}
             required
             disabled={isSubmitting}
-            className={`${inputStyle} cursor-pointer text-[#808080]`}
+            className={`${inputStyle} cursor-pointer ${
+              destination ? "text-[#333]" : "text-[#808080]"
+            }`}
           >
             <option value="" disabled>
               Preferred Destination
             </option>
+            <option value="Dharamshala">Dharamshala</option>
+            <option value="Mcleod Ganj">Mcleod Ganj</option>
             <option value="Manali">Manali</option>
             <option value="Shimla">Shimla</option>
             <option value="Kasol">Kasol</option>
             <option value="Spiti">Spiti Valley</option>
+            <option value="custom">Other Destination</option>
           </select>
         </div>
+
+        {/* Custom Destination */}
+        {destination === "custom" && (
+          <div className={fieldStyle}>
+            <FieldIcon type="location" />
+
+            <input
+              type="text"
+              name="destination"
+              value={customDestination}
+              onChange={(e) => setCustomDestination(e.target.value)}
+              placeholder="Enter Custom Destination*"
+              required
+              maxLength={100}
+              disabled={isSubmitting}
+              className={inputStyle}
+            />
+          </div>
+        )}
 
         {/* Travel Date */}
         <div
@@ -186,11 +217,17 @@ const TravelEnquiryForm = ({
           <FieldIcon type="travellers" />
 
           <select
-            name="travellers"
-            defaultValue=""
+            name={travellers === "custom" ? "" : "travellers"}
+            value={travellers}
+            onChange={(e) => {
+              setTravellers(e.target.value);
+              setCustomCategory("");
+            }}
             required
             disabled={isSubmitting}
-            className={`${inputStyle} cursor-pointer text-[#808080]`}
+            className={`${inputStyle} cursor-pointer ${
+              travellers ? "text-[#333]" : "text-[#808080]"
+            }`}
           >
             <option value="" disabled>
               Travellers
@@ -200,8 +237,28 @@ const TravelEnquiryForm = ({
             <option value="3-5">3-5 Travellers</option>
             <option value="6-10">6-10 Travellers</option>
             <option value="10+">10+ Travellers</option>
+            <option value="custom">Custom</option>
           </select>
         </div>
+
+        {/* Custom Travellers */}
+        {travellers === "custom" && (
+          <div className={fieldStyle}>
+            <FieldIcon type="travellers" />
+
+            <input
+              type="number"
+              name="travellers"
+              value={customCategory}
+              onChange={(e) => setCustomCategory(e.target.value)}
+              placeholder="Enter Custom Travellers*"
+              min="1"
+              required
+              disabled={isSubmitting}
+              className={inputStyle}
+            />
+          </div>
+        )}
       </div>
 
       {/* Message */}
@@ -220,10 +277,11 @@ const TravelEnquiryForm = ({
       {status.message && (
         <p
           role={status.type === "error" ? "alert" : "status"}
-          className={`mt-5 text-sm font-medium ${status.type === "success"
+          className={`mt-5 text-sm font-medium ${
+            status.type === "success"
               ? "text-green-700"
               : "text-red-600"
-            }`}
+          }`}
         >
           {status.message}
         </p>
@@ -256,7 +314,6 @@ const TravelEnquiryForm = ({
           </span>
         )}
       </button>
-
     </form>
   );
 };

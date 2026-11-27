@@ -6,26 +6,31 @@ import { Autoplay } from "swiper/modules";
 
 import "swiper/css";
 
-import reviewer from "../../assets/john.svg";
+import amit from "../../assets/amit.webp";
+import sunita from "../../assets/sunita.webp";
+import rahul from "../../assets/rahul.webp";
+import priya from "../../assets/priya.webp";
+import aman from "../../assets/aman.webp";
+import neha from "../../assets/neha.webp";
 
 const reviews = [
   {
     id: 1,
-    name: "John Doe",
+    name: "Amit Kumar",
     location: "Chandigarh",
     rating: 4.5,
     review:
-      "An absolutely amazing experience! Everything was perfectly planned, from the beautiful destinations to the comfortable stay. The team made our trip smooth, memorable, and stress-free. Can't wait to travel with them again!",
-    image: reviewer,
+      "Superb trip! Everything was planed perfect, from hotels to sightseen. The team make our journey so smooth and memrable. We will traveling again soon. Thank so much!",
+    image: amit,
   },
   {
     id: 2,
-    name: "Sarah Smith",
+    name: "Sunita Reddy",
     location: "Delhi",
     rating: 5,
     review:
-      "A wonderful travel experience! The arrangements were excellent, the destinations were beautiful, and the entire journey was smooth. Highly recommended for anyone planning a Himachal trip!",
-    image: reviewer,
+      "Wonderful experince! The booking was excelent, places were beautifull, and our journey was very smooth. Highly recomended to anyone planing Himachal trip!",
+    image: sunita,
   },
   {
     id: 3,
@@ -33,8 +38,8 @@ const reviews = [
     location: "Mumbai",
     rating: 4.5,
     review:
-      "Everything was perfectly organised. From the hotel to sightseeing, every detail was taken care of. The team was supportive throughout our journey. Would definitely book again!",
-    image: reviewer,
+      "Everything was perfectly organized. From hotel to site seeing, every detail was took care. The team was very supportif throught our jurney. would defnitly book again!",
+    image: rahul,
   },
   {
     id: 4,
@@ -42,8 +47,8 @@ const reviews = [
     location: "Pune",
     rating: 5,
     review:
-      "One of the best trips we have ever experienced! Beautiful locations, amazing hospitality, and a very helpful team. Every moment was worth remembering.",
-    image: reviewer,
+      "One of the best trip we ever had! Beutiful location, amazingg hospitaltiy, and very helpfull team. Everything was worth to remember.",
+    image: priya,
   },
   {
     id: 5,
@@ -51,8 +56,8 @@ const reviews = [
     location: "Jaipur",
     rating: 4,
     review:
-      "Had an amazing time exploring Himachal. The itinerary was flexible, the stays were comfortable, and the overall experience was fantastic.",
-    image: reviewer,
+      "Had amazing time exploring Himachal. The plan was flexible, the stays were confortable, and experince was fantstic.",
+    image: aman,
   },
   {
     id: 6,
@@ -60,8 +65,8 @@ const reviews = [
     location: "Bangalore",
     rating: 5,
     review:
-      "Everything was seamless from planning to the final day. The team made sure we enjoyed every moment without worrying about anything.",
-    image: reviewer,
+      "Everything was seamless from planing to final day. The team made sure we enjoyed every moment without worry about anythings.",
+    image: neha,
   },
 ];
 
@@ -71,11 +76,10 @@ const StarRating = ({ rating }) => {
       {[1, 2, 3, 4, 5].map((star) => (
         <span
           key={star}
-          className={`text-[12px] md:text-[24px] leading-none ${
-            star <= Math.floor(rating)
+          className={`text-[12px] md:text-[24px] leading-none ${star <= Math.floor(rating)
               ? "text-[#ffb400]"
               : "text-[#b8b8b8]"
-          }`}
+            }`}
         >
           ★
         </span>
@@ -223,11 +227,10 @@ const ReviewsSection = () => {
                 key={index}
                 onClick={() => swiperInstance?.slideToLoop(index * 2)}
                 aria-label={`Go to review group ${index + 1}`}
-                className={`h-[7px] rounded-full transition-all duration-500 ${
-                  Math.floor(activeIndex / 2) === index
+                className={`h-[7px] rounded-full transition-all duration-500 ${Math.floor(activeIndex / 2) === index
                     ? "w-[50px] bg-[#1d2d50]"
                     : "w-[50px] bg-[#d9d9d9] hover:bg-[#1d2d50]"
-                }`}
+                  }`}
               />
 
             ))}

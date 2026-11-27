@@ -105,24 +105,24 @@ const Contact = () => {
         </div>
       </section>
 
-      
-{/* Enquiry Form */}
+
+      {/* Enquiry Form */}
       <section id="travel-enquiry" className="scroll-mt-24">
         <TravelEnquiry />
       </section>
 
-      
+
 
 
       {/* Why Connect With Us */}
       <section className="bg-[#F6F7F8] py-9 md:py-24 px-5 md:px-10 m-5 rounded-[28px] md:rounded-[40px]">
 
         <div className="max-w-[1280px] mx-auto">
-          
-          <div class="text-center mb-10 md:mb-14"><span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">Why Nestroam</span><h2 class="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50] mb-4">Let's Make Travel Simple
-</h2><p class="text-[16px] leading-[1.55] text-[#414141] font-normal max-w-[650px] mx-auto">We're here to make planning your next getaway easier, smoother and more exciting.
 
-</p></div>
+          <div class="text-center mb-10 md:mb-14"><span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">Why Nestroam</span><h2 class="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50] mb-4">Let's Make Travel Simple
+          </h2><p class="text-[16px] leading-[1.55] text-[#414141] font-normal max-w-[650px] mx-auto">We're here to make planning your next getaway easier, smoother and more exciting.
+
+            </p></div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
@@ -150,7 +150,7 @@ const Contact = () => {
           </div>
         </div>
       </section>
-{/* Introduction Section */}
+      {/* Introduction Section */}
       <section className="py-8 md:py-24 px-5 md:px-10 border-b">
 
         <div className="max-w-[1100px] mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-center">
@@ -162,9 +162,9 @@ const Contact = () => {
             <p class="text-[16px] leading-[1.55] text-[#414141] max-w-[600px] mb-3">Planning a mountain escape, an adventurous road trip or a
               peaceful getaway? We would love to hear about your travel plans.</p>
             <p class="text-[16px] leading-[1.55] text-[#414141] max-w-[600px] ">Reach out to Nestroam and let us help you discover the right destination and create a travel experience worth remembering.</p>
-           
 
-           
+
+
 
             <SectionScrollButton
               targetId="travel-enquiry"
@@ -204,10 +204,10 @@ const Contact = () => {
 
         <div className="max-w-[1200px] mx-auto">
 
-         
+
           <div class="text-center mb-10 md:mb-14"><span class="inline-flex items-center justify-center bg-[#8fc31f] text-[#1d2d50] text-[14px] font-semibold px-8 py-2 rounded-full mb-4 md:mb-6">Simple & Easy</span>
-          <h2 class="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50] mb-4">How Your Journey Begins</h2>
-          
+            <h2 class="text-[32px] sm:text-[36px] md:text-[36px] leading-tight font-bold text-[#1d2d50] mb-4">How Your Journey Begins</h2>
+
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -239,12 +239,6 @@ const Contact = () => {
           </div>
         </div>
       </section>
-
-
-      
-
-
-    
 
     </main>
   );
